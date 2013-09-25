@@ -160,6 +160,16 @@ body {
 	
 }
 
+.normal-user {
+	background-color: rgba(80,80,80,0.0);
+	border-radius:5px;
+}
+
+.selected-user {
+	background-color: rgba(80,80,80,0.5);
+	border-radius:5px;
+}
+
 #table-wrapper {
 	position:absolute;	
 	background-color:rgba(80,80,80,0.7);

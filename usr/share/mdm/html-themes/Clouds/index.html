@@ -72,6 +72,7 @@
 			document.getElementById("entry").value = "";
 			document.getElementById("entry").type = "text";
 			document.getElementById("entry").focus();
+			selected_row = -1;
 		}
 		
 		// Called by MDM to allow the user to input a password
@@ -282,6 +283,32 @@
 			document.getElementById("current_language_flag").title = language_name;
 			document.getElementById("current_language_flag").width = 16;
 		}
+
+		function mdm_set_current_user(username)	{
+			var table = document.getElementById("users");
+			var rowCount = table.rows.length;			
+			for (var i = 0, row; row = table.rows[i]; i++) {
+				if (row.username == username) {
+					row.setAttribute('class', "selected-user");
+					selected_row = i;
+				}
+				else {
+					row.setAttribute('class', "normal-user");
+				}
+			}			
+		}
+
+		function select_user_at_index(index) {					
+			var table = document.getElementById("users");
+			var rowCount = table.rows.length;
+			var row_to_select = index % rowCount;
+			if (row_to_select < 0) {
+				row_to_select = rowCount - 1;
+			}			
+			var row = table.rows[row_to_select];
+			selected_row = row_to_select;
+			alert('USER###'+row.username);
+		}	
 		
 		// Called by MDM if the SHUTDOWN command shouldn't appear in the greeter
 		function mdm_hide_shutdown() {
@@ -306,27 +333,7 @@
 		// Called by MDM if the XDMCP command shouldn't appear in the greeter
 		function mdm_hide_xdmcp() {
 			document.getElementById("xdmcp").style.display = 'none';
-		}			
-		
-		function select_user(index) {					
-			var table = document.getElementById("users");
-			var rowCount = table.rows.length;
-			var row_to_select = index % rowCount;
-			if (row_to_select < 0) {
-				row_to_select = rowCount - 1;
-			}
-
-			for (var i = 0, row; row = table.rows[i]; i++) {				
-				row.style.backgroundColor = 'rgba(80,80,80,0.0)';
-			}
-
-			var row = table.rows[row_to_select];
-			row.style.backgroundColor = 'rgba(80,80,80,0.5)';     
-
-			selected_row = row_to_select;   
-
-			alert('USER###'+row.username);
-		}		
+		}				
 
 		function quit_dialog() {			
 			bootbox.dialog("$areyousuretoquit", 
@@ -465,11 +472,11 @@
 	init();
 
 	Mousetrap.bind('up', function() {		
-    	select_user(selected_row - 1);
+    	select_user_at_index(selected_row - 1);
 	});
 
 	Mousetrap.bind('down', function() {
-    	select_user(selected_row + 1);
+    	select_user_at_index(selected_row + 1);
 	});
 
 	Mousetrap.bind('ctrl+l', function() {

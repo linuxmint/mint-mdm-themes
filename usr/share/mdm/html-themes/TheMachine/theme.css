@@ -1,0 +1,215 @@
+body { 
+	background: url(img/artwork/backimage1.jpg) no-repeat center center fixed; 
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-o-background-size: 100% 100%;
+	background-size: 100% 100%;	
+}
+
+.box {	
+        background: url(img/artwork/bottomlogin.png);
+         background-repeat:no-repeat;
+        background-size:contain;
+	color: #E6E9ED;
+	position: fixed;
+	bottom: 0%;
+	left: 50%;
+	margin-bottom: -16px;
+	margin-left: -250px;	
+	padding:10px;
+	width: 500px;
+	height: 120px;
+        text-align: center;
+	font-size:13px;
+        text-shadow: 0px 0px 10px rgba(0,0,0,1.9);
+        text-shadow: 1px 1px 1px #000;		
+	overflow:hidden;		
+}
+.box12{
+        color: #E6E9ED;
+	position: fixed;
+	bottom: 200px;
+	left: 50%;
+	margin-bottom: -90px;
+	margin-left: -200px;	
+	width: 400px;
+	height: 50px;
+	font-size:13px;	
+        text-align: center;
+	overflow:hidden;	
+        z-index:2;
+}
+.topboxleft{
+        background: url(img/artwork/topleft.png);
+        background-size:contain;
+        position: fixed;
+        top: 0%;
+	left: 0%;
+        margin-top: 0px;
+	margin-left: 0px;
+        width: 130px;
+	height: 50px;
+        overflow:hidden;
+}
+.topboxright{
+         background: url(img/artwork/topright.png);
+        background-size:contain;
+        position: fixed;
+        top: 0%;
+	right: 0%;
+        margin-top: 0px;
+	margin-right: 0px;
+        width: 220px;
+	height: 50px;
+        overflow:hidden;
+}
+.topboxleftholder{
+        position: fixed;
+        top: 0%;
+	left: 0%;
+        margin-top: 0px;
+	margin-left: 0px;
+         width: 130px;
+	height: 50px;
+        overflow:show;
+}
+.topboxrightholder{
+        position: fixed;
+        top: 0%;
+	right: 0%;
+        margin-top: 0px;
+	margin-right: 0px;
+         width: 220px;
+	height: 50px;
+        overflow:show;
+}
+.timeholder{
+        position: fixed;
+	top: 40%;
+	left: 50%;
+        width: 100%;
+	height: 36%;
+        margin-top: -20px;
+	margin-left: -50px;
+        z-index:-1;
+} 
+.middleblack{
+        background: url(img/artwork/black.jpg)no-repeat center center fixed;
+        background-size:contain;
+        position: fixed;
+	top: 0%;
+	left: 0%;
+        width: 100%;
+	height: 100%;
+        z-index:-3;
+} 
+
+.middlebar{
+        background: url(img/artwork/middlebar.png)no-repeat center center fixed;
+        background-size:contain;
+        position: fixed;
+	top: 0%;
+	left: 0%;
+        width: 100%;
+	height: 100%;
+        z-index:-1;
+} 
+
+
+.box1{
+        top: 0%;
+	left: 50%; 
+        margin-left: -26%;
+	margin-top: 10px;
+        width: 50%;
+	height: 50px;
+        position: relative;
+        vertical-align: middle;
+}
+
+.buttons {	
+	position: relative;
+	text-align: center;
+	margin-top: 10px;		
+}
+
+.user-picture {
+	border-radius: 5px;
+	border:2px rgba(80,80,80,0.5) solid;
+	width: 64px;
+	height: 64px;
+        z-index:1;	
+	-webkit-transition: all .6s ease-in-out;
+}
+
+.session-picture {
+	border-radius: 5px;
+	border:1px #a5a5a5 solid;
+	width: 24px;
+	height: 24px;	
+	margin-right: 5px;	
+}
+
+.language-picture {
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+}
+
+.user-info {
+        background: rgba(80,80,80,0.5);
+        display:inline-block; 
+        *display: inline;
+	margin-left: 20px;
+	margin-top: 40px;
+        font-size:10px;	
+	text-shadow: 1px 1px 1px #000;	
+        border-radius:5px;
+	border:2px #a5a5a5 solid;
+        padding-top:2px;
+        padding-bottom:5px;
+        padding-right:10px;
+        padding-left:10px;
+        vertical-align: top;	
+}
+
+.user-info:hover img{
+				
+}
+
+.username {
+	font-style: italic;	
+}
+
+.usergecos {
+	font-weight:bold;
+}
+
+.userstatus {
+	font-style: italic;
+	font-size: 10px;	
+}
+
+.highlight-border img{
+	-webkit-transition: all .6s ease-in-out;
+}
+
+.highlight-border:hover img{
+	-webkit-transition: all .6s ease-in-out;
+	border:2px #ffffff solid;
+}
+
+/*TILT*/
+.tilt img{
+   -webkit-transform:scale(0.9); 
+  -webkit-transition: all 0.2s ease-in-out;     
+}
+ 
+.tilt:hover img{
+  -webkit-transform:scale(1.2); 
+}
+
+a {color:#dedede;text-decoration:none;}      /* unvisited link */
+a:hover {color:#ffffff;text-decoration:none;}  /* mouse over link */
+
+

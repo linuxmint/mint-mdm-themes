@@ -1,0 +1,133 @@
+/* all main animations page to keep it cleaner*/
+/*bluegrad behind logo*/
+.middlebargrad{
+     width:300px;
+     height:18%;
+     background-image: -moz-radial-gradient(center, rgba(7,124,222,0.3), rgba(14,17,48,0.0));
+     background-image: -webkit-gradient(radial, 0 0, 0 100%, from(rgba(7,124,222,0.3)), to(rgba(14,17,48,0.0)));
+     background-image: -webkit-radial-gradient(center, rgba(7,124,222,0.3), rgba(14,17,48,0.0));
+     background-image: -o-radial-gradient(center, rgba(7,124,222,0.3), rgba(14,17,48,0.0));
+     background-image: radial-gradient(to center, rgba(7,124,222,0.35), rgba(14,17,48,0.0));
+     background-size:contain;
+     position:fixed;
+     margin-top: -9%;
+     top:50%;
+     z-index:-2;
+     animation:bluegradmove 10s infinite;
+     animation-timing-function:linear;
+     animation-direction: alternate;
+    -webkit-animation:bluegradmove 10s infinite;
+    -webkit-animation-timing-function:linear; 
+    -webkit-animation-direction: alternate;
+}
+@keyframes bluegradmove
+{
+from { left: 0%;}
+ to {left:  80%;}
+}
+
+@-webkit-keyframes bluegradmove 
+{
+from { left: 0%;}
+ to {left:  80%;}
+}
+/*fans*/
+.fan1{
+     width:16%;
+     height:16%;
+     background-image:url('img/artwork/fan.png');
+     background-repeat:no-repeat;
+     background-position:center; 
+     background-size:contain;
+     position:fixed;
+     top:50%;
+     left: 9%;
+     margin-top: -8%;
+     margin-left: -9%;
+     animation:fan1 1s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:fan1 1s infinite;
+    -webkit-animation-timing-function:linear; 
+
+}
+@keyframes fan1
+{
+ from {
+    transform:rotate(360deg);
+    -moz-transform:rotate(360deg);/* Firefox */
+    -webkit-transform:rotate(360deg); /* Safari and Chrome */
+    -o-transform:rotate(360deg); /* Opera */
+  }
+  to { 
+     transform:rotate(0deg);
+    -moz-transform:rotate(0deg); /* Firefox */
+    -webkit-transform:rotate(0deg); /* Safari and Chrome */
+    -o-transform:rotate(0deg); /* Opera */
+  }
+}
+
+@-webkit-keyframes fan1 
+{
+  from {
+    transform:rotate(360deg);
+    -moz-transform:rotate(360deg);/* Firefox */
+    -webkit-transform:rotate(360deg); /* Safari and Chrome */
+    -o-transform:rotate(360deg); /* Opera */
+  }
+  to { 
+     transform:rotate(0deg);
+    -moz-transform:rotate(0deg); /* Firefox */
+    -webkit-transform:rotate(0deg); /* Safari and Chrome */
+    -o-transform:rotate(0deg); /* Opera */
+  }
+}
+.fan2{
+     width:16%;
+     height:16%;
+     background-image:url('img/artwork/fan.png');
+     background-repeat:no-repeat;
+     background-position:center; 
+     background-size:contain;
+     position:fixed;
+     top:50%;
+     right: 9%;
+     margin-top: -8%;
+     margin-right: -9%;
+     animation:fan2 1s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:fan2 1s infinite;
+    -webkit-animation-timing-function:linear; 
+
+}
+@keyframes fan2
+{
+ from {
+    transform:rotate(360deg);
+    -moz-transform:rotate(360deg);/* Firefox */
+    -webkit-transform:rotate(360deg); /* Safari and Chrome */
+    -o-transform:rotate(360deg); /* Opera */
+  }
+  to { 
+     transform:rotate(0deg);
+    -moz-transform:rotate(0deg); /* Firefox */
+    -webkit-transform:rotate(0deg); /* Safari and Chrome */
+    -o-transform:rotate(0deg); /* Opera */
+  }
+}
+
+@-webkit-keyframes fan2 
+{
+  from {
+    transform:rotate(360deg);
+    -moz-transform:rotate(360deg);/* Firefox */
+    -webkit-transform:rotate(360deg); /* Safari and Chrome */
+    -o-transform:rotate(360deg); /* Opera */
+  }
+  to { 
+     transform:rotate(0deg);
+    -moz-transform:rotate(0deg); /* Firefox */
+    -webkit-transform:rotate(0deg); /* Safari and Chrome */
+    -o-transform:rotate(0deg); /* Opera */
+  }
+}
+

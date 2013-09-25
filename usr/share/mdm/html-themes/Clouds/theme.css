@@ -1,0 +1,203 @@
+body { 
+	background: url(clouds.png) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.box {	
+	color: #ffffff;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -275px;
+	margin-left: -330px;	
+	background: url(img/main_box.png) no-repeat center center fixed;	
+	width: 660px;
+	height: 530px;
+	
+	font-size:13px;	
+	overflow:hidden;		
+}
+
+.buttons {	
+	position: relative;
+	text-align: center;
+	margin-top: 10px;		
+}
+
+.session-picture {
+	border-radius: 5px;
+	border:2px rgba(80,80,80,0.5) solid;
+	width: 24px;
+	height: 24px;	
+	margin-right: 5px;	
+}
+
+.language-picture {
+	width: 16px;
+	height: 16px;
+	margin: 5px;
+}
+
+#welcome_message {
+	position:absolute;
+	margin-left: 42px;
+	margin-top: 38px;	    
+}
+
+#clock {
+	position:absolute;
+	margin-left: 473px;
+	margin-top: 38px;	    
+}
+
+#message {
+	position:absolute;
+	margin-left: 359px;
+	margin-top: 462px;	    
+}
+
+#error {
+	position:absolute;
+	margin-left: 325px;
+	margin-top: 252px;
+	width: 245px;	    
+}
+
+#timed {
+	position:absolute;
+	margin-left: 325px;
+	margin-top: 202px;	 
+	width: 245px;	       
+}
+
+#logo {
+	color: #3c3c3c;
+	position:absolute;
+	margin-left: 385px;
+	margin-top: 108px;	    
+}
+
+
+#text_img {
+	position:absolute;
+	margin-left: 0px;
+	margin-top: 15px;	  	
+}
+
+#form {
+	position:absolute;
+	margin-left: 325px;
+	margin-top: 340px;	  	
+}
+
+#label {
+	color: black;
+	position:absolute;
+	margin-left: 0px;
+	margin-top: 0px;
+	width: 300px;	  	
+	text-align: left;
+}
+
+#entry {
+	position:absolute;
+	margin-left: 24px;
+	margin-top: 33px;	
+	width: 170px;  	
+}
+
+#ok_button {
+	position:absolute;
+	margin-left: 217px;
+	margin-top: 35px;
+	width: 60px;	  	
+}
+
+#buttons {
+	position:absolute;
+	margin-left: 37px;
+	margin-top: 436px;	    
+}
+
+#additional_buttons {
+	position:absolute;
+	margin-left: 37px;
+	margin-top: 473px;	    
+}
+
+.user-picture {	
+	width: 48px;
+	height: 48px;
+}
+
+.username {
+	font-style: italic;	
+}
+
+.usergecos {
+	font-weight:bold;
+}
+
+.userstatus {
+	font-style: italic;
+	font-size: 10px;	
+}
+
+#users {
+	color: white;
+	text-align: left;
+	width:100%;    	
+}
+
+#users tr td {
+	align: left;	
+}
+
+#users tr {
+	
+}
+
+#table-wrapper {
+	position:absolute;	
+	background-color:rgba(80,80,80,0.7);
+	border-radius:5px;
+	border:2px #a5a5a5 solid;
+	margin-left: 25px;
+	margin-top: 70px;
+	padding:7px;
+	width: 250px;
+	height: 328px;		
+}
+
+#table-scroll {
+  height:325px;
+  overflow:auto;    
+}
+
+#languages {
+	color: black;
+	width: 100%;
+	text-align: left;
+}
+
+#languages td a {
+	color: #3c3c3c;	
+}
+
+#sessions {
+	color: black;
+	width: 100%;
+	text-align: left;
+}
+
+#sessions td a {
+	color: #3c3c3c;	
+}
+
+a {color:#dedede;text-decoration:none;}      /* unvisited link */
+a:hover {color:#ffffff;text-decoration:none;}  /* mouse over link */
+
+

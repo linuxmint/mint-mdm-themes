@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE greeter SYSTEM "greeter.dtd">
+<greeter gtk-theme="Mint-X">
+
+<!--Background -->
+<item type="pixmap">
+    	<normal file="bg.jpg"/>
+    	<pos x="0" y="0" width="100%" height="100%"/>
+</item>
+
+<!--Clock -->
+<item type="label" id="clock">
+    	<normal color="#999999" font="Sans 12"/>
+    	<pos anchor="c" x="85%" y="20%" />
+    	<text>%c</text>
+</item>
+
+<item type="rect">
+    	<show type="timed"/>
+    	<normal color="#ffffff" alpha="0.5"/>
+    	<pos anchor="c" x="50%" y="10%" width="box" height="box"/>
+    	<box orientation="vertical" min-width="400" xpadding="10" ypadding="5" spacing="0">
+      		<item type="label" id="timed-label">
+        	<normal color="#ffffff" font="Sans 12"/>
+        	<pos x="50%" anchor="n"/>
+		<!-- Stock label for: User %s will login in %d seconds -->
+		<stock type="timed-label"/>
+      		</item>
+    	</box>
+</item>
+
+<!--Login -->
+<item type="rect">
+    <normal color="#FFFFFF" alpha="0"/>
+    <pos anchor="c" x="85%" y="85%" width="box" height="box"/>
+    <box orientation="vertical" min-width="380" xpadding="10" ypadding="30" spacing="10">
+
+      	<item type="label">
+        	<pos anchor="c" x="50%" y="45%"/>
+        	<normal color="#999999" font="Sans 22"/>
+		<!-- Stock label for: Welcome to %h-->
+		<text></text>
+      	</item>
+
+      	<item type="label" id="pam-prompt">
+        	<pos anchor="nw" x="30%"/>
+        	<normal color="#DADADA" font="Sans 10"/>
+		<!-- Stock label for: Username: -->
+		<stock type="username-label"/>
+      	</item>
+
+      	<item type="rect">
+		<normal color="#ECECEC"/>
+        	<pos anchor="n" x="50%" height="18" width="40%"/>
+		<fixed>
+	  		<item type="entry" id="user-pw-entry">
+            			<normal color="#000000" font="Sans 10"/>
+            			<pos anchor="nw" x="1" y="1" height="-2" width="-2"/>
+	  		</item>
+		</fixed>
+      	</item>
+
+	<item type="rect" id="caps-lock-warning">
+    		<normal color="#FFFFFF" alpha="0"/>
+    		<pos anchor="c" x="50%" y="-10%" width="box" height="box"/>
+    		<box orientation="vertical" min-width="380" xpadding="10" ypadding="0" spacing="0">
+      			<item type="label">
+        			<normal color="#FFFFFF" font="Sans 10"/>
+        			<pos x="50%" anchor="n"/>
+				<!-- Stock label for: You've got capslock on! -->
+				<stock type="caps-lock-warning"/>
+      			</item>
+    		</box>
+  	</item>  
+     
+    	<!-- comandi -->
+      	<item type="rect">
+    	<normal color="#ffffff" alpha="0"/>
+    	<pos anchor="c" x="57%" y="90%" width="280" height="box" expand="true"/>
+    	<box xpadding="5" ypadding="0" spacing="10" orientation="horizontal"> 
+
+
+
+	<item type="rect" id="language_button" button="true">
+        	<normal color="#ffffff" alpha="0"/>
+		<pos y="-30" anchor="w" width="box" height="box"/>
+            		<box orientation="horizontal">
+	      			<item type="label">
+	        		<normal color="#DADADA" font="Sans 9"/>
+				<prelight color="#FFFFFF" font="Sans 9"/>
+				<active color="#DADADA" font="Sans 9"/>
+	        		<pos y="50%" anchor="w"/>
+				<!-- Stock label for: _Session -->
+				<stock type="language"/>
+	      			</item>
+            		</box>
+	</item>
+
+	<item type="rect" id="session_button" button="true">
+        	<normal color="#ffffff" alpha="0"/>
+		<pos y="-30" anchor="w" width="box" height="box"/>
+            		<box orientation="horizontal">
+	      			<item type="label">
+	        		<normal color="#DADADA" font="Sans 9"/>
+				<prelight color="#FFFFFF" font="Sans 9"/>
+				<active color="#DADADA" font="Sans 9"/>
+	        		<pos y="50%" anchor="w"/>
+				<!-- Stock label for: _Session -->
+				<stock type="session"/>
+	      			</item>
+            		</box>
+	</item>
+
+        <item type="rect" id="system_button" button="true">
+            	<normal color="#ffffff" alpha="0"/>
+	    	<show modes="console" type="system"/>
+	    	<pos y="-30" anchor="w" width="box" height="box"/>
+            		<box orientation="horizontal">
+	      			<item type="label">
+	        		<normal color="#DADADA" font="Sans 9"/>
+				<prelight color="#FFFFFF" font="Sans 9"/>
+				<active color="#DADADA" font="Sans 9"/>
+	        		<pos y="50%" anchor="w"/>
+				<!-- Stock label for: _Actions -->
+				<stock type="system"/>
+	      			</item>
+            		</box>
+	</item>
+
+        <item type="rect" id="disconnect_button" button="true">
+            	<normal color="#ffffff" alpha="0"/>
+	    	<show modes="flexi,remote"/>
+	    	<pos y="-30" anchor="w" width="box" height="box"/>
+            		<box orientation="horizontal">
+	      			<item type="label">
+	        		<normal color="#DADADA" font="Sans 9"/>
+				<prelight color="#FFFFFF" font="Sans 9"/>
+				<active color="#DADADA" font="Sans 9"/>
+	        		<pos y="50%" anchor="w"/>
+				<!-- Stock label for: D_isconnect -->
+				<stock type="disconnect"/>
+	        		<show modes="remote"/>
+	      			</item>
+
+	      			<item type="label">
+	        		<normal color="#DADADA" font="Sans 9"/>
+				<prelight color="#FFFFFF" font="Sans 9"/>
+				<active color="#DADADA" font="Sans 9"/>
+	        		<pos y="50%" anchor="w"/>
+				<!-- Stock label for: _Quit -->
+				<stock type="quit"/>
+	        		<show modes="flexi"/>
+	      			</item>
+           		</box>
+	</item>
+
+
+	<!-- <item type="rect" id="hostname_button">
+        	<normal color="#ffffff" alpha="0"/>
+		<pos y="95" anchor="w" width="box" height="box"/>
+            		<box orientation="horizontal">
+	      			<item type="label" id="hostname">
+	        		<normal color="#ffffff" font="Sans 9"/>
+				<prelight color="#efefef" font="Sans 9"/>
+				<active color="#333333" font="Sans 9"/>
+	        		<pos y="50%" anchor="w"/>
+				<text>:: %h ::</text>
+	      			</item>
+            		</box>
+	</item> --> 
+
+   </box>
+</item>
+
+</box>
+
+    	<fixed>
+      		<item type="label" id="pam-error">
+        	<pos anchor="c" x="5%" y="-99%"/>
+        	<normal color="#FFFFFF" font="Sans 10"/>
+        	<text></text>
+      		</item>
+    	</fixed>
+</item>
+
+</greeter>
+
+

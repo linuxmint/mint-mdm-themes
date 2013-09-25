@@ -1,0 +1,8 @@
+[GdmGreeterTheme]
+Encoding=UTF-8
+Greeter=metal.xml
+Name=Metal
+Description=Based on Tux G2 by Rennou
+Author=Linux Mint
+Copyright=GPL
+Screenshot=screenshot.png

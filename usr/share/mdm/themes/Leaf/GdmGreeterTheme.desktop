@@ -1,0 +1,8 @@
+[GdmGreeterTheme]
+Encoding=UTF-8
+Greeter=configuration.xml
+Name=Leaf
+Description=Spring
+Author=Solarfields
+Copyright=GPL
+Screenshot=screenshot.jpg

@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<!DOCTYPE greeter SYSTEM "greeter.dtd">
+
+<!-- GDM Theme: garGANTuan Greetings		-->
+<!-- Author: epicbard					-->
+
+<!-- Original XML Author: Thomas Lund Dideriksen	-->
+<!-- Email : thomas@dideriksen.com			-->
+
+
+
+<greeter gtk-theme="Mint-X">
+
+	<!-- background basecolor -->
+	<item type="rect">
+		<pos x="0" y="0" width="100%" height="100%"/>
+		<!--change this if you want another color-->
+		<normal color="#aaaaaa"/>
+	</item>
+
+
+	<!-- background pixmap image -->
+	<!-- If you want another background image-->
+	<!-- or you could get rid of this and just have a base color (from above)-->
+	<item type="pixmap">
+		<!-- Point this to another file -->
+		<normal file="background.jpg"/>
+		<pos x="0" y="0" width="100%" height="100%"/>
+	</item>
+
+
+	<!-- login window container -->
+	<item type="rect">
+		
+		<pos anchor="center" x="50%" y="50%" width="550" height="462"/>
+		<fixed>
+
+
+		<!-- login window pixmap -->
+		<item type="pixmap">
+			<normal file="main_box.png"/>
+			<pos anchor="center" x="50%" y="50%"/>
+		</item>
+
+		<!-- logo pixmap -->
+		<item type="pixmap">
+			<normal file="logo.png"/>
+			<pos anchor="center" x="50%" y="25%"/>
+		</item>
+	
+		<!-- Linux & hostname container -->
+		<item type="rect">
+				
+			<pos anchor="n" x="50%" y="145"/>
+			<normal color="#ff0000"/>
+				
+			<box orientation="vertical">
+				
+				<!--  Label -->
+				<item type="label">
+					<pos anchor="n" x="50%"/>
+					<normal color="#83c441" font="Sans bold 25" alpha="0.8"/>
+					<text>Linux Mint</text>
+				</item>
+									
+				<!-- Stock label for: Welcome to %h -->
+				<item type="label">
+					<pos anchor="n" x="0%"/>
+					<normal color="#464646" font="Sans Arial Tahoma 8" alpha="0.5"/>					
+					<stock type="welcome-label"/>
+				</item>
+
+			</box>
+		</item>
+
+	    <!-- Stock label for: User %u will login in %t -->				
+		<item type="label" id="timed-label">
+			<show type="timed"/>
+			<pos anchor="n" x="50%" y="230"/>
+			<normal font="Sans bold 8" color="#83c441" alpha="0.9"/>
+		        <stock type="timed-label"/>
+		</item>
+
+		<!-- CAPS-LOCK warning -->
+		<item type="label" id="caps-lock-warning">
+			<pos anchor="n" x="50%" y="250"/>
+			<normal font="Sans bold 8" color="#e84949" alpha="0.9"/>
+			<stock type="caps-lock-warning"/>
+		</item>
+			
+		<!-- error messages -->
+		<item type="label" id="pam-error">
+			<pos anchor="n" x="50%" y="500"/>
+			<normal font="Sans bold 8" color="#000000"/>
+			<text></text>
+		</item>
+
+			
+		<!-- username/password label & entry container -->
+		<item type="rect">
+			<pos anchor="n" x="38%" y="335" height="box" width="box"/>
+			
+			
+			<box orientation="horizontal" spacing="10">
+
+				<!-- username/password label -->
+				<item type="label" id="pam-prompt">
+					<pos anchor="n" x="48%" y="18%" />
+					<stock type="username-label"/>
+					<normal color="#525252" font="Sans 9"/>
+				</item>
+
+				<!-- username/password entry -->
+				<item type="entry" id="user-pw-entry" background="true">
+					<normal color="#525252" font="Sans 9"/>
+					<pos width="120" height="25"/>
+				</item>
+			</box>
+		</item>
+
+		<!-- button container -->
+		<item type="rect">
+			
+			<pos x="39%" y="444" anchor="s" width="box" height="box"/>
+		
+			<box orientation="horizontal" spacing="0">
+				
+				<!-- lang button -->
+				<item type="rect" id="language_button" button="true">
+					<pos anchor="nw" width="60" height="60"/>
+						
+						<box orientation="vertical" spacing="0">
+		
+							<!-- button image -->
+							<item type="pixmap">
+								<normal file="lang.png"/>
+								<prelight file="lang_n.png"/>
+								<pos x="50%" anchor="n"/>
+							</item>
+
+							<!-- button text-label -->
+							<item type="label">
+								<pos x="50%" y="40%" anchor="s"/>
+								<normal color="#464646" font="Sans Arial Tahoma 8" alpha="0"/>
+								<prelight color="#464646" font="Sans Arial Tahoma 8" alpha="0.5"/>
+								<stock type="language"/>
+							</item>
+						</box>
+				</item>
+	
+				<!-- session button -->
+				<item type="rect" id="session_button" button="true">
+					<pos anchor="nw" width="60" height="60"/>
+						
+					<box orientation="vertical" spacing="0">
+		
+						<!-- button image -->
+						<item type="pixmap">
+							<normal file="session.png"/>
+							<prelight file="session_n.png"/>
+							<pos x="50%" anchor="n"/>
+						</item>
+
+						<!-- button text-label -->
+						<item type="label">
+							<pos x="50%" y="40%" anchor="s"/>
+							<normal color="#464646" font="Sans Arial Tahoma 8" alpha="0"/>
+							<prelight color="#464646" font="Sans Arial Tahoma 8" alpha="0.5"/>
+							<stock type="session"/>
+						</item>
+					</box>
+				</item>
+
+
+				<!-- reboot button -->
+				<item type="rect" id="system_button" button="true">
+					<pos anchor="nw" width="60" height="60"/>
+					
+					<box orientation="vertical" spacing="0">
+		
+						<!-- button image -->
+						<item type="pixmap">
+							<normal file="cfg.png"/>
+							<prelight file="cfg_n.png"/>
+							<pos x="50%" anchor="n"/>
+						</item>
+
+						<!-- button text-label -->
+						<item type="label">
+							<pos x="50%" y="40%" anchor="s"/>
+							<normal color="#464646" font="Sans Arial Tahoma 8" alpha="0"/>
+							<prelight color="#464646" font="Sans Arial Tahoma 8" alpha="0.5"/>
+							<stock type="system"/>
+						</item>
+					</box>
+				</item>
+	        
+				<!-- halt button -->
+				<item type="rect" id="disconnect_button" button="true">
+					<pos anchor="nw" width="60" height="60"/>
+						
+					<box orientation="vertical" spacing="0">
+		
+						<!-- button image -->
+						<item type="pixmap">
+							<normal file="quit.png"/>
+							<prelight file="quit_n.png"/>
+							<pos x="50%" anchor="n"/>
+						</item>
+
+						<!-- button text-label -->
+						<item type="label">
+							<pos x="50%" y="40%" anchor="s"/>
+							<normal color="#464646" font="Sans Arial Tahoma 8" alpha="0"/>
+							<prelight color="#464646" font="Sans Arial Tahoma 8" alpha="0.5"/>>
+							<stock type="disconnect"/>
+							<stock type="quit"/>
+						</item>
+					</box>
+					<show modes="flexi"/>
+					</item>
+				</box>
+			</item> 
+		</fixed>
+	</item>
+</greeter>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE greeter SYSTEM "greeter.dtd">
+<!-- INFORMATION
+  DATE:     May 20, 2009
+  VERSION:  1.1
+  AUTHOR:   Ryan Johnson (CITguy) (rhino.citguy@gmail.com)
+      Copyright Ryan Johnson 2009 (GPLv3)
+  
+  ORIGINAL CONCEPT BY:  amilmawen (http://amilmawen.deviantart.com/)
+    
+-->
+<greeter gtk-theme="Mint-X">
+
+<!-- BACKGROUND -->
+  <item type="rect" background="true">
+    <normal color="#444b4e" alpha="1.0" />
+    <pos x="0" y="0" width="100%" height="100%"/>
+  </item>
+
+<!-- PAM ERROR -->
+  <item type="label" id="pam-error">
+    <pos anchor="n" x="50%" y="70%" />
+    <normal color="#73BA25" font="FreeSans Bold 18" />
+    <text></text>
+  </item>
+
+<!-- CENTER -->
+  <item type="rect">
+    <pos anchor="n" x="50%" y="33%" height="160" width="450" />
+    <normal color="#ff0000" alpha="0.0" />
+    <fixed>
+      <item type="pixmap" id="distribution_logo">
+        <pos x="0" y="0" width="160" height="160" />
+        <normal file="img/openSUSE_logo.png" />
+      </item>     
+      <item type="rect" id="custom_prompt_box">
+        <pos x="160" y="0" width="290" height="100%" />
+        <normal color="#ffffff" alpha="0.0" />
+        <fixed>
+          <item type="rect" id="custom_prompt_label">
+            <pos anchor="sw" x="5" y="100" width="-5" height="100" />
+            <normal color="#ff5555" alpha="0.0" />
+            <fixed>
+            <!-- PROMPT Label -->
+              <item type="label" id="pam-prompt">
+                <pos anchor="sw" x="10" y="-10" />
+                <normal color="#ffffff" font="FreeSans Bold 20" alpha="1.0" />
+                <stock type="username-label" />
+              </item>
+            <!-- CAPS LOCK WARNING -->
+              <item type="label" id="caps-lock-warning">
+                <pos anchor="nw" x="10" y="170" width="-10" />
+                <normal color="#FFFF00" font="FreeSans Bold 16" alpha="1.0" />
+                <text>Caps Lock is ON</text>
+              </item>
+
+            </fixed>
+          </item>
+          <item type="rect" id="custom_prompt">
+            <pos anchor="nw" x="5" y="100" width="-5" height="60" />
+            <normal color="#5555ff" alpha="0.0" />
+            <fixed>
+            <!-- Special Background -->
+              <item type="pixmap">
+                <pos anchor="nw" x="10" y="10" width="250" height="32" />
+                <normal file="img/prompt.png" tint="#ffffff" />
+              </item>
+            <!-- Password Entry Field -->
+              <item type="entry" id="user-pw-entry">
+                <normal color="#000000" font="FreeSans 18"/>
+                <pos anchor="nw" x="20" y="11" height="28" width="230"/>
+              </item>            
+            </fixed>
+          </item>
+        </fixed>
+      </item>
+    </fixed>
+  </item>
+
+<!-- BOTTOM -->
+<item type="rect" id="custom_bottom">
+  <pos anchor="nw" x="0" y="75%" width="100%" height="25%" />
+  <normal color="#FFFFFF" />
+  <fixed>
+  <!-- Button Box -->
+    <item type="rect" id="action_buttons">
+      <pos anchor="sw" x="15" y="-15" width="-50" height="50" />
+      <normal color="#0000ff" alpha="0.0"/>
+      <fixed>
+    <!-- Language Button -->
+        <item type="rect">
+          <pos anchor="w" x="10" y="50%" height="50%" width="100" />
+          <normal color="#0000ff" alpha="0.0" />
+          <box>
+            <item type="label" id="language_button" button="true">
+              <pos anchor="c" x="50%" y="50%" height="100%" width="100%" />
+              <normal   color="#444b4e" font="FreeSans 18" alpha="1.0" />
+              <prelight color="#73BA25" font="FreeSans 18" alpha="1.0" />
+              <stock type="language"/>
+            </item>
+          </box>
+        </item>
+    <!-- Separator -->
+        <item type="rect">
+          <pos anchor="w" x="114" y="50%" width="2" height="80%" />
+          <normal color="#000000" alpha="0.15" /> 
+        </item>
+    <!-- SESSION Button -->
+        <item type="rect">
+          <pos anchor="w" x="120" y="50%" height="50%" width="100" />
+          <normal color="#0000ff" alpha="0.0" />
+          <box>
+            <item type="label" id="session_button" button="true">
+              <pos anchor="c" x="50%" y="50%" height="100%" width="100%" />
+              <normal   color="#444b4e" font="FreeSans 18" alpha="1.0" />
+              <prelight color="#73BA25" font="FreeSans 18" alpha="1.0" />
+              <stock type="session"/>
+            </item>
+          </box>
+        </item>
+    <!-- Separator -->
+        <item type="rect">
+          <pos anchor="w" x="224" y="50%" width="2" height="80%" />
+          <normal color="#000000" alpha="0.15" /> 
+        </item>
+    <!-- RESTART Button -->
+        <item type="rect">
+          <pos anchor="w" x="230" y="50%" height="50%" width="100" />
+          <normal color="#00ff00" alpha="0.0" />
+          <box>
+            <item type="label" id="system_button" button="true">
+              <pos anchor="c" x="50%" y="50%" height="100%" width="100%" />
+              <normal   color="#444b4e" font="FreeSans 18" alpha="1.0" />
+              <prelight color="#73BA25" font="FreeSans 18" alpha="1.0" />
+              <stock type="system"/>
+            </item>
+          </box>
+        </item>
+    <!-- Separator -->
+        <item type="rect">
+          <pos anchor="w" x="334" y="50%" width="2" height="80%" />
+          <normal color="#000000" alpha="0.15" /> 
+        </item>
+    <!-- SHUT DOWN Button -->
+        <item type="rect">
+          <pos anchor="w" x="340" y="50%" height="50%" width="125" />
+          <normal color="#FF00FF" alpha="0.0" />
+          <box>
+            <item type="label" id="halt_button" button="true">
+              <pos anchor="c" x="50%" y="50%" height="100%" width="100%" />
+              <normal   color="#444b4e" font="FreeSans 18" alpha="1.0" />
+              <prelight color="#73BA25" font="FreeSans 18" alpha="1.0" />
+              <stock type="quit"/>
+            </item>
+          </box>
+        </item>
+      </fixed>
+    </item>
+  </fixed>
+
+</item>
+
+
+</greeter>
+
+

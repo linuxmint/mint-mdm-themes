@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE greeter SYSTEM "greeter.dtd">
+<greeter gtk-theme="Mint-X">
+
+	<!-- background -->
+	<item type="pixmap">
+		<normal file="Greenery.jpg"/>
+		<pos y="0" x="0" width="100%" height="100%"/>
+	</item>
+
+	<item type="rect">
+		<pos x="0" y="100%" width="100%" height="42" anchor="sw"/>
+		<normal color="#000000" alpha="0.8"/>
+	</item>
+
+	<!-- hostname and clock -->
+	<item type="rect">
+		<pos x="0" y="100%" width="box" height="42" anchor="sw"/>
+		<box xpadding="10" spacing="10" orientation="horizontal">
+			<item type="label">
+				<pos x="100%" y="50%" anchor="e"/>
+				<normal font="Bitstream Vera Sans Bold 11" color="#ffffff"/>
+				<text>%h //</text>
+			</item>
+			<item type="label" id="clock">
+				<pos x="100%" y="50%" anchor="e"/>
+				<normal font="Bitstream Vera Sans 11" color="#ffffff"/>
+				<text>%c</text>
+			</item>
+		</box>
+	</item>
+
+	<item type="rect">
+		<pos x="100%" y="100%" width="box" height="42" anchor="se"/>
+		<box xpadding="10" spacing="10" orientation="horizontal">
+			<!-- password field -->
+			<item type="label" id="pam-prompt">
+				<pos x="100%" y="50%" anchor="e"/>
+				<normal font="Bitstream Vera Sans Bold 10" color="#ffffff"/>
+				<stock type="username-label"/>
+			</item>
+			<item type="rect">
+				<pos x="100%" y="50%" anchor="e" width="160" height="24"/>
+				<normal color="#ffffff"/>
+				<fixed>
+					<item type="entry" id="user-pw-entry">
+						<pos y="1" x="1" width="-2" height="-2" anchor="nw"/>
+					</item>
+				</fixed>
+			</item>
+			<!-- timer warning -->
+			<item type="label" id="timed-label">
+				<show type="timed"/>
+				<normal font="Bitstream Vera Sans Bold 11" color="#ffffff"/>
+				<stock type="timed-label"/>
+			</item>
+			<!-- options button -->
+			<item type="rect" id="options_button" button="true">
+				<pos x="100%" y="50%" width="box" height="box" anchor="e"/>
+				<box xpadding="0" spacing="2" orientation="horizontal">
+					<item type="pixmap">
+						<normal file="icon-session.png"/>
+						<prelight file="icon-session-prelight.png"/>
+						<active file="icon-session-active.png"/>
+					</item>
+					<item type="label">
+						<pos y="50%" anchor="w"/>
+						<normal font="Bitstream Vera Sans 11" color="#ffffff"/>
+						<prelight font="Bitstream Vera Sans 11" color="#3d9000"/>
+						<active font="Bitstream Vera Sans 11" color="#3d9000"/>
+						<stock type="options"/>
+					</item>
+				</box>
+			</item>
+		</box>
+	</item>
+
+	<!-- caps lock warning -->
+	<item type="label" id="caps-lock-warning">
+		<pos x="-10" y="92%" anchor="e"/>
+		<normal font="Bitstream Vera Sans Bold 11" color="#ffffff"/>
+		<stock type="caps-lock-warning"/>
+	</item>
+
+	<!-- pam error -->
+	<item type="label" id="pam-error">
+		<pos x="-10" y="89%" anchor="e"/>
+		<normal font="Bitstream Vera Sans Bold 11" color="#ffffff"/>
+		<text></text>
+	</item>
+</greeter>
+

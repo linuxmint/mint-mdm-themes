@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE greeter SYSTEM "greeter.dtd">
+
+<!--
+FreeSansGrrl GDM theme
+====================
+version 0.2 (26. Jan 2008)
+
+(c) 2006 by Simon Rei  <simon AT verdammtsexy.com>
+	Published under the terms of the GNU General Public License, version 2
+
+(c) 2008 by Giuseppe Pantanetti <gpantanetti AT gmail.com>
+	Published under the terms of the GNU General Public License, version 2
+
+	ChangeLog:
+
+	0.2 (26.01.2008):
+	- Changed colors to match tango palette
+	- Some global rewrite of the code
+	- New pixmap images with FreeSans font and tango palette
+
+	0.1 (29.11.2006):
+	- initial version from RastaGrrl by Simon Rei <simon AT verdammtsexy.com>
+	  check http://www.gnome-look.org/content/show.php/RastaGrrl+GDM?content=49382
+-->
+
+	<greeter gtk-theme="Mint-X">
+
+		<!-- background -->
+		<item type="rect">
+			<normal color="#2e3436"/>
+			<pos y="0" x="0" width="100%" height="100%"/>
+		</item>
+
+		<!-- container for the buttons -->
+		<item type="rect">
+			<pos x="50%" y="45%" width="180" height="80" anchor="ne"/>
+			<box orientation="vertical">
+
+				<item type="rect">
+					<pos x="0" y="0" height="0" anchor="w"/>
+					<normal color="#cc0000"/>
+				</item>
+
+				<item type="pixmap" id="welcome-label">
+					<pos x="0" y="0" anchor="nw"/>
+					<normal file="login.png"/>
+				</item>
+
+				<item type="rect">
+					<pos x="0" y="10" width="180" height="40" anchor="nw"/>
+					<box homogeneous="true">
+						<item type="pixmap" button="true" id="language_button">
+							<pos x="0" y="0" anchor="nw"/>
+							<normal file="lang_off.png"/>
+							<prelight file="lang_on.png"/>
+						</item>
+
+						<item type="pixmap" button="true" id="session_button">
+							<pos x="0" y="0" anchor="nw"/>
+							<normal file="sess_off.png"/>
+							<prelight file="sess_on.png"/>
+						</item>
+
+						<!-- button, system (only console mode) -->
+						<item type="pixmap" button="true" id="system_button">
+							<show modes="console-fixed"/>
+							<pos x="0" y="0" anchor="nw"/>
+							<normal file="act_off.png"/>
+							<prelight file="act_on.png"/>
+						</item>
+
+						<!-- button, disconnect (only remote,flexi mode) -->
+						<item type="pixmap" button="true" id="disconnect_button">
+							<show modes="remote,flexi"/>
+							<pos x="0" y="0" anchor="nw"/>
+							<normal file="quit_off.png"/>
+							<prelight file="quit_on.png"/>
+						</item>
+					</box>
+				</item>
+			</box>
+		</item>
+
+		<item type="rect">
+			<pos x="50%" y="45%" width="200" height="100" anchor="nw"/>
+			<box orientation="vertical">
+
+				<!-- username label -->
+				<item type="label" id="pam-prompt">
+					<pos x="0" y="0" width="120" height="15" anchor="nw"/>
+					<normal font="FreeSans Bold 8" color="#eeeeec"/>
+					<stock type="username-label"/>
+				</item>
+
+				<!-- user-pw-entry -->
+				<item type="entry" id="user-pw-entry">
+					<pos x="0" y="0" width="160" height="22" anchor="nw"/>
+					<normal font="FreeSans Bold 16" color="#555753"/>
+				</item>
+
+				<!-- pam-error (login failure etc.) -->
+				<item type="label" id="pam-error">
+					<normal color="#eeeeec" font="FreeSans 10"/>
+					<pos x="0" y="10" width="200" anchor="nw"/>
+					<text></text>
+				</item>
+
+			</box>
+		</item>
+
+		<!-- caps-lock-warning -->
+		<item type="rect" id="caps-lock-warning">
+			<normal color="#eeeeec" alpha="0.2"/>
+			<pos x="0" y="40%" width="100%" height="box" anchor="sw"/>
+			<box orientation="vertical" min-width="250" xpadding="10" ypadding="5" spacing="0">
+				<item type="label">
+					<normal color="#eeeeec" font="FreeSans Bold 10"/>
+					<pos x="50%" y="50%" anchor="c"/>
+					<stock type="caps-lock-warning"/>
+				</item>
+			</box>
+		</item>
+
+	</greeter>
+

@@ -1,0 +1,8 @@
+[GdmGreeterTheme]
+Encoding=UTF-8
+Greeter=theme.xml
+Name=Simple
+Description=Based on Hofmann's elegant theme.
+Author=Linux Mint
+Copyright=GPL
+Screenshot=screen.png

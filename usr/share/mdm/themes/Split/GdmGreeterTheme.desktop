@@ -1,0 +1,11 @@
+# This is not really a .desktop file like the rest, but it's useful to treat
+# it as such
+
+[GdmGreeterTheme]
+Encoding=UTF-8
+Greeter=split.xml
+Name=Split
+Description=A dark and clean looking theme
+Author=Linux Mint
+Copyright=GPL
+Screenshot=screenshot.png

@@ -1,0 +1,298 @@
+body { 
+	background: url(bg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+/*sprite animation*/
+
+.box8{
+        background-image:url('parkithud.png');
+        background-size:contain;
+        background-repeat:no-repeat;
+        color: #32A2BF;
+	bottom: 0%;
+	left: 0%;
+	margin-top: auto;
+	margin-left: 4px;	
+	/*border-radius:5px;*/
+	/*border:2px #a5a5a5 solid;*/
+	padding:10px;
+	width: 180px;
+	height: 150px;
+	font-size:13px;	
+        position: fixed;
+	text-align: center;
+	overflow:hidden;
+}
+#sprite1 {
+			width: 100px;
+			height: 100px;
+			margin: 30px auto;
+                       
+			background-image: url(parkit.png);
+                        bottom:7px;
+                        left:54px;
+                        position:fixed;
+		}
+
+
+.box6{
+        color: #32A2BF;
+	bottom: 1%;
+	left: 100%;
+	margin-top: auto;
+	margin-left: -199px;	
+	background-color:rgba(80,80,80,0.0);
+	border-radius:5px;
+	/*border:2px #a5a5a5 solid;*/
+	padding:2px;
+	width: 180px;
+	height: 20px;
+	font-size:13px;	
+        position: fixed;
+	text-align: center;
+	overflow:hidden;
+}
+.box5{
+        background-image:url('tuxhud.png');
+        background-size:contain;
+        background-repeat:no-repeat;
+        color: #32A2BF;
+	bottom: 0%;
+	left: 100%;
+	margin-top: auto;
+	margin-left: -205px;	
+	/*border-radius:5px;*/
+	/*border:2px #a5a5a5 solid;*/
+	padding:10px;
+	width: 180px;
+	height: 150px;
+	font-size:13px;	
+        position: fixed;
+	text-align: center;
+	overflow:hidden;
+}
+#sprite {
+			width: 100px;
+			height: 100px;
+			margin: 30px auto;
+                       
+			background-image: url(tux.png);
+                        bottom:7px;
+                        right:54px;
+                        position:fixed;
+		}
+
+/*animations*/
+
+.box3{
+     width:110px;
+     height:37px;
+     background-image:url('ship2.png');
+     position:fixed;
+     bottom:40%;
+     animation:mymove2 40s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:mymove2 40s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes mymove2
+{
+from { left: 120%;}
+ to {left:  -120%;}
+}
+
+@-webkit-keyframes mymove2 
+{
+from { left: 120%;}
+ to {left:  -120%;}
+}
+.box4{
+     width:70px;
+     height:32px;
+     background-image:url('ship4.png');
+     position:fixed;
+     bottom:70%;
+     animation:mymove3 35s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:mymove3 35s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes mymove3
+{
+from { left: 130%;}
+ to {left:  -130%;}
+}
+
+@-webkit-keyframes mymove3 
+{
+from { left: 130%;}
+ to {left:  -130%;}
+}
+.box1{
+     width:120px;
+     height:34px;
+     background-image:url('ship3.png');
+     position:fixed;
+     bottom:50%;
+     animation:mymove 40s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:mymove 40s infinite; 
+    -webkit-animation-timing-function:linear;
+}
+@keyframes mymove
+{
+from { left: -80%;}
+ to {left:  130%;}
+}
+
+@-webkit-keyframes mymove 
+{
+from { left: -80%;}
+ to {left:  130%;}
+}
+.box2{
+     width:170px;
+     height:68px;
+     background-image:url('ship1.png');
+     position:fixed;
+     bottom:20%;
+     animation:mymove1 25s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:mymove1 25s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes mymove1
+{
+from { left: -80%;}
+ to {left:  150%;}
+}
+
+@-webkit-keyframes mymove1 
+{
+from { left: -90%;}
+ to {left:  150%;}
+}
+/*end of animations*/
+.box {
+        background-image:url('loginhud.png');
+        background-size: 100% 100%;
+        background-repeat:no-repeat;
+        color: #32A2BF;
+	bottom: 0%;
+	left: 50%;
+	margin-top: auto;
+	margin-left: -200px;	
+	/*border-radius:5px;*/
+	/*border:2px #a5a5a5 solid;*/
+	padding:10px;
+	width: 400px;
+	height: 80px;
+	font-size:13px;	
+        position: fixed;
+	text-align: center;
+	overflow:hidden;	
+}
+.box12{
+        color: #32A2BF;
+	position: fixed;
+	bottom: 200px;
+	left: 50%;
+	margin-bottom: -90px;
+	margin-left: -200px;	
+	width: 400px;
+	height: 50px;
+	font-size:13px;	
+        text-align: center;
+	overflow:hidden;	
+        z-index:2;
+}
+.box7{
+      background-image: url('topback.png');
+        background-size: contain;
+        background-repeat:no-repeat;
+        top: 0px;
+	left: 50%;
+        margin-top: 0px;
+	margin-left: -300px;
+        width: 610px;
+	height: 80px;
+	position: fixed;
+       
+}
+
+.buttons {	
+	position: relative;
+	text-align: center;
+	margin-top: 10px;		
+}
+
+.user-picture {
+	border-radius: 5px;
+	border:2px rgba(50,162,191,0.5) solid;
+	width: 64px;
+	height: 64px;
+        z-index:1;	
+        opacity: 0.7;
+	-webkit-transition: all .6s ease-in-out;
+}
+
+.session-picture {
+	border-radius: 5px;
+	border:2px rgba(43,146,176,0.5) solid;
+	width: 24px;
+	height: 24px;	
+	margin-right: 5px;	
+}
+.language-picture {
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+}
+
+.user-info {		
+	margin-left: 50px;
+	margin-top: 10px;
+	text-shadow: 1px 1px 1px #2B5EB0;	
+	
+}
+
+.user-info:hover img{
+				
+}
+
+.username {
+	font-style: italic;	
+}
+
+.usergecos {
+	font-weight:bold;
+}
+.userstatus {
+	font-style: italic;
+	font-size: 10px;	
+}
+.highlight-border img{
+	-webkit-transition: all .6s ease-in-out;
+}
+
+.highlight-border:hover img{
+	-webkit-transition: all .6s ease-in-out;
+	border:2px #32A2BF solid;
+}
+
+/*TILT*/
+.tilt img{
+  -webkit-transition: all 0.2s ease-in-out;     
+}
+ 
+.tilt:hover img{
+  -webkit-transform: rotate(-3deg);         
+}
+
+a {color:#32A2BF;text-decoration:none;}      /* unvisited link */
+a:hover {color:#36C2E6;text-decoration:none;}  /* mouse over link */
+
+

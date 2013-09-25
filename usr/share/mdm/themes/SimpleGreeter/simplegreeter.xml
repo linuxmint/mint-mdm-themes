@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE greeter SYSTEM "greeter.dtd">
+<!--
+SimpleGreeter
+=============
+
+Plain and simple as I like it.
+
+My first GDM greeter theme written in just 5 minutes (everyone can do it)!
+I had no time to check if every color setting is necessary but if you want 
+to customize the theme you'll find out! :P session_button and system_button
+should be easy to customize.
+
+Have fun!
+
+DerQ
+-->
+
+<greeter gtk-theme="Mint-X">
+	
+    <!-- background -->
+    <item type="rect">
+	    <!-- background color -->
+        <normal color="#99AABC"/>
+        <pos y="0" x="0" width="100%" height="100%"/>
+    </item>
+
+    <!-- main container -->
+    <item type="rect">
+		<!-- container color -->
+        <normal color="#99AABC"/>
+        <pos x="50%" y="50%" width="184" height="40" anchor="c"/>
+	    
+		<!-- container for login name and prompt-->		
+		<box orientation="vertical" homogeneous="true">        		
+			
+			<!-- user label -->
+			<item type="label" id="pam-prompt">
+                <pos x="50%" y="0" anchor="n" />
+                <normal font="Sans Bold 10" color="#ffffff"/>
+                <stock type="username-label"/>
+            </item>
+			
+			<!-- container for system and session buttons and the login prompt-->
+			<item type="rect">
+
+				<!-- container background color -->
+	        	<normal color="#99AABC"/>
+        		<pos x="0" y="0" width="184" height="20"/>
+				<box orientation="horizontal" homogeneous="false">     
+			
+					<!-- session button -->   
+					<item type="pixmap" button="true" id="session_button">
+				        <normal file="sn.png"/>
+						<prelight file="sa.png" />
+						<pos x="0" y="0" width="20" height="20"/>
+					</item>
+
+					<!-- login prompt -->
+					<item type="entry" id="user-pw-entry">
+            		    <pos x="2" y="0" width="140" height="20"/>
+            		    <normal font="Sans 10" color="#99AABC"/>
+            		</item>
+				    
+					<!-- system button -->					
+					<item type="pixmap" button="true" id="system_button">
+				        <normal file="sysn.png"/>
+						<prelight file="sysa.png" />
+						<pos x="4" y="0" width="20" height="20"/>
+					</item>
+				</box>
+			</item>
+		</box>
+    </item>
+
+	<!-- capslock warning -->
+	<item type="rect" id="caps-lock-warning">
+		<normal color="#ffffff" />
+		<pos x="0" y="0" width="100%" height="box" anchor="nw"/>
+		<box orientation="vertical" min-width="250" xpadding="10" ypadding="5" spacing="0">
+			<item type="label">
+				<normal color="#99AABC" font="Sans 10"/>
+				<pos x="50%" y="50%" anchor="c"/>
+				<stock type="caps-lock-warning"/>
+			</item>
+		</box>
+    </item>
+
+	<!-- login error -->
+	<item type="rect" id="pam-error">
+		<pos x="0" y="100%" width="100%" height="box" anchor="sw"/>
+		<box orientation="vertical" min-width="250" xpadding="10" ypadding="5" spacing="0">
+			<item type="label" id="pam-error">
+				<normal color="#ffffff" font="Sans 10"/>
+				<pos x="50%" y="50%" anchor="c"/>
+				<text/>
+			</item>
+		</box>
+    </item>
+</greeter>

@@ -1,0 +1,7 @@
+[GdmGreeterTheme]
+Greeter=simplegreeter.xml
+Name=SimpleGreeter
+Description=A simple blue/white theme
+Author=DerQ
+Copyright=who cares
+Screenshot=screenshot.jpg

@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<!DOCTYPE greeter SYSTEM "greeter.dtd">
+
+
+
+<greeter gtk-theme="Mint-X">
+
+	<!-- background basecolor -->
+	<item type="rect">
+		<pos x="0" y="0" width="100%" height="100%"/>
+		<!--change this if you want another color-->
+		<normal color="#aaaaaa"/>
+	</item>
+
+
+	<!-- background pixmap image -->
+	<!-- If you want another background image-->
+	<!-- or you could get rid of this and just have a base color (from above)-->
+	<item type="pixmap">
+		<!-- Point this to another file -->
+		<normal file="bg.jpg"/>
+		<pos x="0" y="0" width="100%" height="100%"/>
+	</item>
+
+
+	<!-- login window container -->
+	<item type="rect">
+		
+		<pos anchor="center" x="50%" y="50%" width="550" height="462"/>
+		<fixed>
+
+
+		<!-- login window pixmap -->
+		<item type="pixmap">
+			<normal file="main_box.png"/>
+			<pos anchor="center" x="50%" y="50%"/>
+		</item>
+	
+
+		<!-- Linux & hostname container -->
+		<item type="rect">
+				
+			<pos anchor="n" x="50%" y="145"/>
+			<normal color="#ff0000"/>
+				
+			<box orientation="vertical">
+				
+				<!--  Label -->
+				<item type="label">
+					<pos anchor="n" x="50%"/>
+					<normal color="#727272" font="Sans bold 25" alpha="0.4"/>
+					<!--  Change this to whatever you want. i.e. Suse Linux etc -->
+					<text>Linux Desktop</text>
+				</item>
+					
+				<!-- Hostname label and Clock-->
+				<item type="label">
+					<pos anchor="n" x="0%"/>
+					<normal color="#464646" font="Sans Arial Tahoma 8" alpha="0.5"/>
+					<!--  The %h is the hostname and the %c is the clock -->
+					<text>Welcome to %h  %c</text>
+				</item>
+			</box>
+		</item>
+
+
+		<!-- CAPS-LOCK warning -->
+		<item type="label" id="caps-lock-warning">
+			<pos anchor="n" x="50%" y="250"/>
+			<normal font="Sans bold 8" color="#e84949" alpha="0.9"/>
+			<stock type="caps-lock-warning"/>
+		</item>
+			
+		<!-- error messages -->
+		<item type="label" id="pam-error">
+			<pos anchor="n" x="50%" y="500"/>
+			<normal font="Sans bold 8" color="#000000"/>
+			<text></text>
+		</item>
+
+			
+		<!-- username/password label & entry container -->
+		<item type="rect">
+			<pos anchor="n" x="50%" y="220" height="box" width="box"/>
+			<normal color="#FFFFFF" alpha="0.0"/>
+			
+			<box orientation="horizontal" spacing="10">
+
+				<!-- username/password label -->
+				<item type="label" id="pam-prompt">
+					<pos anchor="n" x="50%" y="2" />
+					<stock type="username-label"/>
+					<normal color="#525252" font="Sans 9 Bold"/>
+				</item>
+
+
+
+
+				<!-- username/password entry -->
+				<item type="entry" id="user-pw-entry">
+					<normal color="#525252" font="Sans 9 Bold"/>
+					<pos width="150" height="20"/>
+				</item>
+
+			</box>
+		</item>
+
+		<!-- button container -->
+		<item type="rect">
+			
+			<pos x="50%" y="430" anchor="s" width="box" height="box"/>
+		
+			<box orientation="horizontal" spacing="20">
+				
+				<!-- lang button -->
+				<item type="rect" id="language_button" button="true">
+					<pos anchor="nw" width="32" height="32"/>
+						
+						<box orientation="vertical" spacing="0">
+		
+							<!-- button image -->
+							<item type="pixmap">
+								<normal file="lang_n.png"/>
+								<prelight file="lang.png"/>
+								<pos x="50%" anchor="n"/>
+							</item>
+
+							<!-- button text-label -->
+							<item type="label">
+								<pos x="50%" y="12" anchor="s"/>
+								<normal color="#464646" font="Sans Arial Tahoma 8" alpha="0"/>
+								<prelight color="#464646" font="Sans Arial Tahoma 8" alpha="0.5"/>
+								<stock type="language"/>
+							</item>
+						</box>
+				</item>
+	
+				<!-- session button -->
+				<item type="rect" id="session_button" button="true">
+					<pos anchor="nw" width="32" height="32"/>
+						
+					<box orientation="vertical" spacing="0">
+		
+						<!-- button image -->
+						<item type="pixmap">
+							<normal file="sess_n.png"/>
+							<prelight file="sess.png"/>
+							<pos x="50%" anchor="n"/>
+						</item>
+
+						<!-- button text-label -->
+						<item type="label">
+							<pos x="50%" y="12" anchor="s"/>
+							<normal color="#464646" font="Sans Arial Tahoma 8" alpha="0"/>
+							<prelight color="#464646" font="Sans Arial Tahoma 8" alpha="0.5"/>
+							<stock type="session"/>
+						</item>
+					</box>
+				</item>
+
+
+				<!-- reboot button -->
+				<item type="rect" id="system_button" button="true">
+					<pos anchor="nw" width="32" height="32"/>
+					
+					<box orientation="vertical" spacing="0">
+		
+						<!-- button image -->
+						<item type="pixmap">
+							<normal file="cfg_n.png"/>
+							<prelight file="cfg.png"/>
+							<pos x="50%" anchor="n"/>
+						</item>
+
+						<!-- button text-label -->
+						<item type="label">
+							<pos x="50%" y="12" anchor="s"/>
+							<normal color="#464646" font="Sans Arial Tahoma 8" alpha="0"/>
+							<prelight color="#464646" font="Sans Arial Tahoma 8" alpha="0.5"/>
+							<stock type="system"/>
+						</item>
+					</box>
+				</item>
+	        
+				<!-- halt button -->
+				<item type="rect" id="disconnect_button" button="true">
+					<pos anchor="nw" width="32" height="32"/>
+						
+					<box orientation="vertical" spacing="0">
+		
+						<!-- button image -->
+						<item type="pixmap">
+							<normal file="quit_n.png"/>
+							<prelight file="quit.png"/>
+							<pos x="50%" anchor="n"/>
+						</item>
+
+						<!-- button text-label -->
+						<item type="label">
+							<pos x="50%" y="12" anchor="s"/>
+							<normal color="#464646" font="Sans Arial Tahoma 8" alpha="0"/>
+							<prelight color="#464646" font="Sans Arial Tahoma 8" alpha="0.5"/>>
+							<stock type="disconnect"/>
+							<stock type="quit"/>
+						</item>
+					</box>
+					<show modes="flexi"/>
+					</item>
+				</box>
+			</item> 
+		</fixed>
+	</item>
+</greeter>

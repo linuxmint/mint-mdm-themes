@@ -1,0 +1,229 @@
+
+/*sprite animation*/
+
+#sprite1 {
+     width: 100px;
+     height: 139px;
+     background-image: url(img/artwork/bat100.png);
+     top:100px;
+     position:fixed;
+     z-index: -1;
+     animation:bat100 20s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:bat100 20s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes bat100
+{
+from { left: -180%;}
+ to {left:  120%;}
+}
+
+@-webkit-keyframes bat100 
+{
+from { left: -180%;}
+ to {left:  120%;}
+}
+#sprite2 {
+     width: 50px;
+     height: 70px;
+     background-image: url(img/artwork/bat50r.png);
+     top:50%;
+     position:fixed;
+     z-index: -1;
+     animation:bat50r 30s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:bat50r 30s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes bat50r
+{
+from { left: 100%;}
+ to {left:  -80%;}
+}
+
+@-webkit-keyframes bat50r 
+{
+from { left: 100%;}
+ to {left:  -80%;}
+}
+
+#sprite4 {
+     width: 40px;
+     height: 56px;
+     background-image: url(img/artwork/batsl.png);
+     top:70%;
+     position:fixed;
+     z-index: -1;
+     animation:batsl 34s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:batsl 34s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes batsl
+{
+from { left: -100%;}
+ to {left:  100%;}
+}
+
+@-webkit-keyframes batsl 
+{
+from { left: -100%;}
+ to {left:  100%;}
+}
+#sprite3 {
+     width: 40px;
+     height: 56px;
+     background-image: url(img/artwork/batsr.png);
+     top:15%;
+     position:fixed;
+     z-index: -1;
+     animation:batsr 35s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:batsr 35s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes batsr
+{
+from { left: 140%;}
+ to {left:  -100%;}
+}
+
+@-webkit-keyframes batsr 
+{
+from { left: 140%;}
+ to {left:  -100%;}
+}
+#sprite5 {
+     width: 250px;
+     height: 270px;
+     background-image: url(img/artwork/owl.png);
+     bottom:0%;
+     right:0%;
+     position:fixed;
+     z-index: -1;
+}
+/*clouds*/
+.cloud1 {
+     width: 422px;
+     height: 458px;
+     background: url(img/artwork/cloud1.png);
+     background-size: 100% 100%;
+     background-repeat:no-repeat;
+     top:10%;
+     position:fixed;
+     z-index: -1;
+     animation:cloud1 100s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:cloud1 100s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes cloud1
+{
+from { left: -60%;}
+ to {left:  120%;}
+}
+
+@-webkit-keyframes cloud1
+{
+from { left: -60%;}
+ to {left:  120%;}
+}
+.cloud2 {
+     width: 460px;
+     height: 412px;
+     background: url(img/artwork/cloud2.png);
+     background-size: 100% 100%;
+     background-repeat:no-repeat;
+     top:6%;
+     position:fixed;
+     z-index: -1;
+     animation:cloud2 98s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:cloud2 98s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes cloud2
+{
+from { left: -80%;}
+ to {left:  80%;}
+}
+
+@-webkit-keyframes cloud2
+{
+from { left: -80%;}
+ to {left:  80%;}
+}
+.cloud3 {
+     width: 420px;
+     height: 400px;
+     background: url(img/artwork/cloud3.png);
+     background-size: 100% 100%;
+     background-repeat:no-repeat;
+     top:0%;
+     position:fixed;
+     z-index: -1;
+     animation:cloud3 90s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:cloud3 90s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes cloud3
+{
+from { left: -120%;}
+ to {left:  80%;}
+}
+
+@-webkit-keyframes cloud3
+{
+from { left: -120%;}
+ to {left:  80%;}
+}
+/*end of clouds*/
+/*comets*/
+.cometl {
+     width: 77px;
+     height: 46px;
+     background-image: url(img/artwork/cometl.png);
+     top:-10%;
+     position:fixed;
+     z-index: -1;
+     animation:cometl 30s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:cometl 30s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes cometl
+{
+from {left: 35%;top:-10%;}
+ to {left:  -100%;top:160%;}
+}
+
+@-webkit-keyframes cometl
+{
+from {left: 35%;top:-10%;}
+ to {left:  -100%;top:160%;}
+}
+.cometr {
+     width: 77px;
+     height: 46px;
+     background-image: url(img/artwork/cometr.png);
+     top:-30%;
+     position:fixed;
+     z-index: -1;
+     animation:cometr 26s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:cometr 26s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes cometr
+{
+from {left: 40%;top:-30%;}
+ to {left:  200%;top:160%;}
+}
+
+@-webkit-keyframes cometr
+{
+from {left: 40%;top:-30%;}
+ to {left:  200%;top:160%;}
+}

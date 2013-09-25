@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE greeter SYSTEM "greeter.dtd">
+<greeter gtk-theme="Mint-X">
+    <!-- Background image -->
+    <item type="pixmap">
+        <normal file="background.jpg"/>
+        <pos y="0" x="0" width="100%" height="100%"/>
+    </item>
+	<!-- the green image -->
+	<item type="pixmap">
+        <normal file="loginbox.png"/>
+		<pos x="50%" y="50%" width="674" height="514" anchor="c"/>
+	</item>
+	<!-- labels etc. -->
+	<item type="rect">
+		<pos x="50%" y="50%" width="674" height="514" anchor="c"/>
+		<box orientation="vertical" xpadding="0" ypadding="0">
+			<!-- welcome -->
+			<item type="label" id="welcome-label">
+				<pos x="340" y="40" anchor="c"/>
+				<normal font="Sans 22" color="#ffffff"/>
+				<stock type="welcome-label"/>
+			</item>
+			#<!-- hostname -->
+			#<item type="label">
+			#	<pos x="620" y="30" anchor="se"/>
+			#	<normal font="Sans 14" color="#ffffff"/>
+			#	<text></text>
+			#</item>
+			<!-- clock -->
+			<item type="label" id="clock">
+				<pos x="450" y="35" anchor="se"/>
+				<normal font="Sans 14" color="#ffffff"/>
+				<text>%c</text>
+			</item>
+			<!-- pam prompt -->
+<!--			<item type="label" id="pam-prompt">
+				<pos x="105" y="225" anchor="nw"/>
+				<normal color="#000000"/>
+				<stock type="username-label"/>
+			</item>
+-->
+			<item type="rect">
+				<pos x="0" y="0" width="674"/>
+				<box orientation="horizontal">
+					<!-- face browser -->
+					<item type="list" id="userlist">
+						<pos x="55" y="36" width="274" height="400"/>
+					</item>
+					<item type="rect">
+						<pos x="80" y="40" width="250"/>
+						<box orientation="vertical">
+							<!-- username label -->
+							<item type="label" id="pam-prompt">
+								<pos x="10" y="56" anchor="nw"/>
+								<normal font="Sans Bold 12" color="#d6d6d6"/>
+								<stock type="username-label"/>
+							</item>
+						
+							<!-- user-pw-entry -->
+							<item type="entry" id="user-pw-entry">
+								<pos x="20" y="66" width="280" height="20"/>
+								<normal font="Sans 12" color="#d6d6d6"/>
+							</item>
+							<!-- sessions button -->
+							<item type="rect" button="true" id="session_button">
+								<pos x="0" y="130" width="220" height="40" anchor="nw"/>
+								<box orientation="horizontal">
+									<item type="pixmap">
+										<pos x="0" y="0" width="220" height="40"/>
+										<normal file="button_inactive.png"/>
+										<prelight file="button_active.png"/>
+									</item>
+									<item type="label" id="session">
+										<pos x="-240" y="11" width="80" anchor="nw"/>
+										<normal font="Sans 10" color="#ffffff"/>
+										<stock type="session"/>
+									</item>
+								</box>
+							</item>
+							<!-- language button -->
+							<item type="rect" button="true" id="language_button">
+								<pos x="0" y="140" width="220" height="40"/>
+								<box orientation="horizontal">
+									<item type="pixmap">
+										<pos x="0" y="0" width="220" height="40" anchor="nw"/>
+										<normal file="button_inactive.png"/>
+										<prelight file="button_active.png"/>
+									</item>
+									<item type="label" id="language">
+										<pos x="-240" y="11" width="80" anchor="nw"/>
+										<normal font="Sans 10" color="#ffffff"/>
+										<stock type="language"/>
+									</item>
+								</box>
+							</item>
+							<!-- actions button -->
+							<item type="rect" button="true" id="system_button">
+								<pos x="0" y="150" width="220" height="40"/>
+								<show modes="console-fixed"/>
+								<box orientation="horizontal">
+									<item type="pixmap">
+										<pos x="0" y="0" width="220" height="40" anchor="nw"/>
+										<normal file="button_inactive.png"/>
+										<prelight file="button_active.png"/>
+									</item>
+									<item type="label" id="system">
+										<pos x="-240" y="11" width="80" anchor="nw"/>
+										<normal font="Sans 10" color="#ffffff"/>
+										<stock type="system"/>
+									</item>
+								</box>
+							</item>
+							<!-- disconnect button -->
+							<item type="rect" button="true" id="disconnect_button">
+								<pos x="0" y="150" width="220" height="40"/>
+								<show modes="remote,flexi"/>
+								<box orientation="horizontal">
+									<item type="pixmap">
+										<pos x="0" y="0" width="220" height="40" anchor="nw"/>
+										<normal file="button_inactive.png"/>
+										<prelight file="button_active.png"/>
+									</item>
+									<item type="label" id="quit">
+										<pos x="-240" y="11" width="80" anchor="nw"/>
+										<normal font="Sans 10" color="#ffffff"/>
+                                        <stock type="quit"/>
+                                        <show modes="console-flexi"/>
+									</item>
+									<item type="label" id="disconnect">
+										<pos x="-240" y="11" width="80" anchor="nw"/>
+										<normal font="Sans 10" color="#ffffff"/>
+                                        <stock type="disconnect"/>
+                                        <show modes="remote,remote-flexi"/>
+									</item>
+								</box>
+							</item>
+						</box>
+					</item>
+				</box>
+			</item>
+		</box>
+    </item>
+	<!-- caps-lock-warning -->
+	<item type="rect" id="caps-lock-warning">
+		<normal color="#000000" alpha="0.4"/>
+		<pos anchor="c" x="50%" y="50%" width="box" height="box"/>
+		<box orientation="vertical" min-width="250" xpadding="10" ypadding="5" spacing="0">
+			<item type="label">
+				<normal color="#ffffff" font="Sans 12"/>
+				<pos x="50%" y="50%" anchor="c"/>
+				<stock type="caps-lock-warning"/>
+			</item>
+		</box>
+    </item>
+    <!-- pam error messages -->
+    <item type="rect" id="pam-error">
+		<pos anchor="c" x="50%" y="90%" width="80%" height="box"/>
+		<box orientation="vertical" xpadding="10" ypadding="5" spacing="0">
+			<item type="label" id="pam-error">
+				<normal color="#ffffff" font="Sans 12"/>
+				<pos x="50%" y="50%" anchor="c"/>
+                <text/>
+			</item>
+		</box>
+    </item>
+    <!-- 
+	<item type="label" id="pam-error">
+		<normal color="#000000" alpha="0.2"/>
+		<pos x="50%" y="10%" width="box" height="box"/>
+		<text/>
+    </item>
+    -->
+</greeter>

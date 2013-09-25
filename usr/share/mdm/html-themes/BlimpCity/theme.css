@@ -1,0 +1,422 @@
+body { 
+	background: url(bg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+/*sprite animation*/
+
+#sprite1 {
+     width: 300px;
+     height: 100px;
+     background-image: url(twoblimp.png);
+     top:80px;
+     position:fixed;
+     animation:blimp1 80s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:blimp1 80s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes blimp1
+{
+from { left: -200%;}
+ to {left:  120%;}
+}
+
+@-webkit-keyframes blimp1 
+{
+from { left: -200%;}
+ to {left:  120%;}
+}
+#sprite2 {
+     width: 100px;
+     height: 51px;
+     background-image: url(fatplane100.png);
+     top:50%;
+     position:fixed;
+     animation:plane1 60s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:plane1 60s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes plane1
+{
+from { left: -500%;}
+ to {left:  600%;}
+}
+
+@-webkit-keyframes plane1 
+{
+from { left: -500%;}
+ to {left:  600%;}
+}
+#sprite3 {
+     width: 100px;
+     height: 50px;
+     background-image: url(oldplane100.png);
+     top:30%;
+     position:fixed;
+     animation:plane2 60s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:plane2 60s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes plane2
+{
+from { left: 600%;}
+ to {left:  -600%;}
+}
+
+@-webkit-keyframes plane2 
+{
+from { left: 600%;}
+ to {left:  -600%;}
+}
+#sprite4 {
+     width: 200px;
+     height: 67px;
+     background-image: url(brownblimp.png);
+     top:180px;
+     position:fixed;
+     animation:blimp2 100s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:blimp2 100s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes blimp2
+{
+from { left: 200%;}
+ to {left:  -200%;}
+}
+
+@-webkit-keyframes blimp2 
+{
+from { left: 200%;}
+ to {left:  -200%;}
+}
+
+/*end of sprite sheets*/
+.box {	
+	background-image:url('loginhud.png');
+        background-size: contain;
+        /*background-size: 100% 100%;*/
+        background-repeat:no-repeat;
+        color: #C5D9D2;
+	bottom: 0px;
+	left: 50%;
+	margin-top: auto;
+	margin-left: -300px;	
+	padding:0px;
+	width: 600px;
+	height: 80px;
+	font-size:13px;	
+        position: fixed;
+	text-align: center;
+	overflow:hidden;
+	
+}
+.box8{
+      background-image: url('topback.png');
+        background-size: contain;
+        background-repeat:no-repeat;
+        top: 0px;
+	left: 50%;
+        margin-top: 0px;
+	margin-left: -300px;
+        width: 600px;
+	height: 80px;
+	position: fixed;
+       
+}
+.box12{
+        color: #C5D9D2;
+	position: fixed;
+	bottom: 200px;
+	left: 50%;
+	margin-bottom: -90px;
+	margin-left: -200px;	
+	width: 400px;
+	height: 50px;
+	font-size:13px;	
+        text-align: center;
+	overflow:hidden;	
+        z-index:1;
+}
+.welcomemessage{
+        color: #C5D9D2;
+        top: 15px;
+	left: 50%;
+        margin-top: 0px;
+	margin-left: -300px;
+        width: 600px;
+	height: 80px;
+	font-size:13px;	
+        position: fixed;
+	text-align: center;
+
+}
+.box1 {	
+        background:url('bridge.png');
+        background-repeat:repeat-x;
+	position:fixed;
+	bottom: 0%;
+	left: 0%;
+	/*margin: auto;*/
+	width: 2600px;
+	height: 150px;
+	overflow:hidden;		
+}
+.box2{
+     width:400px;
+     height:50px;
+     background-image:url('subway.png');
+     position:fixed;
+     bottom:98px;
+     animation:subway 30s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:subway 30s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes subway
+{
+from { left: -120%;}
+ to {left:  120%;}
+}
+
+@-webkit-keyframes subway 
+{
+from { left: -120%;}
+ to {left:  120%;}
+}
+.box3{
+     width:384px;
+     height:48px;
+     background-image:url('subwayb.png');
+     position:fixed;
+     bottom:98px;
+     animation:subwayb 32s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:subwayb 32s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes subwayb
+{
+from { left: 120%;}
+ to {left:  -120%;}
+}
+
+@-webkit-keyframes subwayb 
+{
+from { left: 120%;}
+ to {left:  -120%;}
+}
+.box4{
+     width:250px;
+     height:250px;
+     background-image:url('cloud1.png');
+     position:fixed;
+     top:20px;
+     animation:cloud1 107s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:cloud1 107s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes cloud1
+{
+from { left: -50%;}
+ to {left:  100%;}
+}
+
+@-webkit-keyframes cloud1 
+{
+from { left: -40%;}
+ to {left:  100%;}
+}
+.box5{
+     width:280px;
+     height:280px;
+     background-image:url('cloud2.png');
+     position:fixed;
+     top:10px;
+     animation:cloud2 110s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:cloud2 110s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes cloud2
+{
+from { left: -40%;}
+ to {left:  100%;}
+}
+
+@-webkit-keyframes cloud2 
+{
+from { left: -40%;}
+ to {left:  100%;}
+}
+.box6{
+     width:500px;
+     height:280px;
+     background-image:url('cloud3.png');
+     position:fixed;
+     top:0px;
+     animation:cloud3 120s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:cloud3 120s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes cloud3
+{
+from { left: -100%;}
+ to {left:  100%;}
+}
+
+@-webkit-keyframes cloud3 
+{
+from { left: -100%;}
+ to {left:  100%;}
+}
+.box7{
+     width:500px;
+     height:300px;
+     background-image:url('cloud4.png');
+     position:fixed;
+     top:-10px;
+     animation:cloud4 130s infinite;
+     animation-timing-function:linear;
+    -webkit-animation:cloud4 130s infinite;
+    -webkit-animation-timing-function:linear; 
+}
+@keyframes cloud4
+{
+from { left: -150%;}
+ to {left:  100%;}
+}
+
+@-webkit-keyframes cloud4 
+{
+from { left: -150%;}
+ to {left:  100%;}
+}
+
+.buttons {	
+	position: relative;
+	text-align: center;
+	margin-top: 35px;		
+}
+
+.user-picture {
+	border-radius: 5px;
+	border:2px rgba(163,139,55,0.5) solid;
+	width: 64px;
+	height: 64px;
+        z-index:1;	
+        opacity: 0.7;
+	-webkit-transition: all .6s ease-in-out;
+}
+
+.session-picture {
+	border-radius: 5px;
+	border:2px rgba(206,184,110,0.8) solid;
+	width: 24px;
+	height: 24px;	
+	margin-right: 5px;	
+}
+.language-picture {
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+}
+
+.user-info {		
+	margin-left: 20px;
+	margin-top: 10px;
+	text-shadow: 2px 3px 5px rgba(0,0,0,0.8),
+                    -1px -1px 0 #30280e,  
+                     1px -1px 0 #30280e,
+                    -1px 1px 0 #30280e,
+                     1px 1px 0 #30280e;	
+}
+
+.user-info:hover img{
+				
+}
+
+.username {
+	font-style: italic;
+}
+
+.usergecos {
+	font-weight:bold;
+}
+.userstatus {
+	font-style: italic;
+	font-size: 10px;	
+}
+.highlight-border img{
+	-webkit-transition: all .6s ease-in-out;
+}
+
+.highlight-border:hover img{
+	-webkit-transition: all .6s ease-in-out;
+	border:2px #CEB86E solid;
+}
+
+/*TILT AND SCALE*/
+.tilt img{
+  -webkit-transform:scale(0.9);    
+  -webkit-transition: all 0.2s ease-in-out; 
+   
+}
+ 
+.tilt:hover img{
+  -webkit-transform:scale(1.0);   
+  -webkit-transform: rotate(-3deg); 
+      
+}
+
+
+
+a {color:#a38b37;text-decoration:none;}      /* unvisited link */
+a:hover {color:#ceb86e;text-decoration:none;}  /* mouse over link */
+
+/*clock*/
+
+.start {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 5em;
+    text-align: center;
+}
+#clock {
+    background-image: url("img/clockFace.png");
+    top: 20px;
+    right: 20px;
+    height: 150px;
+    position: fixed;
+    width: 150px;
+}
+
+#clock div {
+    position: absolute;
+}
+#clock img[src*="second"] {
+    -webkit-transition: transform 600000s linear 0s;
+}
+#clock:target img[src*="second"] {
+    -webkit-transform: rotate(3600000deg);
+}
+#clock img[src*="minute"] {
+    -webkit-transition: transform 360000s linear 0s;
+}
+#clock:target img[src*="minute"] {
+    -webkit-transform: rotate(36000deg);
+}
+#clock img[src*="hour"] {
+    -webkit-transition: transform 216000s linear 0s;
+}
+#clock:target img[src*="hour"] {
+    -webkit-transform: rotate(360deg);
+}
+

@@ -1,0 +1,9 @@
+# Some theme info
+
+[GdmGreeterTheme]
+Greeter=theme.xml
+Name=Elegance
+Description=An elegant theme for Linux Mint
+Author=Linux Mint
+Screenshot=screenshot.jpg
+Copyright=GPL

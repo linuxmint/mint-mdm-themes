@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<!DOCTYPE greeter SYSTEM "greeter.dtd">
+
+<greeter gtk-theme="Mint-X">
+
+	<!-- background basecolor -->
+	<item type="rect">
+		<pos x="0" y="0" width="100%" height="100%"/>
+		<!--change this if you want another color-->
+		<normal color="#aaaaaa"/>
+	</item>
+
+
+	<!-- background pixmap image -->
+	<!-- If you want another background image-->
+	<!-- or you could get rid of this and just have a base color (from above)-->
+	<item type="pixmap">
+		<!-- Point this to another file -->
+		<normal file="background.jpg"/>
+		<pos x="0" y="0" width="100%" height="100%"/>
+	</item>
+
+
+	<!-- login window container -->
+	<item type="rect">
+		
+		<pos anchor="center" x="50%" y="50%" width="550" height="462"/>
+		<fixed>
+
+
+		<!-- login window pixmap -->
+		<item type="pixmap">
+			<normal file="main_box.png"/>
+			<pos anchor="center" x="50%" y="50%"/>
+		</item>
+	
+
+		<!-- CAPS-LOCK warning -->
+		<item type="label" id="caps-lock-warning">
+			<pos anchor="n" x="50%" y="280"/>
+			<normal font="Dejavu Sans bold 8" color="#e84949" alpha="0.9"/>
+			<stock type="caps-lock-warning"/>
+		</item>
+			
+		<!-- error messages -->
+		<item type="label" id="pam-error">
+			<pos anchor="n" x="50%" y="500"/>
+			<normal font="Dejavu Sans bold 10" color="#e84949"/>
+			<text></text>
+		</item>
+
+		<!-- textbox -->
+		<item type="pixmap">
+			<normal file="text.png"/>
+			<pos anchor="n" x="50%" y="180"/>
+		</item>
+			
+		<!-- username/password label & entry container -->
+		<item type="rect">
+			<pos anchor="n" x="50%" y="203" height="20" width="330"/>
+			<normal color="#FFFFFF" alpha="0.0"/>
+			
+			<box orientation="horizontal" spacing="0">
+
+				<!-- username/password label -->
+				<item type="label" id="pam-prompt">
+					<pos anchor="center" x="50%" y="50%" width="140" height="20" />
+					<stock type="username-label"/>
+					<normal color="#FFF4DE" font="Dejavu Sans 9"/>
+				</item>
+
+				 <!-- username/password entry -->
+				<item type="entry" id="user-pw-entry">
+					<normal color="#643F2F" font="Dejavu Sans 9 Bold"/>
+					<pos anchor="w" width="155" height="17" x="14%" y="50%" />
+				</item>
+
+			</box>
+		</item>
+
+
+		<item type="rect">
+			<pos anchor="n" x="430" y="375" height="25" width="90"/>
+
+			<box orientation="horizontal" spacing="3">
+
+				<!-- system menu option -->
+				<item type="rect" id="system_button" button="true">
+					<pos anchor="w" width="25" height="24" />
+						
+					<box orientation="vertical" spacing="0">
+
+						<item type="pixmap">
+							<normal file="settings.png"/>
+							<prelight file="settings_n.png"/>
+							<pos x="50%" anchor="n"/>
+						</item>
+
+					</box>
+				</item>
+
+
+				<!-- language option -->
+				<item type="rect" id="language_button" button="true">
+					<pos anchor="w" width="25" height="24"  />
+						
+					<box orientation="vertical" spacing="0">
+
+						<item type="pixmap">
+							<normal file="lang.png"/>
+							<prelight file="lang_n.png"/>
+							<pos x="50%" anchor="n"/>
+						</item>
+
+					</box>
+				</item>
+
+				<!-- session option -->
+				<item type="rect" id="session_button" button="true">
+					<pos anchor="w" width="25" height="24" />
+						
+					<box orientation="vertical" spacing="0">
+
+						<item type="pixmap">
+							<normal file="session.png"/>
+							<prelight file="session_n.png"/>
+							<pos x="50%" anchor="n"/>
+						</item>						
+
+					</box>
+				</item>
+				
+				
+
+		</box>
+		</item>
+
+		<!-- button container -->
+		<item type="rect">
+			
+			<pos x="104" y="297" anchor="w" width="box" height="box"/>
+		
+			<box orientation="horizontal" spacing="3">
+				
+				<!-- Restart button -->
+				<item type="rect" id="reboot_button" button="true">
+					<pos anchor="nw" width="16" height="17"/>
+						
+					<box orientation="vertical" spacing="0">
+		
+						<!-- button image -->
+						<item type="pixmap">
+							<normal file="reb.png"/>
+							<prelight file="reb_n.png"/>
+							<pos x="50%" anchor="n"/>
+						</item>
+
+					</box>
+				</item>
+
+				<!-- suspend button -->
+				<item type="rect" id="suspend_button" button="true">
+					<pos anchor="nw" width="20" height="21" y="3" />
+						
+						<box orientation="vertical" spacing="0">
+		
+							<!-- button image -->
+							<item type="pixmap">
+								<normal file="shut.png"/>
+								<prelight file="shut_n.png"/>
+								<pos x="50%" anchor="n"/>
+							</item>
+
+						</box>
+				</item>
+
+
+				
+				</box>
+			</item> 
+		</fixed>
+	</item>
+</greeter>

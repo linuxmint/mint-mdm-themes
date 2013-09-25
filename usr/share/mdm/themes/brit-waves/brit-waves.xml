@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document       : brit-waves.xml
+    Created on      : 15.03.2008
+    Author        : VoaNerges gotham48@gmail.com
+    License           : GPL
+-->
+
+<!DOCTYPE greeter SYSTEM 'greeter.dtd'>
+
+<greeter gtk-theme="Mint-X">
+<!-- background -->
+	<item type="pixmap">
+		<pos x="0" y="0" width="100%" height="100%" anchor="nw"/>
+		<normal file="possible gdm.png"/>
+	</item>
+	
+	<item type="pixmap">
+		<pos x="50%" y="50%" anchor="c" width="600px" height="256px"/>
+		<normal file="tablet.png" alpha="1.0"/>
+		<box orientation="horizontal" spacing="5">
+		<item type="rect">
+		<pos width="100%" height="100%" x="0px"/>
+		<fixed>
+<!-- 'username' sign -->
+					<item type="label" id="pam-prompt">
+						<pos x="190px" y="13" anchor="nw"/>
+						<normal font="Bitstream Vera Sans Bold 12" color="#e88f2e"/>
+						<stock type="username-label"/>
+						<!--<stock type="welcome-label"/>-->
+					</item>
+<!-- user entry -->
+									<item type="entry" id="user-pw-entry">
+										<pos x="191" y="42" width="394" height="32" anchor="nw" alpha="0"/>
+										<normal font="Bitstream Vera Sans 14"/>
+
+									</item>
+<!-- time display -->
+					<item type="label">
+
+						<pos x="500px" y="212" anchor="c"/>
+						<normal font="Bitstream Vera Sans Bold 10" color="#ffffff"/>
+						<text>%c</text>
+						
+					</item>
+<!-- caps-lock-warning-->
+									<item type="label" id="caps-lock-warning">
+										<pos x="380px" y="240px" width="100%" height="box" anchor="c"/>
+										<normal color="#262729" font="Bitstream Vera Sans 9 bold"/>
+										<stock type="caps-lock-warning"/>
+									</item>
+
+					<item type="rect" id="halt_button" button="true">
+					<pos x="573px" y="180px" height="40px" width="40px"/>
+					<show type="halt"/>
+					<box orientation="horizontal" spacing="0">
+													<item type="pixmap">
+														<pos y="0px" x="0px" anchor="c" alpha="0.6"/>
+														<normal file="power.png"/>
+														<prelight file="h_power.png"/>
+														<stock type="halt"/>
+													</item>
+					</box>
+					</item>
+
+					<item type="rect" id="language_button" button="true">
+					<pos x="194px" y="100px" height="40px" width="40px"/>
+					<show type="language"/>
+					<box orientation="horizontal" spacing="0">
+									<item type="label">
+										<pos x="0px" y="0px" width="100%" height="box" anchor="nw"/>
+										<normal color="#ffffff" font="Bitstream Vera Sans 11 bold"/>
+										<prelight color="#ffa639" font="Bitstream Vera Sans 11 bold"/>
+										<stock type="language"/>
+									</item>
+					</box>
+					</item>
+
+					<item type="rect" id="session_button" button="true">
+					<pos x="194px" y="120px" height="40px" width="40px"/>
+					<show type="session"/>
+					<box orientation="horizontal" spacing="0">
+									<item type="label">
+										<pos x="0px" y="0px" width="100%" height="box" anchor="nw"/>
+										<normal color="#ffffff" font="Bitstream Vera Sans 11 bold"/>
+										<prelight color="#ffa639" font="Bitstream Vera Sans 11 bold"/>
+										<stock type="session"/>
+									</item>
+					</box>
+					</item>
+
+					<item type="rect" id="system_button" button="true">
+					<pos x="194px" y="140px" height="40px" width="40px"/>
+					<show type="system"/>
+					<box orientation="horizontal" spacing="0">
+									<item type="label">
+										<pos x="0px" y="0px" width="100%" height="box" anchor="nw"/>
+										<normal color="#ffffff" font="Bitstream Vera Sans 11 bold"/>
+										<prelight color="#ffa639" font="Bitstream Vera Sans 11 bold"/>
+										<stock type="system"/>
+									</item>
+					</box>
+					</item>
+
+				
+
+<!-- rxdm and reboot buttons 
+													<item type="pixmap">
+														<pos y="170px" x="450px" height="40px" width="40px" anchor="c"/>
+														<normal file="rxdm.png"/>
+														<prelight file="h_rxdm.png"/>
+													</item>
+
+													<item type="pixmap">
+														<pos y="169px" x="492px" height="40px" width="40px" anchor="c"/>
+														<normal file="lock.png"/>
+														<prelight file="h_lock.png"/>
+													</item>
+-->
+					</fixed>
+		</item>
+		</box>
+		
+	</item>
+	
+<!-- pam-error -->
+
+</greeter>

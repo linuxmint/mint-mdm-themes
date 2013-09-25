@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document       : Junkie's Promise For Gaia-GDM.xml
+    Created on      : 22 Enero 2008, 00:36
+    Author        	  : NoPersona
+    License           : Free!  
+-->
+
+<!DOCTYPE greeter SYSTEM 'greeter.dtd'>
+
+<greeter gtk-theme="Mint-X">
+<!-- background -->
+	<item type="pixmap">
+		<pos x="0" y="0" width="100%" height="100%" anchor="nw"/>
+		<normal file="background.jpg"/>
+	</item>
+	
+<!-- innerbackground -->
+	<item type="pixmap">
+		<pos x="50%" y="50%" width="680" height="520" anchor="c"/>
+		<normal file="innerbackground.png"/>
+		<box orientation="vertical" spacing="5" xpadding="50" ypadding="50">
+			<item type="rect">
+				<pos width="100%" height="30"/>
+				<!--<normal color="#ff0000"/>-->
+				<fixed>
+<!-- welcome-label -->
+					<item type="label">
+						<pos x="5" y="50%" anchor="w"/>
+						<normal font="Bitstream Vera Sans Bold 16" color="#ffffff"/>
+						<stock type="welcome-label"/>
+					</item>
+<!-- clock -->
+					<item type="label" id="clock">
+						<pos x="-5" y="50%" anchor="e"/>
+						<normal font="Bitstream Vera Sans 16" color="#ffffff"/>
+						<text>%c</text>
+					</item>
+				</fixed>
+			</item>
+			<item type="rect">
+				<!--<normal color="#009900"/>-->
+				<pos width="100%" height="370"/>
+				<box orientation="horizontal" spacing="20" xpadding="5" ypadding="10">
+					<item type="list" id="userlist">
+						<pos x="0" y="0" width="275" height="370" anchor="nw"/>
+						<color iconcolor="#ffffff" labelcolor="#ffffff"/>
+					</item>
+					<item type="rect">
+						<pos x="0" y="0" width="275" height="370" anchor="nw"/>
+						<!--<normal color="#6688ff"/>-->
+						<fixed>
+							<item type="rect">
+								<!--<normal color="#00ff00"/>-->
+								<pos x="0" y="0" width="100%" height="50" anchor="nw"/>
+								<box orientation="vertical" spacing="2" xpadding="0" ypadding="0">
+<!-- username-label -->
+									<item type="label" id="pam-prompt">
+										<pos x="5" y="50%" width="100%" height="box" anchor="w"/>
+										<normal color="#ffffff" font="Bitstream Vera Sans Bold 10"/>
+										<stock type="username-label"/>
+									</item>
+<!-- user-pw-entry -->
+									<item type="entry" id="user-pw-entry">
+										<pos x="5" y="50%" width="265" height="20" anchor="w"/>
+										<normal font="Bitstream Vera Sans 12"/>
+									</item>
+								</box>
+							</item>
+							
+							<item type="rect">
+								<pos x="0" y="55" width="100%" height="60" anchor="nw"/>
+								<!--<normal color="#9900ff"/>-->
+								<box orientation="vertical" spacing="10" xpadding="0" ypadding="5">
+<!-- caps-lock-warning-->
+									<item type="label" id="caps-lock-warning">
+										<pos x="50%" y="50%" width="100%" height="box" anchor="c"/>
+										<normal color="#ff1315" font="Bitstream Vera Sans 9"/>
+										<stock type="caps-lock-warning"/>
+									</item>									
+<!-- timed-label -->
+									<item type="label" id="timed-label">
+										<pos x="50%" y="50%" width="100%" height="box" anchor="c"/>
+										<show type="timed"/>
+										<normal color="#ffffff" font="Bitstream Vera Sans 9"/>
+										<stock type="timed-label"/>
+									</item>
+								</box>
+							</item>
+							<item type="rect">
+								<pos x="0" y="120" width="100%" height="240" anchor="nw"/>
+								<!--<normal color="#99aaff"/>-->
+								<box orientation="vertical" spacing="0" xpadding="2" ypadding="2">
+									
+<!-- language_button -->
+									<item type="rect" id="language_button" button="true">
+										<pos x="0" y="0" width="100%" height="box" anchor="nw"/>
+										<box>
+											<item type="pixmap">
+												<pos height="box" width="100%"/>
+												<normal file="selection.png"/>
+												<prelight file="selection-prelight.png"/>
+												<active file="selection-active.png"/>
+												<box spacing="5" xpadding="3" ypadding="2" orientation="horizontal">
+													<item type="pixmap">
+														<pos y="50%" width="24" height="24" anchor="w"/>
+														<normal file="language.png"/>
+														<prelight file="language-prelight.png"/>
+														<active file="language-active.png"/>
+													</item>
+													<item type="label">
+														<pos y="50%" width="50" height="20" anchor="w"/>
+														<normal color="#151515" font="Bitstream Vera Sans Bold 8"/>
+														<prelight color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<active color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<stock type="language"/>
+													</item>
+												</box>
+											</item>
+										</box>
+									</item>
+<!-- session_button -->
+									<item type="rect" id="session_button" button="true">
+										<pos x="0" y="0" width="100%" height="box" anchor="nw"/>
+										<box>
+											<item type="pixmap">
+												<pos height="box" width="100%"/>
+												<normal file="selection.png"/>
+												<prelight file="selection-prelight.png"/>
+												<active file="selection-active.png"/>
+												<box spacing="5" xpadding="3" ypadding="2" orientation="horizontal">
+													<item type="pixmap">
+														<pos y="50%" width="24" height="24" anchor="w"/>
+														<normal file="session.png"/>
+														<prelight file="session-prelight.png"/>
+														<active file="session-active.png"/>
+													</item>
+													<item type="label">
+														<pos y="50%" width="50" height="20" anchor="w"/>
+														<normal color="#151515" font="Bitstream Vera Sans Bold 8"/>
+														<prelight color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<active color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<stock type="session"/>
+													</item>
+												</box>
+											</item>
+										</box>
+									</item>
+<!-- system_button -->
+									<item type="rect" id="system_button" button="true">
+										<pos x="0" y="0" width="100%" height="box" anchor="nw"/>
+										<show modes="console" type="system"/>
+										<box>
+											<item type="pixmap">
+												<pos height="box" width="100%"/>
+												<normal file="selection.png"/>
+												<prelight file="selection-prelight.png"/>
+												<active file="selection-active.png"/>
+												<box spacing="5" xpadding="3" ypadding="2" orientation="horizontal">
+													<item type="pixmap">
+														<pos y="50%" width="24" height="24" anchor="w"/>
+														<normal file="system.png"/>
+														<prelight file="system-prelight.png"/>
+														<active file="system-active.png"/>
+													</item>
+													<item type="label">
+														<pos y="50%" width="50" height="20" anchor="w"/>
+														<normal color="#151515" font="Bitstream Vera Sans Bold 8"/>
+														<prelight color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<active color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<stock type="system"/>
+													</item>
+												</box>
+											</item>
+										</box>
+									</item>
+<!-- quit/disconnect_button -->
+									<item type="rect" id="disconnect_button" button="true">
+										<pos x="0" y="0" width="100%" height="box" anchor="nw"/>
+										<show modes="flexi,remote"/>
+										<box>
+											<item type="pixmap">
+												<pos height="box" width="100%"/>
+												<normal file="selection.png"/>
+												<prelight file="selection-prelight.png"/>
+												<active file="selection-active.png"/>
+												<box spacing="5" xpadding="3" ypadding="2" orientation="horizontal">
+													<item type="pixmap">
+														<pos y="50%" width="24" height="24" anchor="w"/>
+														<show modes="remote"/>
+														<normal file="disconnect.png"/>
+														<prelight file="disconnect-prelight.png"/>
+														<active file="disconnect-active.png"/>
+													</item>
+													<item type="label">
+														<pos y="50%" width="50" height="20" anchor="w"/>
+														<show modes="remote"/>
+														<normal color="#151515" font="Bitstream Vera Sans Bold 8"/>
+														<prelight color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<active color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<stock type="disconnect"/>
+													</item>
+													<item type="pixmap">
+														<pos y="50%" width="24" height="24" anchor="w"/>
+														<show modes="flexi"/>
+														<normal file="quit.png"/>
+														<prelight file="quit-prelight.png"/>
+														<active file="quit-active.png"/>
+													</item>
+													<item type="label">
+														<pos y="50%" width="50" height="20" anchor="w"/>
+														<show modes="flexi"/>
+														<normal color="#151515" font="Bitstream Vera Sans Bold 8"/>
+														<prelight color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<active color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<stock type="quit"/>
+													</item>
+												</box>
+											</item>
+										</box>
+									</item>
+<!-- line -->
+									<item type="rect">
+										<pos x="0" y="0" width="box" height="box" anchor="nw"/>
+										<box xpadding="0" ypadding="3">
+											<item type="pixmap">
+												<pos x="0" y="50%" width="265" height="2" anchor="w"/>
+												<normal file="line.png" />
+											</item>
+										</box>
+									</item>
+<!-- chooser button -->
+									<item type="rect" id="chooser_button" button="true">
+										<pos x="0" y="0" width="100%" height="box" anchor="nw"/>
+										<show type="chooser"/>
+										<box>
+											<item type="pixmap">
+												<pos height="box" width="100%"/>
+												<normal file="selection.png"/>
+												<prelight file="selection-prelight.png"/>
+												<active file="selection-active.png"/>
+												<box spacing="5" xpadding="3" ypadding="2" orientation="horizontal">
+													<item type="pixmap">
+														<pos y="50%" width="24" height="24" anchor="w"/>
+														<normal file="chooser.png"/>
+														<prelight file="chooser-prelight.png"/>
+														<active file="chooser-active.png"/>
+													</item>
+													<item type="label">
+														<pos y="50%" width="50" height="20" anchor="w"/>
+														<normal color="#151515" font="Bitstream Vera Sans Bold 8"/>
+														<prelight color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<active color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<stock type="chooser"/>
+													</item>
+												</box>
+											</item>
+										</box>
+									</item>	
+<!-- reboot_button -->
+									<item type="rect" id="reboot_button" button="true">
+										<pos x="0" y="0" width="100%" height="box" anchor="nw"/>
+										<show type="reboot"/>
+										<box>
+											<item type="pixmap">
+												<pos height="box" width="100%"/>
+												<normal file="selection.png"/>
+												<prelight file="selection-prelight.png"/>
+												<active file="selection-active.png"/>
+												<box spacing="5" xpadding="3" ypadding="2" orientation="horizontal">
+													<item type="pixmap">
+														<pos y="50%" width="24" height="24" anchor="w"/>
+														<normal file="reboot.png"/>
+														<prelight file="reboot-prelight.png"/>
+														<active file="reboot-active.png"/>
+													</item>
+													<item type="label">
+														<pos y="50%" width="50" height="20" anchor="w"/>
+														<normal color="#151515" font="Bitstream Vera Sans Bold 8"/>
+														<prelight color="#000000" font="Bitstream Vera Sans Bold 8 "/>
+														<active color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<stock type="reboot"/>
+													</item>
+												</box>
+											</item>
+										</box>
+									</item>	
+<!-- suspend button -->
+									<item type="rect" id="suspend_button" button="true">
+										<pos x="0" y="0" width="100%" height="box" anchor="nw"/>
+										<show type="suspend"/>
+										<box>
+											<item type="pixmap">
+												<pos height="box" width="100%"/>
+												<normal file="selection.png"/>
+												<prelight file="selection-prelight.png"/>
+												<active file="selection-active.png"/>
+												<box spacing="5" xpadding="3" ypadding="2" orientation="horizontal">
+													<item type="pixmap">
+														<pos y="50%" width="24" height="24" anchor="w"/>
+														<normal file="suspend.png"/>
+														<prelight file="suspend-prelight.png"/>
+														<active file="suspend-active.png"/>
+													</item>
+													<item type="label">
+														<pos y="50%" width="50" height="20" anchor="w"/>
+														<normal color="#151515" font="Bitstream Vera Sans Bold 8"/>
+														<prelight color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<active color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<stock type="suspend"/>
+													</item>
+												</box>
+											</item>
+										</box>
+									</item>
+<!-- halt button -->
+									<item type="rect" id="halt_button" button="true">
+										<pos x="0" y="0" width="100%" height="box" anchor="nw"/>
+										<show type="halt"/>
+										<box>
+											<item type="pixmap">
+												<pos height="box" width="100%"/>
+												<normal file="selection.png"/>
+												<prelight file="selection-prelight.png"/>
+												<active file="selection-active.png"/>
+												<box spacing="5" xpadding="3" ypadding="2" orientation="horizontal">
+													<item type="pixmap">
+														<pos y="50%" width="24" height="24" anchor="w"/>
+														<normal file="halt.png"/>
+														<prelight file="halt-prelight.png"/>
+														<active file="halt-active.png"/>
+													</item>
+													<item type="label">
+														<pos y="50%" width="50" height="20" anchor="w"/>
+														<normal color="#151515" font="Bitstream Vera Sans Bold 8"/>
+														<prelight color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<active color="#000000" font="Bitstream Vera Sans Bold 8"/>
+														<stock type="halt"/>
+													</item>
+												</box>
+											</item>
+										</box>
+									</item>
+									
+								</box>
+							</item>
+						</fixed>
+					</item>
+				</box>
+			</item>
+			
+<!-- pam-error -->
+			<item type="label" id="pam-error">
+				<pos x="0" y="48%" width="580" height="15" anchor="w"/>
+				<normal color="#ff1315" font="Bitstream Vera Sans 8"/>
+				<text></text>
+			</item>
+
+		</box>
+	</item>
+
+</greeter>

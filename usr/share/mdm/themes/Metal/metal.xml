@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE greeter SYSTEM "greeter.dtd">
+<greeter gtk-theme="Mint-X">
+ 
+	<!-- background -->
+	<item type="pixmap">
+		<normal file="background.jpg"/>
+		<pos x="0" y="0" width="100%" height="100%"/>
+	</item>
+	
+	<!-- Messages/warnings -->
+	<!-- timer warning -->
+		<item type="label" id="timed-label">
+			<pos anchor="c" x="50%" y="90%"/>
+			<normal font="Sans 11" color="#FFFFFF"/>
+			<stock type="timed-label"/>
+			<show type="timed"/>
+		</item>
+	<!-- CAPS-LOCK warning -->
+		<item type="label" id="caps-lock-warning">
+			<pos anchor="c" x="50%" y="93%"/>
+			<normal font="Sans Bold 11" color="#FFFFFF"/>
+			<stock type="caps-lock-warning"/>
+		</item>
+	<!-- pam error -->
+		<item type="label" id="pam-error">
+			<pos anchor="c" x="50%" y="96%"/>
+			<normal font="Sans Bold 11" color="#FFFFFF"/>
+			<text/>
+		</item>
+
+	<!-- login window -->
+	<item type="rect">
+		<pos anchor="center" x="50%" y="50%" width="550" height="462"/>
+		<fixed>
+
+			<!-- login window backdrop -->
+			<item type="pixmap">
+				<normal file="frame.png"/>
+				<pos anchor="center" x="50%" y="50%"/>
+			</item>
+	
+			<!-- Hostname -->
+			<item type="rect">
+				<pos anchor="n" x="50%" y="135"/>
+				<normal color="#ff0000"/>			
+				<box orientation="vertical">
+					<item type="label">
+						<pos anchor="n" x="50%"/>
+						<normal color="#565656" font="Field Day Filter 14"/>
+						<text>%h</text>
+					</item>
+				</box>
+			</item>
+
+			<!-- Face Browser -->
+			<item type="rect">
+    			<normal color="#9B9B9B" alpha="0.30"/>
+    			<pos anchor="n" x="50%" y="185" width="box" height="box"/>
+    			<box orientation="vertical" min-width="230" max-width="280" 
+					min-height="100" xpadding="0" ypadding="0" spacing="0">
+      				<item type="list" id="userlist">
+        				<pos anchor="nw" x="1" y="2" height="150" width="280"/>
+        				<color iconcolor="#E4E4E4" labelcolor="#E4E4E4"/>
+      				</item>
+    			</box>
+  			</item>
+			
+			<!-- username/password label & entry container -->
+			<item type="rect">
+				<pos anchor="n" x="50%" y="355" height="box" width="box"/>
+				<box orientation="horizontal" spacing="30" expand="true">
+
+					<!-- username/password label -->
+					<item type="label" id="pam-prompt">
+						<pos x="0" y="5"/>
+						<normal color="#000000" font="Sans Bold 9"/>
+						<stock type="username-label"/>
+					</item>
+
+					<!-- username/password entry -->
+					<item type="entry" id="user-pw-entry" background="true">
+						<pos x="0" y="0" width="150" height="25"/>
+						<normal color="#000000" font="Sans 10"/>						
+					</item>
+				</box>
+			</item>
+			
+			<!-- pam message -->
+			<item type="label" id="pam-message">
+				<pos x="50%" y="385" anchor="n" />
+				<normal font="Sans 9" color="#000000"/>
+				<text/>
+			</item>
+
+			<!-- button container -->
+			<item type="rect">
+				<pos x="50%" y="490" anchor="s" width="box" height="box"/>
+
+				<box orientation="horizontal" spacing="10">
+				
+					<!-- session button -->
+					<item type="rect" id="session_button" button="true">
+						<pos anchor="nw" width="70" height="60"/>
+						<box orientation="vertical" spacing="5">
+		
+							<!-- button image -->
+							<item type="pixmap">
+								<normal file="session1.png"/>
+								<prelight file="session3.png"/>
+								<active file="session2.png"/>
+								<pos x="50%" anchor="n"/>
+							</item>
+
+							<!-- button text-label -->
+							<item type="label">
+								<pos x="50%" anchor="n"/>
+								<normal font="Sans 8" color="#000000"/>
+								<stock type="session"/>
+							</item>
+						</box>
+					</item>
+
+
+					<!-- reboot button -->
+					<item type="rect" id="reboot_button" button="true">
+						<show type="reboot" modes="console"/>
+						<pos anchor="nw" width="70" height="60"/>			
+						<box orientation="vertical" spacing="5">
+		
+							<!-- button image -->
+							<item type="pixmap">
+								<normal file="redemarrer1.png"/>
+								<prelight file="redemarrer3.png"/>
+								<active file="redemarrer2.png"/>
+								<pos x="50%" anchor="n"/>
+							</item>
+
+							<!-- button text-label -->
+							<item type="label">
+								<pos x="50%" anchor="n"/>
+								<normal font="Sans 8" color="#000000"/>
+								<stock type="reboot"/>
+							</item>
+						</box>
+					</item>
+
+
+					<!-- halt button -->
+					<item type="rect" id="halt_button" button="true">
+						<show type="halt" modes="console"/>
+						<pos anchor="nw" width="70" height="60"/>	
+						<box orientation="vertical" spacing="5">
+		
+							<!-- button image -->
+							<item type="pixmap">
+								<normal file="arreter1.png"/>
+								<prelight file="arreter3.png"/>
+								<active file="arreter2.png"/>
+								<pos x="50%" anchor="n"/>
+							</item>
+
+							<!-- button text-label -->
+							<item type="label">
+								<pos x="50%" anchor="n"/>
+								<normal font="Sans 8" color="#000000"/>
+								<stock type="halt"/>
+							</item>
+						</box>
+					</item>
+					
+					<!-- quit button -->
+					<item type="rect" id="disconnect_button" button="true">
+                        <show modes="flexi,remote"/>
+                        <pos anchor="nw" width="70" height="60"/>
+                        <box orientation="vertical" spacing="5">
+
+                            <!-- button image -->
+                            <item type="pixmap">
+                                <normal file="quitter1.png"/>
+				<prelight file="quitter3.png"/>
+                                <active file="quitter2.png"/>
+                                <pos x="50%" anchor="n"/>
+                            </item>
+
+							<!-- button text-label -->
+                            <item type="label">
+                                <pos x="50%" anchor="n"/>
+                                <normal font="Sans 8" color="#000000"/>
+                                <stock type="disconnect"/>
+								<show modes="remote"/>
+                            </item>
+							<item type="label">
+								<pos x="50%" anchor="n"/>
+                                <normal font="Sans 8" color="#000000"/>
+								<stock type="quit"/>
+								<show modes="flexi"/>
+							</item>
+                        </box>
+                    </item>
+				</box>
+			</item> 
+		</fixed>
+	</item>
+</greeter>

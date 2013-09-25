@@ -1,0 +1,8 @@
+[GdmGreeterTheme]
+Encoding=UTF-8
+Greeter=theme.xml
+Name=Linux Mint
+Description=Based on Mariano Viola's Greeter.
+Author=Linux Mint
+Copyright=GPL
+Screenshot=thumbnail.png

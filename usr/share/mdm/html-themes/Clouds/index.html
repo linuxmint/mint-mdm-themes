@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>	
+
+		<style type="text/css">
+
+			body {
+				background-color: #326696;
+				margin: 0px;
+				overflow: hidden;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+				font-weight: bold;
+				text-align:center;
+			}
+
+			a {
+				color:#0078ff;
+			}
+
+		</style>
+
+	<script src="js/bootstrap.min.js"></script>	
+	<script src="js/jquery-1.9.1.min.js"></script>	
+	
+	<!-- bootbox code -->
+	<script src="js/bootbox.min.js"></script>
+
+	<script src="js/mousetrap.min.js"></script>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">	
+	<link href="theme.css" rel="stylesheet" media="screen">					
+
+</head>
+<body>	 	 	
+		<script type="text/javascript" src="js/three.min.js"></script>
+		
+
+		<script>	
+			
+		var selected_row = -1;
+	
+		// Called by MDM to disable user input
+		function mdm_disable() {
+			document.getElementById("entry").value = "disabled";
+			document.getElementById("entry").disabled = "disabled";
+			document.getElementById("ok_button").disabled = "disabled";
+		}
+		
+		// Called by MDM to enable user input
+		function mdm_enable() {
+			document.getElementById("entry").value = "";
+			document.getElementById("entry").disabled = false;
+			document.getElementById("ok_button").disabled = false;
+		}
+		
+		// Called by MDM to set the welcome message
+		function set_welcome_message(message) {			
+			document.getElementById("welcome_message").innerHTML = message;
+		}
+		
+		// Called by MDM to update the clock
+		function set_clock(message) {			
+			document.getElementById("clock").innerHTML = message;
+		}
+		
+		// Called by MDM to allow the user to input a username		
+		function mdm_prompt(message) {	
+			mdm_enable();		
+			document.getElementById("label").innerHTML = message;
+			document.getElementById("entry").value = "";
+			document.getElementById("entry").type = "text";
+			document.getElementById("entry").focus();
+		}
+		
+		// Called by MDM to allow the user to input a password
+		function mdm_noecho(message) {	
+			mdm_enable();		
+			document.getElementById("label").innerHTML = message;
+			document.getElementById("entry").value = "";
+			document.getElementById("entry").type = "password";
+			document.getElementById("entry").focus();
+		}
+		
+		// Called by MDM to show a message (usually "Please enter your username")
+		function mdm_msg(message) {			
+			document.getElementById("message").innerHTML = message;			
+		}
+		
+		// Called by MDM to show a timed login countdown
+		function mdm_timed(message) {
+			if (message != "") {
+				document.getElementById("timed").style.display = 'block';
+			}
+			else {
+				document.getElementById("timed").style.display = 'none';
+			}			
+			document.getElementById("timed").innerHTML = message;			
+		}
+		
+		// Called by MDM to show an error		
+		function mdm_error(message) {						
+			if (message != "") {
+				document.getElementById("error").style.display = 'block';
+			}
+			else {
+				document.getElementById("error").style.display = 'none';
+			}
+			document.getElementById("error").innerHTML = message;
+		}	
+						
+		// Send user input to MDM
+		function send_login() {
+			// read the value before we disable the field, as it will be changed to "disabled"
+			var value = document.getElementById("entry").value;
+			mdm_disable(); 
+			alert("LOGIN###" + value);
+			return false;
+		}
+		
+		function init() {
+			document.getElementById("error").style.display = 'none';			
+			document.getElementById("timed").style.display = 'none';			
+			document.getElementById("current_session_picture").width = 16;				
+		}
+		
+		// Called by MDM to add a user to the list of users
+		function mdm_add_user(username, gecos, status) {
+											
+			var link1 = document.createElement('a');	
+				link1.setAttribute('href', "javascript:alert('USER###"+username+"')");
+
+			var link2 = document.createElement('a');	
+				link2.setAttribute('href', "javascript:alert('USER###"+username+"')");
+				
+			var picture = document.createElement('img');
+				picture.setAttribute('class', "user-picture");
+				picture.setAttribute('src', "file:///home/"+username+"/.face");
+				picture.setAttribute('onerror', "this.src='file:///usr/share/pixmaps/nobody.png';");
+				
+			var realname_div = document.createElement('div');
+				realname_div.setAttribute('class', "usergecos");
+				realname_div.innerHTML = gecos;
+				
+			var username_div = document.createElement('div');
+				username_div.setAttribute('class', "username");
+				username_div.innerHTML = username;
+
+			if (status != "") {
+				var userstatus_div = document.createElement('div');
+				userstatus_div.setAttribute('class', "userstatus");
+				userstatus_div.innerHTML = status;
+			}
+																																			
+			link1.appendChild(picture);														
+			
+			if (gecos != "") {
+				link2.appendChild(realname_div);	
+			}
+			else {
+				link2.appendChild(username_div);	
+			}
+						
+			if (status != "") {
+				link2.appendChild(userstatus_div);	
+			}
+						
+			var table = document.getElementById("users");
+ 
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+          	row.username = username;          	
+ 
+            var cell1 = row.insertCell(0);           
+            cell1.width = "50px";
+            cell1.appendChild(link1);                   			
+
+            var cell2 = row.insertCell(1);           
+            cell2.appendChild(link2);                   
+		}	
+		
+		// Called by MDM to add a session to the list of sessions
+		function mdm_add_session(session_name, session_file) {
+			
+			session_name = session_name.replace("Ubuntu", "Unity");
+			
+			var filename = session_name.toLowerCase();
+			filename = filename.replace(/ /g, "-");
+			filename = filename.replace(/\(/g, "");
+			filename = filename.replace(/\)/g, "");
+													
+			var link1 = document.createElement('a');	
+				link1.setAttribute('href', "javascript:alert('SESSION###"+session_name+"###"+session_file+"');select_session('"+session_name+"','"+session_file+"');");
+
+			var link2 = document.createElement('a');	
+				link2.setAttribute('href', "javascript:alert('SESSION###"+session_name+"###"+session_file+"');select_session('"+session_name+"','"+session_file+"');");
+				
+			var picture = document.createElement('img');
+				picture.setAttribute('class', "session-picture");
+				picture.setAttribute('src', "../common/img/sessions/"+filename+".svg");
+				picture.setAttribute('onerror', "this.src='../common/img/sessions/default.svg';");
+							
+			var name_div = document.createTextNode(session_name);				
+																																			
+			link1.appendChild(picture);
+			link2.appendChild(name_div);
+				
+			var table = document.getElementById("sessions");
+ 
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+ 
+            var cell1 = row.insertCell(0); 
+            cell1.width = "28px";          
+            cell1.appendChild(link1);
+          
+            var cell2 = row.insertCell(1);           
+            cell2.appendChild(link2);
+		}	
+
+		function select_session(session_name, session_file) {
+			var filename = session_name.toLowerCase();
+			filename = filename.replace(/ /g, "-");
+			filename = filename.replace(/\(/g, "");
+			filename = filename.replace(/\)/g, "");
+			document.getElementById("current_session_picture").src = "../common/img/sessions/"+filename+".svg";
+			document.getElementById("current_session_picture").title = session_name;
+			document.getElementById("current_session_picture").width = 16;
+			$('#sessionSelection').modal('hide');
+		}
+
+		// Called by MDM to add a language to the list of languages
+		function mdm_add_language(language_name, language_code) {
+
+			var filename = language_code.toLowerCase();
+			filename = filename.replace(".utf-8", "");
+			bits = filename.split("_");
+			if (bits.length == 2) {
+				filename = bits[1];																	
+			}			
+				
+			var link1 = document.createElement('a');	
+				link1.setAttribute('href', "javascript:alert('LANGUAGE###"+language_code+"')");
+
+			var link2 = document.createElement('a');	
+				link2.setAttribute('href', "javascript:alert('LANGUAGE###"+language_code+"')");
+
+			var picture = document.createElement('img');
+				picture.setAttribute('class', "language-picture");
+				picture.setAttribute('src', "../common/img/languages/"+filename+".png");
+				picture.setAttribute('onerror', "this.src='../common/img/languages/generic.png';");
+				picture.setAttribute('title', language_name);				
+											
+			var name_div = document.createTextNode(language_name);				
+																																			
+			link1.appendChild(picture);		
+			link2.appendChild(name_div);							
+
+			var table = document.getElementById("languages");
+ 
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount); 
+            
+            var cell1 = row.insertCell(0);  
+            cell1.width = "25px";         
+            cell1.appendChild(link1);
+            
+            var cell2 = row.insertCell(1);           
+            cell2.appendChild(link2);
+
+		}	
+
+		function mdm_set_current_language(language_name, language_code)	{
+			var filename = language_code.toLowerCase();
+			filename = filename.replace(".utf-8", "");
+			bits = filename.split("_");
+			if (bits.length == 2) {
+				filename = bits[1];																	
+			}
+			document.getElementById("current_language_flag").src = "../common/img/languages/"+filename+".png";			
+			document.getElementById("current_language_flag").title = language_name;
+			document.getElementById("current_language_flag").width = 16;
+		}
+		
+		// Called by MDM if the SHUTDOWN command shouldn't appear in the greeter
+		function mdm_hide_shutdown() {
+			document.getElementById("shutdown").style.display = 'none';
+		}	
+		
+		// Called by MDM if the SUSPEND command shouldn't appear in the greeter
+		function mdm_hide_suspend() {
+			document.getElementById("suspend").style.display = 'none';
+		}
+		
+		// Called by MDM if the RESTART command shouldn't appear in the greeter
+		function mdm_hide_restart() {
+			document.getElementById("restart").style.display = 'none';
+		}
+		
+		// Called by MDM if the QUIT command shouldn't appear in the greeter
+		function mdm_hide_quit() {
+			document.getElementById("quit").style.display = 'none';
+		}
+		
+		// Called by MDM if the XDMCP command shouldn't appear in the greeter
+		function mdm_hide_xdmcp() {
+			document.getElementById("xdmcp").style.display = 'none';
+		}			
+		
+		function select_user(index) {					
+			var table = document.getElementById("users");
+			var rowCount = table.rows.length;
+			var row_to_select = index % rowCount;
+			if (row_to_select < 0) {
+				row_to_select = rowCount - 1;
+			}
+
+			for (var i = 0, row; row = table.rows[i]; i++) {				
+				row.style.backgroundColor = 'rgba(80,80,80,0.0)';
+			}
+
+			var row = table.rows[row_to_select];
+			row.style.backgroundColor = 'rgba(80,80,80,0.5)';     
+
+			selected_row = row_to_select;   
+
+			alert('USER###'+row.username);
+		}		
+
+		function quit_dialog() {			
+			bootbox.dialog("$areyousuretoquit", 
+			[
+				{
+					"label" : "<i class='icon-off'></i> $shutdown",
+					"class" : "btn btn-small",
+					"callback": function() {
+						alert('FORCE-SHUTDOWN###');
+					}
+				},
+
+				{
+					"label" : "<i class='icon-download-alt'></i> $suspend",
+					"class" : "btn btn-small",
+					"callback": function() {
+						alert('FORCE-SUSPEND###');
+					}
+				},
+
+				{
+					"label" : "<i class='icon-refresh'></i> $restart",
+					"class" : "btn btn-small",
+					"callback": function() {
+						alert('FORCE-RESTART###');
+					}
+				},
+
+				/*{
+					"label" : "<i class='icon-ban-circle'></i> $quit",
+					"class" : "btn btn-small",
+					"callback": function() {
+						alert('QUIT###');
+					}
+				}, 
+
+				{
+					"label" : "<i class='icon-share-alt'></i> $remoteloginviaxdmcp",
+					"class" : "btn btn-small",
+					"callback": function() {
+						alert('XDMCP###');
+					}
+				},*/ 
+
+				{
+					"label" : "Cancel",
+					"class" : "btn-small"
+				}
+			]);
+		}
+
+		
+	
+	</script>
+
+	 <!-- Language selector -->
+    <div id="languageSelection" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    	<div class="modal-header">
+    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+    		<h3 id="myModalLabel">$selectlanguage</h3>
+    	</div>
+    	<div class="modal-body">
+    		<table class="table-striped table-bordered table-hover table-condensed" id="languages"></table>
+    	</div>
+    	<div class="modal-footer">
+    		<button class="btn" data-dismiss="modal" aria-hidden="true">$close</button>    		
+    	</div>
+    </div>
+
+    <!-- Session selector -->
+    <div id="sessionSelection" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    	<div class="modal-header">
+    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+    		<h3 id="myModalLabel">$selectsession</h3>
+    	</div>
+    	<div class="modal-body">
+    		<table class="table-striped table-bordered table-hover table-condensed" id="sessions"></table>
+    	</div>
+    	<div class="modal-footer">
+    		<button class="btn" data-dismiss="modal" aria-hidden="true">$close</button>    		
+    	</div>
+    </div>
+    
+	<div class="box">
+
+		<div id="welcome_message"></div> 
+		<div id="clock"></div>
+
+		<div id="logo">
+			<img src="img/logo.png"/><br/><br/>
+			<p><b>Linux Mint 15 "Olivia"</b></p>
+		</div>
+
+		<div id="error" class="alert alert-error"></div>
+		<div id="timed" class="alert alert-info"></div>		
+								
+		<div id="table-wrapper">
+  			<div id="table-scroll">
+    			<table class="table-condensed" id="users">       
+    			</table>
+  			</div>
+		</div>
+		
+
+		<div id="buttons">
+			<a href="#languageSelection" role="button" class="btn btn-small" id="language_button" data-toggle="modal" title="$selectlanguage"><img src="../common/img/languages/generic.png" height="16" id="current_language_flag"/></a>
+
+			<a href="#sessionSelection" role="button" class="btn btn-small" id="session_button" data-toggle="modal" title="$selectsession"><img src="../common/img/sessions/default.svg" height="16" id="current_session_picture"/></a>
+
+			<a class="btn btn-small" href="#" onClick="quit_dialog();" title="$quit" id="quit_button"><i class="icon-off"></i></a>			
+
+		</div>																						
+		
+		<div id="message"></div>
+		
+		
+		<div id="form">
+			<img src="img/text.png" width="300" height="350" id="text_img"/>
+			<form class="form-inline" onSubmit="return send_login();">
+				<fieldset>			
+					<label id="label"></label>
+					<input type="text" class="input-medium mousetrap" id="entry">
+					<button type="submit" class="btn-small btn-inverse" id="ok_button">$ok_label</button>
+				</fieldset>
+			</form>
+		</div>
+
+	</div>		
+	
+</body>
+</html>
+
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+	init();
+
+	Mousetrap.bind('up', function() {		
+    	select_user(selected_row - 1);
+	});
+
+	Mousetrap.bind('down', function() {
+    	select_user(selected_row + 1);
+	});
+
+	Mousetrap.bind('ctrl+l', function() {
+    	$('#languageSelection').modal('show');
+	});
+
+	Mousetrap.bind('ctrl+s', function() {
+    	$('#sessionSelection').modal('show');
+	});
+
+	Mousetrap.bind('esc', function() {
+    	quit_dialog();
+	});
+
+	Mousetrap.bind('tab', function() {
+    	document.getElementById("entry").focus();
+	});
+</script>
+
+    
+
+    
+     

@@ -1,0 +1,437 @@
+body { 
+	background: url(img/artwork/bg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.bggrad{
+     background:url('img/artwork/grad.png')no-repeat center center fixed;
+     background-size: 100% 100%;
+     background-repeat:no-repeat;
+     position: fixed;
+     top: 0px;
+	 left: 0%;
+	 width: 100%;
+	 height: 100%;
+	 z-index: -1;
+}
+
+.box {	
+    background-image:url('img/artwork/loginbg.png');
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+	color: #dedede;
+	position: fixed;
+	bottom: 22px;
+	left: 50%;
+	/*margin-bottom: 40px;*/
+	margin-left: -200px;	
+	/*background-color:rgba(80,80,80,0.9);*/
+	border-radius:5px;
+	border:2px #d0af70 solid;
+	padding:10px;
+	width: 400px;
+	height: 80px;
+	font-size:13px;	
+	text-shadow: 1px 1px 1px #000;	
+	text-align:center;
+	overflow:hidden;
+	z-index: 2;		
+}
+.loginholder{
+    background-image:url('img/artwork/loginholder.png');
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    position: fixed;
+	bottom:0%;
+	left:50%;
+	margin-left:-258px;
+	width:540px;
+    height:123px;
+    z-index: 1;
+}
+.lefttop{
+    background-image:url('img/artwork/lefttop.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	top:0%;
+	left:0%;
+	width:250px;
+    height:500px;
+    z-index: -1;
+}
+.righttop{
+    background-image:url('img/artwork/righttop.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	top:0%;
+	right:0%;
+	width:377px;
+    height:500px;
+    z-index: -1;
+}
+.linuxmint{
+    background-image:url('img/artwork/linuxmint.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	top:60%;
+	left:50%;
+	margin-top: -64px;
+	margin-left: -200px;
+	width:400px;
+    height:128px;
+    z-index: 1;
+}
+.alertholders{
+    position: fixed;
+	bottom: 140px;
+	left:50%;
+	font-size:13px;	
+	text-shadow: 1px 1px 1px #000;	
+	text-align:center;
+	overflow:hidden;	
+}
+.dropdownbox1{
+    position: fixed;
+	text-align: left;
+	margin-top: 60px;
+	margin-left: 0px;
+	left:0;	
+}
+.dropdownbox2{
+    position: fixed;
+	text-align: left;
+	margin-top: 20px;
+	margin-left: 0px;
+	left:0;	
+}
+.sidebar{
+    background-image:url('img/artwork/sidebar.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	top:0px;
+	right:0px;
+	width:350px;
+    height:350px;
+    z-index: -1;
+}
+.leftsidebar{
+    background-image:url('img/artwork/leftsidebar.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	bottom:0px;
+	left:0px;
+	width:300px;
+    height:300px;
+}
+.but1{
+    background-image:url('img/artwork/buthold.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	text-align: center;
+	top:3px;
+	right:45px;
+	width:50px;
+    height:50px;
+    padding-top:12px;
+}
+.but1:hover{
+    background-image:url('img/artwork/butholdhover.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	text-align: center;
+	top:3px;
+	right:45px;
+	width:50px;
+    height:50px;
+    padding-top:12px;
+}
+.but2{
+    background-image:url('img/artwork/buthold.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	text-align: center;
+	top:45px;
+	right:3px;
+	width:50px;
+    height:50px;
+    padding-top:12px;
+}
+.but2:hover{
+    background-image:url('img/artwork/butholdhover.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	text-align: center;
+	top:45px;
+	right:3px;
+	width:50px;
+    height:50px;
+    padding-top:12px;
+}
+.but3{
+    background-image:url('img/artwork/buthold.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	text-align: center;
+	top:10px;
+	right:138px;
+	width:50px;
+    height:50px;
+    padding-top:12px;
+}
+.but3:hover{
+    background-image:url('img/artwork/butholdhover.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	text-align: center;
+	top:10px;
+	right:138px;
+	width:50px;
+    height:50px;
+    padding-top:12px;
+}
+.but4{
+    background-image:url('img/artwork/buthold.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	text-align: center;
+	top:65px;
+	right:66px;
+	width:50px;
+    height:50px;
+    padding-top:12px;
+}
+.but4:hover{
+    background-image:url('img/artwork/butholdhover.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	text-align: center;
+	top:65px;
+	right:66px;
+	width:50px;
+    height:50px;
+    padding-top:12px;
+}
+.but5{
+    background-image:url('img/artwork/buthold.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	text-align: center;
+	top:138px;
+	right:10px;
+	width:50px;
+    height:50px;
+    padding-top:12px;
+}
+.but5:hover{
+    background-image:url('img/artwork/butholdhover.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	text-align: center;
+	top:138px;
+	right:10px;
+	width:50px;
+    height:50px;
+    padding-top:12px;
+}
+.leftbar{
+    background-image:url('img/artwork/leftbar.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    position: fixed;
+	top:0;
+	left:0;
+	width:150px;
+    height:300px;
+}
+
+.buttons {	
+	position: relative;
+	text-align: center;
+	margin-top: 10px;		
+}
+.userholder{
+    position: fixed;
+	text-align: center;
+	margin-top: 10px;
+	z-index:200;
+}
+.user-picture {
+    background-color: #23201B;
+	border-radius: 5px;
+	border:2px rgba(35,32,27,0.9) solid;
+	width: 64px;
+	height: 64px;
+    z-index:200;	
+	/*-webkit-transition: all .6s ease-in-out;*/
+	 -webkit-transition: all 400ms linear;
+     -moz-transition: all 400ms linear;
+     -o-transition: all 400ms linear;
+     transition: all 400ms linear;
+}
+
+.session-picture {
+	border-radius: 5px;
+	border:2px rgba(80,80,80,0.5) solid;
+	width: 20px;
+	height: 20px;	
+	margin-right: 5px;
+	margin-left: 5px;	
+}
+
+.language-picture {
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.user-info {	 
+     background-image:url('img/artwork/userbg.png');
+     background-size: 100% 100%;
+     background-repeat:no-repeat;
+     /*background: rgba(80,80,80,0.5);*/
+     display:inline-block; 
+     *display: inline;
+	 margin-right: 20px;
+	 margin-top: 2%;
+     font-size:10px;	
+	 text-shadow: 1px 1px 1px #000;	
+     border-radius:5px;
+	 border:2px #a5a5a5 solid;
+     padding-top:2px;
+     padding-bottom:5px;
+     padding-right:10px;
+     padding-left:10px;
+     vertical-align: top;	
+     z-index:200;
+}
+
+.user-info:hover{
+     background-image:url('img/artwork/userbghover.png');
+     background-size: 100% 100%;
+     background-repeat:no-repeat;
+	 z-index:200;
+}
+
+.user-info:hover img{
+    
+}
+
+.username {
+	font-style: italic;	
+}
+
+.usergecos {
+	font-weight:bold;
+}
+
+.userstatus {
+	font-style: italic;
+	font-size: 10px;	
+}
+
+.highlight-border img{
+	/*-webkit-transition: all .6s ease-in-out;*/
+	 -webkit-transition: all 400ms linear;
+    -moz-transition: all 400ms linear;
+    -o-transition: all 400ms linear;
+    -ms-transition: all 400ms linear;
+    transition: all 400ms linear;
+     border:2px #23201B solid;   
+}
+
+.highlight-border:hover img{
+	/*-webkit-transition: all .6s ease-in-out;*/
+	 -webkit-transition: all 400ms linear;
+    -moz-transition: all 400ms linear;
+    -o-transition: all 400ms linear;
+    -ms-transition: all 400ms linear;
+    transition: all 400ms linear;
+	border:2px #d0af70 solid;
+	
+}
+
+/*TILT*/
+.tilt img{
+  /*-webkit-transition: all 0.2s ease-in-out;*/
+   -webkit-transition: all 400ms linear;
+    -moz-transition: all 400ms linear;
+    -o-transition: all 400ms linear;
+    -ms-transition: all 400ms linear;
+    transition: all 400ms linear; 
+    border:2px #23201B solid;    
+}
+ 
+.tilt:hover img{
+  /*-webkit-transform: rotate(-3deg);  */
+  -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg); 
+        
+}
+
+a {color:#dedede;text-decoration:none;}      /* unvisited link */
+a:hover {color:#ffffff;text-decoration:none;}  /* mouse over link */
+
+/*clock*/
+
+.start {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 5em;
+    text-align: center;
+    z-index:1;
+}
+#clocks {
+    background-image: url("img/artwork/clockFace.png");
+    bottom: 6px;
+    left: 6px;
+    height: 200px;
+    width: 200px;
+    position: fixed;
+    z-index:1;
+}
+
+#clocks div {
+    position: absolute;
+}
+#clocks img[src*="second"] {
+    -webkit-transition: transform 600000s linear 0s;
+}
+#clocks:target img[src*="second"] {
+    -webkit-transform: rotate(3600000deg);
+}
+#clocks img[src*="minute"] {
+    -webkit-transition: transform 360000s linear 0s;
+}
+#clocks:target img[src*="minute"] {
+    -webkit-transform: rotate(36000deg);
+}
+#clocks img[src*="hour"] {
+    -webkit-transition: transform 216000s linear 0s;
+}
+#clocks:target img[src*="hour"] {
+    -webkit-transform: rotate(360deg);
+}
+
+
+

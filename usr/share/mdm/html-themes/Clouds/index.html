@@ -33,9 +33,9 @@
 	<link href="theme.css" rel="stylesheet" media="screen">					
 
 </head>
-<body>	 	 	
+<body>
+
 		<script type="text/javascript" src="js/three.min.js"></script>
-		
 
 		<script>	
 			
@@ -115,7 +115,7 @@
 		function send_login() {
 			// read the value before we disable the field, as it will be changed to "disabled"
 			var value = document.getElementById("entry").value;
-			mdm_disable(); 
+			mdm_disable();
 			alert("LOGIN###" + value);
 			return false;
 		}
@@ -416,6 +416,8 @@
     		<button class="btn" data-dismiss="modal" aria-hidden="true">$close</button>    		
     	</div>
     </div>
+
+    <div id="background" class="background">&nbsp;</div>
     
 	<div class="box">
 
@@ -492,7 +494,14 @@
 
 	Mousetrap.bind('tab', function() {
     	document.getElementById("entry").focus();
-	});
+	});	
+
+	$(document).ready(function() {
+		document.getElementById("entry").focus();
+        $("body").css("display", "none");
+        $("body").delay(2000).fadeIn(2000);
+    });
+
 </script>
 
     

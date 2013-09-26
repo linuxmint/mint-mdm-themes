@@ -44,12 +44,13 @@ body {
 #welcome_message {
 	position:absolute;
 	margin-left: 42px;
-	margin-top: 38px;	    
+	margin-top: 38px;
 }
 
 #clock {
 	position:absolute;
-	margin-left: 473px;
+	width: 94%;
+	text-align: right;
 	margin-top: 38px;	    
 }
 

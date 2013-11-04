@@ -167,14 +167,14 @@ body {
 
 #current_session_picture {
 	position: absolute;
-	margin-top: 10px;
-	margin-left: 376px;
+	top: 10px;
+	left: 376px;
 }
 
 #current_language_flag {
 	position: absolute;
-	margin-top: 10px;
-	margin-left: 346px;
+	top: 10px;
+	left: 346px;
 	color: #999;
 }
 
@@ -183,9 +183,9 @@ body {
 }
 
 #selected_avatar {
-	position: absolute;
-	margin-left: 13px;
-	margin-top: 13px;
+	position:absolute;
+	left: 13px;
+	top: 13px;	
 	width: 96px;
 	height: 96px;
 	border: 1px solid #999;

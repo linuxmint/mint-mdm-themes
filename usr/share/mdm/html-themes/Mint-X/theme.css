@@ -23,6 +23,10 @@ body {
 	
 }
 
+a:focus {
+    outline: 0px solid black!important;
+}
+
 .background {
 	position: fixed;
 	width: 100%;

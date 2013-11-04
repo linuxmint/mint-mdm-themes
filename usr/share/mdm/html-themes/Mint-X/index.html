@@ -36,6 +36,7 @@
 </head>
 <body>
 
+
 		<script>	
 			
 		var selected_user = -1;
@@ -57,7 +58,7 @@
 		
 		// Called by MDM to set the welcome message
 		function set_welcome_message(message) {			
-			document.getElementById("welcome_message").innerHTML = message;
+			//document.getElementById("welcome_message").innerHTML = message;
 		}
 		
 		// Called by MDM to update the clock
@@ -380,8 +381,12 @@
 
    
 
-    <div id="background" class="background">&nbsp;</div>
-
+    <div id="background" class="background">
+    <div id="panel">
+		<div id="lsb"><img src="img/logo.png"/><br/>$lsb_description</div>
+		<div id="clock"></div>
+	</div>
+	</div>
 	<div id="left_box">
 				<div id="top_box">
 					<div id="top_inner_box">
@@ -414,7 +419,7 @@
 								<p>
 									<table class="table-striped table-hover table-condensed" id="languages"></table>
 									</p>
-							</div>
+							</div>							
 						</div>					
 				</div>
 
@@ -427,14 +432,11 @@
 		<div id="quit" onClick="quit_dialog();"><span class="glyphicon glyphicon-off"></span></div>
 		<div id="error" class="alert alert-error"></div>
 		<div id="timed" class="alert alert-info"></div>
+				
+		<!-- <div id="welcome_message"></div>  -->
+		
 	</div>
-
-	<div id="panel">
-		<img src="img/logo.png" id="logo"/>
-		<div id="lsb">$lsb_description</div>
-		<div id="welcome_message"></div> 
-		<div id="clock"></div>			
-	</div>
+		
 
 </body>
 </html>

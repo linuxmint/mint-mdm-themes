@@ -1,0 +1,250 @@
+body {
+	font-family: 'Droid Serif', sans-serif;
+	background: url('bg.jpg') no-repeat center center fixed;
+	background-size: cover !important;
+}
+
+#users {
+	position: absolute;
+	left: 40px;
+	bottom: 61px;
+}
+
+#commands {
+	position: absolute;
+	left: 40px;
+	bottom: 19px;
+	margin: 0;
+	background: rgba(0,0,0, 0.3);
+	border-radius: 10px;
+	padding: 7px 5px 7px 15px;
+	list-style: none;
+}
+
+#commands li {
+	float: left;
+	margin-right: 10px;
+}
+
+.user {
+	margin-top: 10px;
+	padding: 15px;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	border: 1px rgba(30, 30, 30, 0.5) solid;
+	border-radius: 10px;
+	width: 210px;
+	text-decoration: none;
+	min-height: 45px;
+}
+
+.activated {
+	background: rgba(0, 0, 0, 0.85) !important;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.user img {
+	float: left;
+}
+
+.user div {
+	margin-left: 60px;
+	margin-bottom: 3px;
+}
+
+.user div.pass_div {
+	display: none;
+	margin: 0 auto;
+	clear: both;
+}
+
+.user .password {
+	border: 0;
+	background: rgba(0, 0, 0, 0.8);
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 13px;
+	margin: 5px 0;
+	width: 155px;
+	padding: 5px 2px;
+	line-height: 20px;
+	color: #fff;
+}
+
+.user button {
+	background: rgba(0, 0, 0, 0.8);
+	line-height: 20px;
+	font-family: 'Droid Sans', sans-serif;
+	padding: 5px 15px;
+	margin: 0 0 0 3px;
+	color: #fff;
+	font-weight: bold;
+	border: 0;
+}
+
+.user button:hover {
+	background: rgba(40, 40, 220, 1);
+	cursor: pointer;
+}
+
+.user .user_mssg {
+	clear: both;
+}
+
+.user a {
+	text-decoration: none;
+}
+
+.user div.usergecos, .user div.usergecos a {
+	font-size: 16px;
+}
+
+.user div.username, .user div.username a {
+	font-size: 9px;
+}
+
+div#status {
+	font-family: 'Droid Sans', sans-serif;
+	position: absolute;
+	bottom: 5px;
+	color: #eee;
+	font-weight: bold;
+	right: 20px;
+	font-size: 13px;
+}
+
+p#error {
+	position: absolute;
+	font-family: 'Droid Sans';
+	font-weight: bold;
+	font-size: 14px;
+	top: 15px;
+	left: 50%;
+	display: block;
+	padding: 15px;
+	background: rgba(0, 0, 0, 0.5);
+	border: 1px rgba(30, 30, 30, 0.5) solid;
+	border-radius: 10px;	
+	margin-left: -25%;
+	width: 50%;
+	text-align: center;
+	color: rgba(250, 40, 40, 0.9);
+}
+
+
+/* ICON MAPPINGS */
+
+
+ul#commands li a {	
+	display: block;
+	opacity: 0.5;
+	height: 20px;
+	width: 20px;
+}
+
+ul#commands li {
+}
+
+ul#commands li a:hover {
+	opacity: 1;
+}
+
+ul#commands li.icon a {
+	background: url("img/glyphicons-halflings-white.png") no-repeat;
+}
+
+a.icon-ban-circle {
+	background-position: -213px -94px !important;
+}
+
+a.icon-off {
+    background-position: -381px 2px !important;
+}
+
+a.icon-download-alt {
+    background-position: -93px -22px !important;
+}
+
+a.icon-refresh {
+    background-position: -237px -22px !important;
+}
+
+a.icon-share-alt {
+    background-position: -333px -94px !important;
+}
+
+
+
+/* LANGUAGES */
+ul#languages, ul#sessions {
+	border: 1px rgba(30, 30, 30, 0.5) solid;
+	background: rgba(0,0,0,0.85);
+	width: 50%;
+	margin: -15% 25% 25% -25%;
+	height: 50%;
+	display: none;
+	position: absolute;
+	left: 50%;
+	overflow: auto;
+	top: 30%;
+	border-radius: 8px;
+	padding: 10px;
+}
+
+ul#languages li {
+	float: left;
+	width: 200px;
+	height: 40px;
+	list-style: none;
+	font-size: 13px;
+}
+
+ul#languages img, ul#sessions img {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+ul#languages li a, ul#sessions li a {
+	color: #fff;
+	display: table;
+	padding: 10px;
+	text-decoration: none;
+	width: 180px;
+}
+
+ul#languages li a:hover, ul#sessions li a:hover {
+	background: rgba(40, 40, 220, 1);
+}
+
+ul#languages img, ul#languages div {
+	display: table-cell;
+	height: 20px;
+	vertical-align: middle;
+}
+
+ul#languages img {
+	width: 20px;
+}
+
+ul#languages div {
+	text-align: left;
+	width: 154px;
+	padding-left: 6px;
+}
+
+
+/* SESSIONS */
+
+ul#sessions li {
+	list-style: none;
+	margin: 0;
+	font-size: 16px;
+}
+
+ul#sessions li a {
+	display: block;
+	padding: 10px;
+	width: auto;
+}

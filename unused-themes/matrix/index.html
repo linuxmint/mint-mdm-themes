@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>		
+	<link href="theme.css" rel="stylesheet" media="screen">
+	<script src="jquery-1.9.1.min.js" type='text/javascript'></script>	
+	<script type='text/javascript'>
+
+
+	// The size of the cells, in pixels. Larger cell size = bigger text, fewer characters. Smaller cell size = more characters,
+	//    but at the expense of speed. Find one that works for you.
+	var cellSize = 17;
+
+	// The number of milliseconds between 'updates', eg, sliding down. Lower is faster but uses more cpu.
+	var updateRate = 70;
+
+	// The min and max character codes
+	var charMin = 33;
+	var charMax = 800;
+
+	// The speed to type
+	var typeSpeed = 150;
+
+
+	// Global variables
+	var numCols, numRows, pageFontSize, pos, updateInterval;
+	var firstCall = true;
+
+	// This function simulates the typing effect and calls itself recursively.
+	function addCharacter(fulltext, charIndex, target, callbackfunc) {
+		var delay_amt = typeSpeed*Math.random();
+		window.setTimeout(function() {
+			$(target).append(fulltext[charIndex]);
+			if (charIndex + 1 < fulltext.length) {
+				addCharacter(fulltext, charIndex+1, target, callbackfunc);
+			} else {
+				if (typeof callbackfunc == 'function') callbackfunc();
+			}
+		}, delay_amt);
+	}
+
+	// For toggling the opacity of elements.
+	function changeOpacity(opacity, increment) {
+		opacity += increment;
+		if (opacity < 0) {
+			opacity = 0;
+			window.clearInterval(updateInterval);
+		}
+		if (opacity > 1) opacity = 1;
+		$('#bg_letters').css('opacity', opacity);
+		$('#login').css('opacity', opacity);
+		if (opacity > 0 && opacity < 1) {
+			window.setTimeout(function() {
+				changeOpacity(opacity, increment);
+			}, 60);
+		}
+
+	}
+
+	// Create the password input, after submitting the user input
+	function passwordInput() {
+		$('#input_box').css('display', 'inline-block');
+		$('#input_box').attr('type', 'password');
+		$('#input_box').focus();
+		$('#input_box').keyup(function(e) {
+			if (e.which == 13) {
+				alert('LOGIN###' + $('#input_box').val());
+				$('#input_box').css('display', 'none');
+				$('#input_box').val('');
+				$('#text').html('');
+				$('#input_box').unbind('keyup');
+				addCharacter('Username:', 0, '#text', usernameInput);
+				return false;
+			}				
+		});
+	}
+
+	// Create the username input box
+	function usernameInput() {
+		$('#input_box').css({fontSize: pageFontSize + 'px', display: 'inline-block'});
+		$('#input_box').attr('type', 'text');
+		$('#input_box').focus();
+		$('#input_box').keyup(function(e) {
+			if (e.which == 13) {
+				alert('USER###' + $('#input_box').val());
+				$('#input_box').css('display', 'none');
+				$('#input_box').val('');
+				$('#text').html('');
+				addCharacter('Password:', 0, '#text', passwordInput);
+				$('#input_box').unbind('keyup');
+				return false;
+			}				
+		});
+	}	
+
+	// Shift each div's background by the cell size.
+	function stepDivs() {
+		$('.matrix_img').each(function() {
+			var currentPos = parseInt($(this).css('background-position').replace('0px ', '').replace('px'));
+			currentPos += cellSize;
+			$(this).css('background-position', '0px ' + currentPos + 'px');
+		});
+	}
+
+
+	// General function which creates the matrix effect. Gets called when the page is properly loaded.
+	function createMatrix() {
+
+		// determine number of columns and rows for the table based on the provided cell size.
+		numCols = Math.floor($(document).width() / cellSize);
+		numRows = Math.floor($(document).height() / cellSize) - 1;
+
+		// Populate cells with random text. Build one row at a time.
+		for (var y = 0; y < numRows; y++) {
+			var html = '';
+			for (var x = 0; x < numCols; x++) {
+				html = html + '<td>' + String.fromCharCode(Math.floor(charMin + (charMax-charMin)*Math.random())) + '</td>';
+			}
+			$('#bg_letters').append('<tr>' + html + '</tr>');
+		}
+	
+		// Set width, height, and font-size based on cell size. Set the position of the settings div
+		pageFontSize = Math.floor(cellSize*0.85);
+		$('#bg_letters td').css({width: cellSize + 'px', height: cellSize + 'px', fontSize: pageFontSize + 'px'});
+		pos = $('#bg_letters').position();
+		$('#button').css({
+			top: pos.top + (numRows - 1)*cellSize + 'px',
+			left: pos.left + 'px',
+			display: 'block',
+			fontSize: pageFontSize + 'px',
+			width: cellSize + 'px'});
+
+		// Overlay some DIVs with the proper background.
+		var divHeight = cellSize*100;
+		for (var x = 0; x < numCols; x++) {
+			$('#moving_divs').append('<div class="matrix_img" id="matrix_img_' + x + '"></div>');
+			var randOffset = cellSize*(Math.floor(3*numRows*(Math.random() - 0.5))) - divHeight;
+			$('#matrix_img_' + x).css({backgroundPosition: '0px ' + randOffset + 'px', left: (pos.left + cellSize*x) + 'px', top: pos.top + 'px'});
+		}
+		$('.matrix_img').css({width: cellSize + 'px', height: divHeight + 'px', backgroundSize: '100% 100%'});
+
+
+		// Create the timer for moving the divs.
+		updateInterval = window.setInterval(stepDivs, updateRate);
+
+		$('#login').css({
+			fontSize: pageFontSize + 'px',
+			top: (Math.floor(numRows/2)*cellSize + pos.top) + 'px',
+			left: (Math.floor(numCols/2.75)*cellSize + pos.left) + 'px'});
+
+		addCharacter('Username:', 0, '#text', usernameInput);	
+
+	}
+
+
+
+		// Called by MDM to disable user input
+		function mdm_disable() {
+		}
+		
+		// Called by MDM to enable user input
+		function mdm_enable() {
+			if (firstCall) {
+				firstCall = false;
+				createMatrix();
+			}
+		}
+		
+		// Called by MDM to set the welcome message
+		function set_welcome_message(message) {
+		}
+		
+		// Called by MDM to update the clock
+		function set_clock(message) {			
+			//document.getElementById("clock").innerHTML = message;
+		}
+		
+		// Called by MDM to allow the user to input a username		
+		function mdm_prompt(message) {	
+			mdm_enable();
+		}
+		
+		// Called by MDM to allow the user to input a password
+		function mdm_noecho(message) {	
+			mdm_enable();		
+		}
+		
+		// Called by MDM to show a message (usually "Please enter your username")
+		function mdm_msg(message) {			
+//			document.getElementById("error").innerHTML = message;			
+		}
+		
+		// Called by MDM to show a timed login countdown
+		function mdm_timed(message) {			
+//			document.getElementById("error").innerHTML = message;			
+		}
+		
+		// Called by MDM to show an error		
+		function mdm_error(message) {
+			if (message.length < 2) {
+				$('#error').css('display', 'none');
+			} else {
+				$('#error').css('display', 'block');
+				$('#error').html(message);
+			}						
+		}	
+						
+
+		
+		// Called by MDM to add a user to the list of users
+		function mdm_add_user(username, gecos, status) {
+		}	
+		
+		// Called by MDM to add a session to the list of sessions
+		function mdm_add_session(session_name, session_file) {
+							
+			var li = document.createElement('li');	
+				
+			var link = document.createElement('a');	
+				link.setAttribute('href', "javascript:alert('SESSION###"+session_name+"###"+session_file+"');");
+				link.addEventListener('click', toggleSessionBox, 'true');
+										
+																																
+			li.appendChild(link);
+			link.appendChild(document.createTextNode(session_name));
+				
+			var src = document.getElementById("sessions");
+			src.appendChild(li);
+		}
+
+		function toggleLangBox() {
+			$('#languages').slideToggle('medium');
+		}
+
+		function toggleSessionBox() {
+			$('#sessions').slideToggle('medium');
+		}
+
+		// Called by MDM to add a language to the list of languages
+		function mdm_add_language(language_name, language_code) {
+
+			var li = document.createElement('li');	
+				
+			var link = document.createElement('a');	
+				link.setAttribute('href', "javascript:alert('LANGUAGE###"+language_code+"')");
+				link.addEventListener('click', toggleLangBox, true);
+																								
+			li.appendChild(link);	
+			link.appendChild(document.createTextNode(language_name));
+				
+			var src = document.getElementById("languages");
+			src.appendChild(li);
+
+		}	
+
+		function mdm_set_current_language(language_name, language_code)	{
+			document.getElementById("button").innerHTML = language_code;
+		}
+		
+		// Called by MDM if the SHUTDOWN command shouldn't appear in the greeter
+		function mdm_hide_shutdown() {
+			document.getElementById("shutdown").style.display = 'none';
+		}	
+		
+		// Called by MDM if the SUSPEND command shouldn't appear in the greeter
+		function mdm_hide_suspend() {
+			document.getElementById("suspend").style.display = 'none';
+		}
+		
+		// Called by MDM if the RESTART command shouldn't appear in the greeter
+		function mdm_hide_restart() {
+			document.getElementById("restart").style.display = 'none';
+		}
+		
+		// Called by MDM if the QUIT command shouldn't appear in the greeter
+		function mdm_hide_quit() {
+			document.getElementById("quit").style.display = 'none';
+		}
+		
+		// Called by MDM if the XDMCP command shouldn't appear in the greeter
+		function mdm_hide_xdmcp() {
+			document.getElementById("xdmcp").style.display = 'none';
+		}
+
+		function init() {
+			document.getElementById("error").style.display = 'none';
+		}
+
+
+
+
+	
+
+
+$(document).ready(function() {
+
+
+	init();
+
+	// Disable scrolling
+	$(document).scroll(function () {
+		window.scrollTo(0, 0);
+		return false;
+	});
+
+	$('#button').click(function() {
+		if ($(this).html() == '+') {
+			$(this).html('-');
+			changeOpacity(1.0, -0.1);
+			$('#settings').css('display', 'block');
+		} else {
+			updateInterval = window.setInterval(stepDivs, updateRate);
+			$('#settings').css('display', 'none');
+			$(this).html('+');
+			changeOpacity(0, 0.05);
+			$('#input_box').focus();
+		}
+			
+	});
+
+
+
+
+});
+</script>	
+	
+</head>
+<body>
+
+<table id='bg_letters'></table>
+
+<div id='moving_divs'></div>
+
+<div id='login'>
+	<span id='text'></span><input id='input_box' type='text' />
+	<div id='error'></div>
+</div>
+
+<ul id='settings'>
+	<li><a onClick="alert('SHUTDOWN###');" id="shutdown">$shutdown</a></li>
+	<li><a onClick="alert('SUSPEND###');">$suspend</a></li>
+	<li><a onClick="alert('RESTART###');">$restart</a></li>
+	<li><a onClick="alert('QUIT###');">$quit</a></li>
+	<li><a onClick="alert('XDMCP###');">$remoteloginviaxdmcp</a></li>
+	<li><a onClick='toggleLangBox();'>$selectlanguage</a></li>
+		<ul id='languages'>
+		</ul>
+	<li><a onClick='toggleSessionBox();'>$selectsession</a></li>
+		<ul id='sessions'>
+		</ul>
+</ul>
+
+<span id='button'>+</span>
+
+</body>
+</html>

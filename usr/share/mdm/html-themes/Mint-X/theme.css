@@ -23,7 +23,7 @@ body {
 	
 }
 
-:focus {
+a:focus {
     outline: 0px solid black!important;
 }
 

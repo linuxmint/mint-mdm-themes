@@ -455,25 +455,28 @@
 		if(e.keyCode === 38) {
         	// up
        		select_user_at_index(selected_user - 1, true);
+       		return false;   
     	}
     	else if(e.keyCode === 40) {
         	// down
         	select_user_at_index(selected_user + 1, true);
+        	return false;
     	}
     	else if (e.keyCode == 9) {
     		// tab    
-    		$('#entry').focus();    		
+    		$('#entry').focus();
+    		return false;
     	}
     	else if (e.keyCode == 13) {
     		// enter
     		if ($('#login_box').is(':hidden')) {
-    			e.preventDefault();    			
+    			return false;
     		}
     		else {
-    			send_login();    			
-    		}    		
-    	}
-	    
+    			send_login();
+    			return false;
+    		}
+    	}    	
  	});   	
 
 	// Panning

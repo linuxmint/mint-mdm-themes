@@ -354,27 +354,27 @@
 			bootbox.dialog("<font color='white'>$areyousuretoquit</font>", 
 			[
 				{
-					"label" : "<button type='button' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-off'></span> $shutdown</button>",					
+					"label" : "<button type='button' class='btn btn-default btn-sm' style='outline:0;'><span class='glyphicon glyphicon-off'></span> $shutdown</button>",					
 					"callback": function() {
 						alert('FORCE-SHUTDOWN###');
 					}
 				},
 
 				{
-					"label" : "<button type='button' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-download-alt'></span> $suspend</button>",
+					"label" : "<button type='button' class='btn btn-default btn-sm' style='outline:0;'><span class='glyphicon glyphicon-download-alt'></span> $suspend</button>",
 					"callback": function() {
 						alert('FORCE-SUSPEND###');
 					}
 				},
 
 				{
-					"label" : "<button type='button' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-refresh'></span> $restart</button>",
+					"label" : "<button type='button' class='btn btn-default btn-sm' style='outline:0;'><span class='glyphicon glyphicon-refresh'></span> $restart</button>",
 					"callback": function() {
 						alert('FORCE-RESTART###');
 					}
 				},				
 				{
-					"label" : "<button type='button' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-remove'></span> $cancel_label</button>"
+					"label" : "<button type='button' class='btn btn-default btn-sm' style='outline:0;'><span class='glyphicon glyphicon-remove'></span> $cancel_label</button>"
 				}
 			]);
 		}

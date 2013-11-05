@@ -44,16 +44,20 @@
 	
 		// Called by MDM to disable user input
 		function mdm_disable() {
-			document.getElementById("entry").value = "disabled";
-			document.getElementById("entry").disabled = "disabled";
-			document.getElementById("ok_button").disabled = "disabled";
+			$('#entry').prop("disabled", true);
+			$('#ok_button').prop("disabled", true);
+			$('#login-box').css('cursor', 'progress');
+			$('#entry').css('cursor', 'progress');
+			$('#ok_button').css('cursor', 'progress');
 		}
 		
 		// Called by MDM to enable user input
 		function mdm_enable() {
-			document.getElementById("entry").value = "";
-			document.getElementById("entry").disabled = false;
-			document.getElementById("ok_button").disabled = false;
+			$('#entry').prop("disabled", false);
+			$('#ok_button').prop("disabled", false);
+			$('#login-box').css('cursor', 'default');
+			$('#entry').css('cursor', 'text');
+			$('#ok_button').css('cursor', 'default');
 		}
 		
 		// Called by MDM to set the welcome message
@@ -466,7 +470,7 @@
     			e.preventDefault();    			
     		}
     		else {
-    			$("#ok_button").click();
+    			send_login();    			
     		}    		
     	}
 	    

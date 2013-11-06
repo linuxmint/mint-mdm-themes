@@ -57,10 +57,9 @@ a:focus {
 	height: 170px;
 	margin-left: 80px;
 	box-shadow: 0 1px 10px rgba(0, 0, 0, .4);
-	background: -webkit-linear-gradient(top, #d6d6d6, #d6d6d6 75%, #d6d6d6);
+	background: -webkit-linear-gradient(top, #dedede, #d6d6d6 5%, #d6d6d6);
 	color: #3c3c3c;
 	border-radius: 5px;
-	border: 1px solid rgba(0, 0, 0, .4);	
 }
 
 #top_box {	

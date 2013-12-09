@@ -27,6 +27,11 @@ a:focus {
     outline: 0px solid black!important;
 }
 
+::selection
+{
+		color:#000000;
+}
+
 .background {
 	position: fixed;
 	width: 100%;

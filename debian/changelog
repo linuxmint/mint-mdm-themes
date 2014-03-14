@@ -1,3 +1,9 @@
+mint-mdm-themes (1.5.1) debian; urgency=low
+
+  * Adapted to MDM 1.5
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 14 Mar 2014 14:15:47 +0000
+
 mint-mdm-themes (1.1.2) petra; urgency=low
 
   * Updated themes

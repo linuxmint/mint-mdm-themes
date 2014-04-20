@@ -17,56 +17,46 @@
     </div>
     </div>
     <div id="left_box">
-                <div id="top_box">
-                    <div id="top_inner_box">
-                        <div id="top_users"></div>
-                    </div>
+        <div id="top_box">
+            <div id="top_inner_box">
+                <div id="top_users"></div>
+            </div>
+        </div>
+        <div id="middle_box">               
+            <div id="login_box">    
+                <img id="current_language_flag" class="selection-picture" src="../common/img/languages/generic.png" height="16" data-container="body" data-toggle="popover" data-placement="right"/>
+                <img id="current_session_picture" class="selection-picture" src="img/cog.png" data-container="body" data-toggle="popover" data-placement="right"></img>                         
+                <img id="selected_avatar" onerror="this.src='img/default-user.svg'" src="img/default-user.svg"/></img>
+                <div id="selected_status"></div>
+                <div id="selected_user"></div>
+                <div id="selected_user_box" class="hide"><font class="selected_font_username" id="current_username"></font> <font class="selected_font_gecos" id="current_gecos"></font></div>
+                <form onSubmit="return send_login();">      
+                    <div id="entry_box"><input type="text" id="entry"></div>
+                    <div id="ok_button_box"><input type="submit" id="ok_button" value="$ok_label"></input></div>        
+                </form>
+                <div id="sessions-title" class="hide">$selectsession</div>
+                <div id="sessions-body" class="hide">
+                    <p>
+                        <table class="table-striped table-hover table-condensed" id="sessions"></table>
+                    </p>
                 </div>
-    
-                <div id="middle_box">               
-                        <div id="login_box">    
-                            <img id="current_language_flag" class="selection-picture" src="../common/img/languages/generic.png" height="16" data-container="body" data-toggle="popover" data-placement="right"/>
-                            <img id="current_session_picture" class="selection-picture" src="img/cog.png" data-container="body" data-toggle="popover" data-placement="right"></img>                         
-                            <img id="selected_avatar" onerror="this.src='img/default-user.svg'" src="img/default-user.svg"/></img>
-                            <div id="selected_status"></div>
-                            <div id="selected_user"></div>
-                            <div id="selected_user_box" class="hide"><font class="selected_font_username" id="current_username"></font> <font class="selected_font_gecos" id="current_gecos"></font></div>
-                            <form onSubmit="return send_login();">      
-                                <div id="entry_box"><input type="text" id="entry"></div>
-                                <div id="ok_button_box"><input type="submit" id="ok_button" value="$ok_label"></input></div>        
-                            </form>
-                            <div id="sessions-title" class="hide">$selectsession</div>
-                            <div id="sessions-body" class="hide">
-                                <p>
-                                    <table class="table-striped table-hover table-condensed" id="sessions"></table>             
-                                    </ul>
-                                    </p>
-                            </div>
-
-                            <div id="languages-title" class="hide">$selectlanguage</div>
-                            <div id="languages-body" class="hide">
-                                <p>
-                                    <table class="table-striped table-hover table-condensed" id="languages"></table>
-                                    </p>
-                            </div>                          
-                        </div>                  
-                </div>
-
-                <div id="bottom_users"></div>
-                <div id="hidden_users" class="hide"></div>
-    
-    
+                <div id="languages-title" class="hide">$selectlanguage</div>
+                <div id="languages-body" class="hide">
+                    <p>
+                        <table class="table-striped table-hover table-condensed" id="languages"></table>
+                    </p>
+                </div>                          
+            </div>                  
+        </div>
+        <div id="bottom_users"></div>
+        <div id="hidden_users" class="hide"></div>
     </div>
     <div id="right-box">
         <div id="quit" onClick="quit_dialog();"><span class="glyphicon glyphicon-off"></span></div>
         <div id="error" class="alert alert-error"></div>
         <div id="timed" class="alert alert-info"></div>
-                
         <!-- <div id="welcome_message"></div>  -->
-        
     </div>
-        
-
 </body>
 </html>
 

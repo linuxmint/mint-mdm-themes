@@ -1,11 +1,11 @@
 @font-face {
 	font-family: "raleway";
-	src: url("fonts/raleway_thin.otf");
+	src: url("../common/fonts/raleway_thin.otf");
 }
 
 @font-face {
 	font-family: "Sawasdee";
-	src: url("fonts/Sawasdee.ttf");
+	src: url("../common/fonts/Sawasdee.ttf");
 }
 
 html {

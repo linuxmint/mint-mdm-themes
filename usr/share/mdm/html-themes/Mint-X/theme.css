@@ -20,7 +20,18 @@ body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	
+	background-color: #000000;
+	margin: 0px;
+	overflow: hidden;
+	font-family:Monospace;
+	font-size:13px;
+	text-align:center;
+	font-weight: bold;
+	text-align:center;
+}
+
+a {
+	color:#0078ff;
 }
 
 a:focus {

@@ -176,6 +176,22 @@ a:focus {
 	text-shadow: none;
 }
 
+#current_username {	
+	font-family: "Raleway Light";	
+	font-size:30px;
+	line-height: 40px;	
+	font-weight:400;
+	text-shadow: none;
+}
+
+#current_gecos {
+	font-family: "Raleway Light";
+	font-size:16px;
+	line-height: 40px;	
+	font-weight:400;
+	text-shadow: none;
+}
+
 #current_session_picture {
 	position: absolute;
 	top: 10px;

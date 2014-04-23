@@ -34,6 +34,7 @@ function mdm_prompt(message) {
     mdm_enable();
     document.getElementById("current_username").innerHTML = login_label;
     document.getElementById("selected_status").innerHTML = enter_your_username_label;
+    document.getElementById("selected_avatar").src = "img/default_user.svg";
 
     for (var i=0;i<num_users;i++) {
         $('#user' + i).appendTo('#top_users');

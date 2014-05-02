@@ -7,6 +7,7 @@ Standards-Version: 3.7.2
 
 Package: mint-mdm-themes
 Architecture: all
+Provides: mdm-themes
 Description: Linux Mint MDM Themes
  Themes for the MDM display manager.
 

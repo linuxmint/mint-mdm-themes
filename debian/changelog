@@ -1,3 +1,9 @@
+mint-mdm-themes (1.5.2) qiana; urgency=medium
+
+  * Provides mdm-themes
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 02 May 2014 15:25:57 +0100
+
 mint-mdm-themes (1.5.1) debian; urgency=low
 
   * Adapted to MDM 1.5

@@ -1,3 +1,9 @@
+mint-mdm-themes (1.6.1) qiana; urgency=medium
+
+  * Hide clock and lsb info in Mint-X theme
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 11 May 2014 15:58:53 +0100
+
 mint-mdm-themes (1.6.0) qiana; urgency=medium
 
   * Bumped version to 1.6.x

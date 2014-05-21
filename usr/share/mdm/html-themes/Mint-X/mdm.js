@@ -256,7 +256,12 @@ function select_user_at_index(index, alert_mdm) {
             var user = document.getElementById("user" + i);
             var selected_status = document.getElementById("selected_status");                   
             username = user.username;
-            selected_status.innerHTML = user.current_status;
+            if (user.current_status != "") {
+                selected_status.innerHTML = user.current_status;
+            }
+            else {
+                selected_status.innerHTML = enter_your_password_label;
+            }
             var picture = document.getElementById('selected_avatar');               
             picture.setAttribute('src', "file:///home/"+username+"/.face");
             $('#user' + i).appendTo('#selected_user');

@@ -21,9 +21,10 @@
     <text>%c</text>
   </item>
   
+  <!-- the hostname on topleft -->
   <item type="label">
     <normal color="#ffffff" font="Sans 12" alpha="0.8"/>
-    <pos x="59" y="22" anchor="e"/>
+    <pos x="20" y="22" anchor="w"/>
     <text>%h</text>
   </item>
   

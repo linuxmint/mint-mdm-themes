@@ -4,13 +4,14 @@
     <link href="../common/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="../common/js/jquery.min.js"></script>
     <script src="../common/js/bootbox.min.js"></script>
-    <script src="../common/js/motio.min.js"></script>
     <script src="../common/js/bootstrap.min.js"></script>
     <script src="mdm.js"></script>
     <link href="theme.css" rel="stylesheet" media="screen">
 </head>
 <body>
-    <div id="background" class="background">
+    <div id="bg0"><span class="filename"></span></div>
+    <div id="bg1"><span class="filename"></span></div>
+
     <div id="panel">
         <div id="lsb" class="hide"><img src="img/logo.png"/><br/>$lsb_description</div>
         <div id="clock" class="hide"></div>
@@ -24,8 +25,8 @@
         </div>
         <div id="middle_box">               
             <div id="login_box">    
-                <img id="current_language_flag" class="selection-picture" src="../common/img/languages/generic.png" height="16" data-container="body" data-toggle="popover" data-placement="right"/>
-                <img id="current_session_picture" class="selection-picture" src="img/cog.png" data-container="body" data-toggle="popover" data-placement="right"></img>                         
+                <img id="current_language_flag" class="selection-picture" src="../common/img/languages/generic.png" height="16" data-container="body" data-toggle="popover" data-placement="top"/>
+                <img id="current_session_picture" class="selection-picture" src="img/cog.png" data-container="body" data-toggle="popover" data-placement="top"></img>                         
                 <img id="selected_avatar" onerror="this.src='img/default-user.svg'" src="img/default-user.svg"/></img>
                 <div id="selected_status"></div>
                 <div id="selected_user"></div>
@@ -57,8 +58,18 @@
         <div id="timed" class="alert alert-info"></div>
         <!-- <div id="welcome_message"></div>  -->
     </div>
+
+    <span id="slideshowControls">
+         <a id="cycleBgBack"><i class="glyphicon glyphicon-chevron-left"></i></a>
+         <a id="cycleToggle"><i class="glyphicon glyphicon-pause"></i></a>
+         <a id="cycleBg"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    </span>
+
 </body>
 </html>
+
+<script src="config.js"></script>
+<script src="slideshow.js"></script>
 
 <script>
 
@@ -158,18 +169,7 @@
         });
     }
 
-    // Start the background animation (vertical panning)
-    animation = new Motio(document.getElementById('background'), { fps: 30, speedY: 30 });
-    animation.play(); // Start playing animation
 
-    // Give the animation a bit of horizontal panning, randomly every 10 seconds
-    // function randomizeAnimation(){
-    //        var speed = Math.floor((Math.random()*3)+1);
-    //        speed = speed -2;
-    //        speed = speed * 30;
-    //        animation.set('speedX', speed); 
-    //    };
-    // randomizeAnimation();
-    // setInterval(randomizeAnimation, 10000);
 
 </script>
+

@@ -13,7 +13,7 @@
     <div id="bg1"><span class="filename"></span></div>
 
     <div id="panel">
-        <div id="lsb" class="hide"><img src="img/logo.png"/><br/>$lsb_description</div>
+        <div id="lsb" class="hide"><img src="img/logo.png"><br/>$lsb_description</div>
         <div id="clock" class="hide"></div>
     </div>
     </div>
@@ -25,15 +25,15 @@
         </div>
         <div id="middle_box">               
             <div id="login_box">    
-                <img id="current_language_flag" class="selection-picture" src="../common/img/languages/generic.png" height="16" data-container="body" data-toggle="popover" data-placement="top"/>
-                <img id="current_session_picture" class="selection-picture" src="img/cog.png" data-container="body" data-toggle="popover" data-placement="top"></img>                         
-                <img id="selected_avatar" onerror="this.src='img/default-user.svg'" src="img/default-user.svg"/></img>
+                <img id="current_language_flag" class="selection-picture" src="../common/img/languages/generic.png" height="16" data-container="body" data-toggle="popover" data-placement="top">
+                <img id="current_session_picture" class="selection-picture" src="img/cog.png" data-container="body" data-toggle="popover" data-placement="top">
+                <img id="selected_avatar" onerror="this.src='img/default-user.svg'" src="img/default-user.svg">
                 <div id="selected_status"></div>
                 <div id="selected_user"></div>
                 <div id="selected_user_box" class=""><font id="current_username"></font> <font id="current_gecos"></font></div>
                 <form onSubmit="return send_login();">      
                     <div id="entry_box"><input type="text" id="entry"></div>
-                    <div id="ok_button_box"><input type="submit" id="ok_button" value="$ok_label"></input></div>        
+                    <div id="ok_button_box"><input type="submit" id="ok_button" value="$ok_label"></div>
                 </form>
                 <div id="sessions-title" class="hide">$selectsession</div>
                 <div id="sessions-body" class="hide">

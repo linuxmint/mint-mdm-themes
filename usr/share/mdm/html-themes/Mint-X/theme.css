@@ -269,7 +269,7 @@ a:focus {
 }
  
 #entry:focus {  	
-     box-shadow:inset 0 0 1px 1px #accd8a;
+     box-shadow:inset 0 0 1px 1px #c3c3c3;
 }
 
 #ok_button_box {

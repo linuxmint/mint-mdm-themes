@@ -8,5 +8,6 @@ Standards-Version: 3.9.5
 Package: mint-mdm-themes
 Architecture: all
 Provides: mdm-themes
+Replaces: mint-mdm-themes-kde
 Description: Linux Mint MDM Themes
  Themes for the MDM display manager.

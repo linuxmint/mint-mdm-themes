@@ -1,0 +1,738 @@
+@font-face {
+	font-family: "Droid Sans";
+	src: url("fonts/DroidSans.ttf");
+}
+
+html {
+	background-color: #000000;
+}
+
+body { 	
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+a:focus {
+    outline: 0px solid black!important;
+}
+
+/* ===================================================================
+ * Background image
+ * ===================================================================*/
+ 
+.background {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: url("img/bg.png");	
+	background-size: cover;  
+}
+
+/* ===================================================================
+ * Various boxes dividing the entire screen
+ * ===================================================================*/
+ 
+#panel {
+    position: fixed;
+    left: 70%;
+    top: 50%;        
+    height: 200px;
+    margin-top: -55px;
+    width: 600px;
+    margin-left: -300px;
+}
+
+#left_box {	
+	display:table;
+	position: fixed;	
+	width: 50%;
+	height: 100%;
+}
+
+/* ===================================================================
+ * LOGIN BOX
+ * ===================================================================*/
+ 
+#login_box {
+	position:relative;
+	width: 400px;
+	height: 170px;
+	margin-left: 80px;
+	box-shadow: 0 0 0 1px #484848;
+	background-color: #2d2d2d;
+	color: #dcdcdc;
+	border-radius: 2px;
+}
+
+#top_box {	
+	position: relative;
+	height: 45%;	
+}
+
+#top_inner_box {	
+	position: absolute;		
+	display: table-cell;
+   	vertical-align: bottom;
+   	height: 100%; 
+    width: 100%;
+}
+
+#top_users {
+	position: absolute;
+	width: 100%;
+	bottom: 0px; 
+	left: 0px;
+}
+
+#middle_box {
+	height: 170px;
+	width: 100%;
+}
+
+#selected_user_box {
+	position: absolute;
+	margin-left: 120px;
+	margin-top: 30px;
+	text-align: left;
+}
+
+#selected_user .user_box {
+	position: absolute;
+	margin-left: 120px;
+	margin-top: 30px;
+	text-align: left;
+	font-weight: 200;
+}
+
+#bottom_users {
+}
+
+#right-box {
+	position: fixed;
+	right: 0px;
+	vertical-align: middle;
+	height: 100%;	
+	width: 50%;	
+}
+ 
+.selection-picture {
+}
+ 
+.user_box {
+	position: relative;
+	margin-left: 200px;	
+	text-align: left;
+	font-family: "Raleway Light";
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+/* ===================================================================
+ * The username text settings.
+   (Notice gecos are the small names which appear next to the names)
+   (Selected ones are those inside the login box)
+ * ===================================================================*/
+ 
+.font_username {	
+	font-family: Droid Sans;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 1);
+	font-size:30px;
+	line-height: 40px;	
+	font-weight: 300;
+	color: #dcdcdc;
+}
+
+.font_gecos {
+	font-family: Droid Sans;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 1);
+	font-size:16px;
+	line-height: 40px;	
+	font-weight: 300;
+	color: #dcdcdc;
+}
+
+#selected_user .font_username {	
+    font-family: Droid Sans;
+	font-size: 30px;
+	line-height: 40px;	
+	font-weight:400;
+	text-shadow: none;
+	color: #dcdcdc;
+}
+
+#selected_user .font_gecos {
+	font-family: Droid Sans;
+	font-size:16px;
+	line-height: 40px;	
+	font-weight:400;
+	text-shadow: none;
+	color: #666;
+}
+
+/* ===================================================================
+ * The language and session icons inside the login box
+   The images are linked in the html file!!
+ * ===================================================================*/
+ 
+#current_session_picture {
+	position: absolute;
+	top: 11px;
+	left: 373px;
+}
+
+#current_language_flag {
+	position: absolute;
+	top: 11px;
+	left: 343px;
+	color: #999;
+}
+
+#current_language_flag:hover {
+	color: #fff;
+}
+
+/* ===================================================================
+ * The avatar in the login box
+ * ===================================================================*/
+ 
+#selected_avatar {
+	position:absolute;
+	left: 13px;
+	top: 13px;	
+	width: 96px;
+	height: 96px;
+	border: 1px solid #484848;
+	border-radius: 2px;
+	background-color: #333;
+	padding: 6px;
+}
+
+/* ===================================================================
+ * The status text in the bottom left corner of the login box
+ * ===================================================================*/
+ 
+#selected_status {
+	position: absolute;
+	margin-left: 13px;
+	margin-top: 138px;	
+	font-family: Droid Sans;
+	font-size: 12px;
+	line-height: 20px;	
+	font-weight:100;
+	color: #888;
+}
+
+/* ===================================================================
+ * Entry of the login box
+ * ===================================================================*/
+ 
+#entry_box {
+	position: absolute;	
+	margin-top: 80px;
+	margin-left: 120px;
+	height: 26px;
+	width: 60px;
+}
+
+#entry {
+	background-color: #333;
+	border: 1px solid #484848;
+	border-radius: 2px;
+	background-image: none;
+    background-size: cover;
+    outline: none;  
+	width: 270px;
+	height: 27px;
+    padding: 6px; 
+	padding-top: 7px; 
+	margin-left: 0px;
+    font-size: 9pt;
+	color: #dcdcdc;   
+    -webkit-transition: 0s ease-in-out;  
+    -moz-transition: 0s ease-in-out;
+}
+ 
+#entry:focus {  
+	outline: none; 
+	padding: 6px;
+	padding-top: 7px;
+	font-size: 9pt;
+}
+
+/* ===================================================================
+ * Quit Dialog Buttons(shutdown, restart, etc...)
+ * ===================================================================*/
+ 
+/*### Shutdown ###*/
+
+.shutdown-button {
+	background-color: #3d3d3d;
+	border: 1px solid #535353;
+	border-radius: 2px;
+	box-shadow: none;
+	outline: none;
+	font-family: Droid Sans;
+    color: #dcdcdc;
+ 	padding: 4px 14px 4px;
+ }
+ 
+.shutdown-button:hover {
+	 background-color: #d64937;
+	 border: 1px solid #d64937;
+	 color: #dcdcdc;
+ }
+ 
+.shutdown-button:active,
+.shutdown-button:focus,
+.shutdown-button:checked {
+	 background-color: #bc4233;
+	 border: 1px solid #d64937;
+	 color: #dcdcdc;
+ }
+ 
+/*### Suspend ###*/
+ 
+ .suspend-button {
+	background-color: #3d3d3d;
+	border: 1px solid #535353;
+	border-radius: 2px;
+	box-shadow: none;
+	outline: none;
+	font-family: Droid Sans;
+    color: #dcdcdc;
+ 	padding: 4px 14px 4px;
+ }
+ 
+.suspend-button:hover {
+	 background-color: #d64937;
+	 border: 1px solid #d64937;
+	 color: #dcdcdc;
+ }
+ 
+.suspend-button:active {
+	 background-color: #bc4233;
+	 border: 1px solid #d64937;
+	 color: #dcdcdc;
+ }
+ 
+/*### Restart ###*/
+ 
+ .restart-button {
+	background-color: #3d3d3d;
+	border: 1px solid #535353;
+	border-radius: 2px;
+	box-shadow: none;
+	outline: none;
+	font-family: Droid Sans;
+    color: #dcdcdc;
+ 	padding: 4px 14px 4px;
+ }
+ 
+.restart-button:hover {
+	 background-color: #d64937;
+	 border: 1px solid #d64937;
+	 color: #dcdcdc;
+ }
+ 
+.restart-button:active {
+	 background-color: #bc4233;
+	 border: 1px solid #d64937;
+	 color: #dcdcdc;
+ }
+ 
+/*### Cancel ###*/ 
+ 
+ .cancel-button {
+	background-color: #3d3d3d;
+	border: 1px solid #535353;
+	border-radius: 2px;
+	box-shadow: none;
+	outline: none;
+	font-family: Droid Sans;
+    color: #dcdcdc;
+ 	padding: 4px 14px 4px;
+ }
+ 
+.cancel-button:hover {
+	background-color: #d64937;
+	border: 1px solid #d64937;
+	color: #dcdcdc;
+ }
+ 
+.cancel-button:active {
+	background-color: #bc4233;
+	border: 1px solid #d64937;
+	color: #dcdcdc;
+ }
+
+/* ===================================================================
+ * The fade-in and out effect when clicking the upper-right quit button
+ * ===================================================================*/
+ 
+.modal-backdrop.fade {
+  	opacity: 0;
+  	filter: alpha(opacity=0);
+}
+
+.modal-backdrop.in {
+  	opacity: 0.5;
+  	filter: alpha(opacity=50);
+}
+
+/* ===================================================================
+ * The section which contains the "are you sure you want to quit" question
+ * ===================================================================*/
+ 
+.modal-body {
+  	font-family: Droid Sans;
+  	position: relative;
+  	padding: 20px;
+  	padding-bottom: 0px;
+  	padding-top: 24px;
+  	background-color: #2d2d2d;
+  	color: #dcdcdc;
+}
+
+/* ===================================================================
+ * The section which contain the shutdown. restart... buttons(the footer)
+ * ===================================================================*/
+ 
+.modal-footer {
+  	padding: 10px 20px 10px;
+  	text-align: right;
+  	border-bottom: 1px solid #484848;
+  	background-color: #2d2d2d;
+}
+
+.modal-footer:before,
+.modal-footer:after {
+  	display: table;
+  	content: " ";
+}
+
+.modal-footer:after {
+  	clear: both;
+}
+
+.modal-footer:before,
+.modal-footer:after {
+  	display: table;
+  	content: " ";
+}
+
+.modal-footer:after {
+  	clear: both;
+}
+
+.modal-footer .btn + .btn {
+  	margin-bottom: 0;
+  	margin-left: 5px;
+}
+
+.modal-footer .btn-group .btn + .btn {
+  	margin-left: -1px;
+}
+
+.modal-footer .btn-block + .btn-block {
+  	margin-left: 0;
+}
+
+@media screen and (min-width: 768px) {
+.modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  
+.modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ===================================================================
+ * Popovers for sessions and languages
+ * ===================================================================*/
+	
+.popover {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	z-index: 1010;
+  	display: none;
+  	max-width: 276px;
+  	padding: 0px;
+  	text-align: center;
+  	white-space: none;
+  	background-color: #2d2d2d;
+  	border: 1px solid #484848;
+  	border-radius: 2px;
+  	background-clip: padding-box;
+}
+
+.popover.top {
+  	margin-top: -10px;
+}
+
+.popover.right {
+  	margin-left: 10px;
+}
+
+.popover.bottom {
+  	margin-top: 10px;
+}
+
+.popover.left {
+  	margin-left: -10px;
+}
+
+.popover-title {
+  	color: #dcdcdc;
+  	padding: 8px 14px;
+  	margin: 0;
+  	font-size: 14px;
+  	font-weight: normal;
+  	line-height: 18px;
+  	background-color: #3d3d3d;
+  	border-bottom: 1px solid #484848;
+  	border-radius: 2px 2px 0 0;
+  	font-family: Droid Sans;
+}
+
+.popover-content {
+  	padding: 0;
+  	font-family: Droid Sans;
+  	margin: 0;
+  	color: #dcdcdc;
+  	max-height: 200px;
+  	overflow-y: auto;
+}
+
+.popover .arrow,
+.popover .arrow:after {
+  	position: absolute;
+  	display: block;
+  	width: 0;
+  	height: 0;
+  	border-color: transparent;
+  	border-style: solid;
+}
+
+.popover .arrow {
+  	border-width: 11px;
+}
+
+.popover .arrow:after {
+  	border-width: 10px;
+  	content: "";
+}
+
+/* ===================================================================
+ * In use is the right arrow!
+ * ===================================================================*/
+ 
+.popover.right .arrow {
+  	top: 50%;
+  	left: -11px;
+  	margin-top: -11px;
+    border-right-color: #484848;
+  	border-left-width: 0;
+}
+
+.popover.right .arrow:after {
+  	bottom: -10px;
+  	left: 1px;
+    border-right-color: #2d2d2d;
+  	border-left-width: 0;
+  	content: " ";
+}
+
+ /* ===================================================================
+ * The "OK" button in the login box
+ * ===================================================================*/
+ 
+#ok_button_box {
+    font-family: Droid Sans;
+	position: absolute;	
+	margin-top: 124px;
+	margin-left: 306px;
+	height: 32px;
+}
+
+#ok_button {
+	background-color: #3d3d3d;
+	border: 1px solid #535353;
+	border-radius: 2px;
+	box-shadow: none;
+	outline: none;
+    padding: 5px 32px 5px;
+	height: 32px;
+	font-size: 12px;
+	color: #dcdcdc;
+}
+
+#ok_button:hover {
+	background-color: #d64937;
+	border: 1px solid #d64937;
+	border-radius: 2px;
+	box-shadow: none;
+	outline: none;
+    padding: 5px 32px 5px;
+	height: 32px;
+	font-size: 12px;
+}
+
+#ok_button:active {
+	background-color: #bc4233;
+	border: 1px solid #d64937;
+	border-radius: 2px;
+	box-shadow: none;
+	outline: none;
+    padding: 5px 32px 5px;
+	height: 32px;
+	font-size: 12px;
+}
+
+/* ===================================================================
+ * The session and language pictures
+ * ===================================================================*/
+ 
+.session-picture {
+	width: 24px;
+	height: 24px;	
+	margin-right: 5px;	
+}
+
+.language-picture {
+	width: 16px;
+	height: 16px;
+	margin: 5px;
+}
+
+/* ===================================================================
+ * The upper-right quit button
+ * ===================================================================*/
+ 
+#quit {
+	float: right;	
+    margin-top: 20px;    
+    margin-right: 25px;  
+    color: #dcdcdc;    
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 1); 
+}
+
+#quit:hover {
+	text-shadow: 0 1px 3px rgba(70,70,70, 1);
+}
+
+/* ===================================================================
+ * The error message
+ * ===================================================================*/
+ 
+#error {
+	background-color: #2d2d2e;
+	box-shadow: 0 0 0 1px #484848;
+	border-radius: 2px;
+	float: right;
+	margin-top: 70px;    
+    margin-right: 6px;  
+	padding: 8px 8px 8px 8px;
+	font-family: Droid Sans;
+	font-size: 10pt;
+    color: #dcdcdc;
+}
+
+/* ===================================================================
+ * Timed message
+ * ===================================================================*/
+ 
+#timed {
+	background-color: #2d2d2e;
+	box-shadow: 0 0 0 1px #484848;
+	border-radius: 2px;
+	float: right;
+	margin-top: 70px;    
+    margin-right: 6px;  
+	padding: 8px 8px 8px 8px;
+	font-family: Droid Sans;
+	font-size: 10pt;
+    color: #dcdcdc;
+}
+
+#message {
+}
+
+/* ===================================================================
+ * This affects the item hover in the popups!
+ * ===================================================================*/
+ 
+ .table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  	background: -webkit-linear-gradient(top,  #d64937, #d64937);
+  	box-shadow: 0 0 0 1px #bc4233;
+  	color: #dcdcdc;
+}
+
+/* ===================================================================
+ * This effects every odd item!
+ * ===================================================================*/
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  	background-color: #2d2d2d;
+}
+
+/* ===================================================================
+ * The session and language links in the popovers.
+   (Notice the hovering an item is not the same as hovering the link!)
+ * ===================================================================*/
+ 
+#languages {
+	font-family: Droid Sans;
+	color: #dcdcdc;
+	width: 100%;
+	text-align: left;
+}
+
+#languages td a {
+	color: #dcdcdc;	
+}
+
+#languages td a:hover {
+	color: #dcdcdc;	
+}
+
+#languages > a > td:hover {
+	background: -webkit-linear-gradient(top,  #6598cb, #4d82b7);
+	color: #dcdcdc;	
+}
+
+#sessions {
+	font-family: Droid Sans;
+	color: #dcdcdc;
+	width: 100%;
+	text-align: left;
+}
+
+#sessions td a {
+	color: #dcdcdc;
+}
+
+#sessions td a:hover {
+	color: #dcdcdc;
+}
+
+/* ===================================================================
+ * Link decoration.(Turned off)
+ * ===================================================================*/
+ 
+a {
+	color:#dcdcdc;text-decoration:none;
+}      
+
+a:hover {
+	color:#dcdcdc;text-decoration:none;
+}

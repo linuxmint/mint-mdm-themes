@@ -1,0 +1,114 @@
+mint-mdm-themes-gdm (1.8.1) rebecca; urgency=medium
+
+  * 1.8
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 29 Oct 2014 13:54:26 +0100
+
+mint-mdm-themes (1.6.2) qiana; urgency=medium
+
+  * Explicitly ask the user to enter a password
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 21 May 2014 14:08:53 +0100
+
+mint-mdm-themes (1.6.1) qiana; urgency=medium
+
+  * Hide clock and lsb info in Mint-X theme
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 11 May 2014 15:58:53 +0100
+
+mint-mdm-themes (1.6.0) qiana; urgency=medium
+
+  * Bumped version to 1.6.x
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 02 May 2014 15:26:53 +0100
+
+mint-mdm-themes (1.5.2) qiana; urgency=medium
+
+  * Provides mdm-themes
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 02 May 2014 15:25:57 +0100
+
+mint-mdm-themes (1.5.1) debian; urgency=low
+
+  * Adapted to MDM 1.5
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 14 Mar 2014 14:15:47 +0000
+
+mint-mdm-themes (1.1.2) petra; urgency=low
+
+  * Updated themes
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 06 Nov 2013 16:18:06 +0000
+
+mint-mdm-themes (1.1.1) petra; urgency=low
+
+  * Updated themes
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 05 Nov 2013 10:16:49 +0000
+
+mint-mdm-themes (1.1.0) olivia; urgency=low
+
+  * Updated themes
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 22 May 2013 11:30:15 +0100
+
+mint-mdm-themes (1.0.9) olivia; urgency=low
+
+  * Updated themes
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 08 May 2013 22:08:50 +0100
+
+mint-mdm-themes (1.0.8) olivia; urgency=low
+
+  * Added HTML themes
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 26 Apr 2013 18:46:16 +0100
+
+mint-mdm-themes (1.0.7) nadia; urgency=low
+
+  * Added a new collection of themes for Linux Mint
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 25 Oct 2012 14:50:31 +0100
+
+mint-mdm-themes (1.0.6) maya; urgency=low
+
+  * Made linuxmint theme compatible with GDM and MDM 1.0.6+
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 08 Oct 2012 11:16:19 +0100
+
+mint-mdm-themes (1.0.5) maya; urgency=low
+
+  * Show stock welcome label instead of hardcoded text
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 18 May 2012 12:40:14 +0100
+
+mint-mdm-themes (1.0.4) maya; urgency=low
+
+  * Don't show timed info when timedlogin is disabled
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 10 May 2012 16:07:50 +0100
+
+mint-mdm-themes (1.0.3) maya; urgency=low
+
+  * Added timed-login info to the linuxmint theme
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 09 May 2012 19:28:10 +0100
+
+mint-mdm-themes (1.0.2) debian; urgency=low
+
+  * Moved default MDM configuration to debian-system-adjustments
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri,  20 Apr 2012 11:47:00 +0000
+
+mint-mdm-themes (1.0.1) debian; urgency=low
+
+  * Added default MDM configuration
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri,  20 Apr 2012 10:10:00 +0000
+
+mint-mdm-themes (1.0.0) debian; urgency=low
+
+  * Initial release
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri,  20 Apr 2012 00:29:00 +0000
+

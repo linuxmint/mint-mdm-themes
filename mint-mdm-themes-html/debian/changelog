@@ -1,3 +1,9 @@
+mint-mdm-themes-html (1.8.1) rebecca; urgency=medium
+
+  * 1.8
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 29 Oct 2014 14:02:51 +0100
+
 mint-mdm-themes (1.6.2) qiana; urgency=medium
 
   * Explicitly ask the user to enter a password

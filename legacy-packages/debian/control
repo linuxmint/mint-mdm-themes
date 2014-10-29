@@ -1,0 +1,20 @@
+Source: mint-mdm-themes
+Section: x11
+Priority: optional
+Maintainer: Clement Lefebvre <root@linuxmint.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+
+Package: mint-mdm-themes
+Architecture: all
+Provides: mdm-themes
+Depends: mint-mdm-themes-gdm, mint-mdm-themes-html
+Description: Linux Mint MDM Themes
+ Themes for the MDM display manager.
+
+Package: mint-mdm-themes-kde
+Architecture: all
+Provides: mdm-themes
+Depends: mint-mdm-themes-gdm, mint-mdm-themes-html
+Description: Linux Mint MDM Themes
+ Themes for the MDM display manager.

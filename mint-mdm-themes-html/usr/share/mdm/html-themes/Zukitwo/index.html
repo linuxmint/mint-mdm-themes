@@ -240,10 +240,10 @@
 		function mdm_add_language(language_name, language_code) {
 
 			var link1 = document.createElement('a');	
-				link1.setAttribute('href', "javascript:alert('LANGUAGE###"+language_code+"')");
+				link1.setAttribute('href', "javascript:alert('LANGUAGE###"+language_code+"');mdm_set_current_language('"+language_name+"','"+language_code+"');");
 
 			var link2 = document.createElement('a');	
-				link2.setAttribute('href', "javascript:alert('LANGUAGE###"+language_code+"')");
+				link2.setAttribute('href', "javascript:alert('LANGUAGE###"+language_code+"');mdm_set_current_language('"+language_name+"','"+language_code+"');");
 
 			var picture = document.createElement('img');
 				picture.setAttribute('class', "language-picture");

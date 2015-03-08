@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="../common/js/jquery.min.js"></script>
+    <script src="../common/js/bootbox.min.js"></script>
+    <script src="../common/js/bootstrap.min.js"></script>
+    <script src="mdm.js"></script>
+    <link href="theme.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <div id="bg0"><span class="filename"></span></div>
+    <div id="bg1"><span class="filename"></span></div>
+
+    <div id="panel">
+        <div id="lsb" class="hide"><img src="img/logo.png"><br/>$lsb_description</div>
+        <div id="clock" class="hide"></div>
+    </div>
+    </div>
+    <div id="left_box">
+        <div id="top_box">
+            <div id="top_inner_box">
+                <div id="top_users"></div>
+            </div>
+        </div>
+        <div id="middle_box">               
+            <div id="login_box">    
+                <img id="current_language_flag" class="selection-picture" src="../common/img/languages/generic.png" height="16" data-container="body" data-toggle="popover" data-placement="top">
+                <img id="current_session_picture" class="selection-picture" src="img/cog.png" data-container="body" data-toggle="popover" data-placement="top">
+                <img id="selected_avatar" onerror="this.src='img/default-user.svg'" src="img/default-user.svg">
+                <div id="selected_status"></div>
+                <div id="selected_user"></div>
+                <div id="selected_user_box" class=""><font id="current_username"></font> <font id="current_gecos"></font></div>
+                <form onSubmit="return send_login();">      
+                    <div id="entry_box"><input type="text" id="entry"></div>
+                    <div id="ok_button_box"><input type="submit" id="ok_button" value="$ok_label"></div>
+                </form>
+                <div id="sessions-title" class="hide">$selectsession</div>
+                <div id="sessions-body" class="hide">
+                    <p>
+                        <table class="table-striped table-hover table-condensed" id="sessions"></table>
+                    </p>
+                </div>
+                <div id="languages-title" class="hide">$selectlanguage</div>
+                <div id="languages-body" class="hide">
+                    <p>
+                        <table class="table-striped table-hover table-condensed" id="languages"></table>
+                    </p>
+                </div>                          
+            </div>                  
+        </div>
+        <div id="bottom_users"></div>
+        <div id="hidden_users" class="hide"></div>
+    </div>
+    <div id="right-box">
+        <div id="quit" onClick="quit_dialog();"><span class="glyphicon glyphicon-off"></span></div>
+        <div id="error" class="alert alert-error"></div>
+        <div id="timed" class="alert alert-info"></div>
+        <!-- <div id="welcome_message"></div>  -->
+    </div>
+    
+</body>
+</html>
+
+<script src="config.js"></script>
+<script src="slideshow.js"></script>
+
+<script>
+
+    // Save l10n strings translated by MDM into variables, so that other .js files can access them.
+    var login_label = "$login_label";
+    var enter_your_username_label = "$enter_your_username_label";
+    var enter_your_password_label = "$enter_your_password_label";
+
+    // Shows a dialog for shutdown/suspend/restart/cancel
+    function quit_dialog() {
+        bootbox.dialog("<font color='white'>$areyousuretoquit</font>", 
+        [
+            { "label" : "<button type='button' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-off'></span> $shutdown</button>", "callback": function() { alert('FORCE-SHUTDOWN###'); } },
+            { "label" : "<button type='button' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-download-alt'></span> $suspend</button>", "callback": function() { alert('FORCE-SUSPEND###'); } },
+            { "label" : "<button type='button' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-refresh'></span> $restart</button>", "callback": function() { alert('FORCE-RESTART###'); } },                
+            { "label" : "<button type='button' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-remove'></span> $cancel_label</button>" }
+        ]);
+    }
+
+    // Sends the user input to MDM
+    function send_login() {
+        // read the value before we disable the field, as it will be changed to "disabled"
+        var value = document.getElementById("entry").value;
+        mdm_disable();
+        alert("LOGIN###" + value);
+        return false;
+    }
+    
+    // Initialize a few things in the theme
+    document.getElementById("error").style.display = 'none';            
+    document.getElementById("timed").style.display = 'none';            
+    document.getElementById("current_session_picture").width = 16;      
+
+    // Keyboard navigation and focus
+    $("body").on("keydown", function(e){
+        if(e.keyCode === 38) {
+            // up
+            select_user_at_index(selected_user - 1, true);
+            return false;   
+        }
+        else if(e.keyCode === 40) {
+            // down
+            select_user_at_index(selected_user + 1, true);
+            return false;
+        }
+        else if (e.keyCode == 9) {
+            // tab    
+            $('#entry').focus();
+            return false;
+        }
+        else if (e.keyCode == 13) {
+            // enter
+            if ($('#login_box').is(':hidden')) {
+                return false;
+            }
+            else {
+                send_login();
+                return false;
+            }
+        }       
+    });
+
+    // Context menus (bootstrap popover)
+    $('#current_session_picture').popover({ 
+        html : true,
+        title: function() { return $("#sessions-title").html(); },
+        content: function() { return $("#sessions-body").html(); }
+    });
+    $('#current_language_flag').popover({ 
+        html : true,
+        title: function() { return $("#languages-title").html(); },
+        content: function() { return $("#languages-body").html(); }
+    });
+
+    // Movement of the usernames and login box in the theme
+    $.fn.animateTo = function(appendTo, destination, duration, easing, complete) {
+        if(appendTo !== 'appendTo'     &&
+            appendTo !== 'prependTo'    &&
+            appendTo !== 'insertBefore' &&
+            appendTo !== 'insertAfter') return this;
+        var target = this.clone(true).css('visibility','hidden')[appendTo](destination);
+        this.css({
+            'position' : 'relative',
+            'top'      : '0px',
+            'left'     : '0px'
+        }).animate({
+            'top'  : (target.offset().top - this.offset().top)+'px',
+            'left' : (target.offset().left - this.offset().left)+'px'
+        }, duration, easing, function() {
+            target.replaceWith($(this));
+            $(this).css({
+                'position' : 'static',
+                'top'      : '',
+                'left'     : ''
+            });
+            if($.isFunction(complete)) complete.call(this);
+        });
+    }
+
+
+
+</script>
+

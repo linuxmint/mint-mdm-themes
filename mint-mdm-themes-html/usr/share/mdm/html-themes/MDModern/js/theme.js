@@ -98,7 +98,7 @@
     });
     
     img.loaded = false;
-    img.src = user.home + "/.face";
+    img.src = user.avatar;
     $(img).one("load", function() {
       icon.remove();
       a.prepend(img);

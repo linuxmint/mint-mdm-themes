@@ -127,7 +127,7 @@
 		}
 		
 		// Called by MDM to add a user to the list of users
-		function mdm_add_user(username, gecos, status) {
+		function mdm_add_user(username, gecos, status, avatar) {
 											
 			var link1 = document.createElement('a');	
 				link1.setAttribute('href', "javascript:alert('USER###"+username+"')");
@@ -137,7 +137,7 @@
 				
 			var picture = document.createElement('img');
 				picture.setAttribute('class', "user-picture");
-				picture.setAttribute('src', "file:///home/"+username+"/.face");
+				picture.setAttribute('src', "file://" + avatar);
 				picture.setAttribute('onerror', "this.src='file:///usr/share/pixmaps/nobody.png';");
 				
 			var realname_div = document.createElement('div');

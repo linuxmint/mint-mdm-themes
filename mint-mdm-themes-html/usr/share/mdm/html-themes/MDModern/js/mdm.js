@@ -242,8 +242,9 @@
    * @param {string} username
    * @param {string} gecos     full name etc.
    * @param {string} status    online?
+   * @param {string} avatar    avatar
    */
-  function User(username, gecos, loggedIn) {
+  function User(username, gecos, loggedIn, avatar) {
     
     /**
      * login name
@@ -265,6 +266,13 @@
      * @type {boolean}
      */
     this.loggedIn = !!loggedIn;
+
+    /**
+     * avatar
+     * 
+     * @type {string}
+     */
+    this.avatar = avatar;
     
     /**
      * User's home directory
@@ -421,8 +429,8 @@
   };
   
   // Called by MDM to add a user to the list of users
-  win.mdm_add_user = function(username, gecos, status) {
-    var user = new User(username, gecos, status);
+  win.mdm_add_user = function(username, gecos, status, avatar) {
+    var user = new User(username, gecos, status, avatar);
     users.push(user);
     trigger("userAdded", user);
   };

@@ -82,7 +82,7 @@ function mdm_error(message) {
 }   
 
 // Called by MDM to add a user to the list of users
-function mdm_add_user(username, gecos, status) {
+function mdm_add_user(username, gecos, status, avatar) {
 
     var top_users = document.getElementById("top_users");
             
@@ -91,6 +91,7 @@ function mdm_add_user(username, gecos, status) {
         link.username = username;
         link.gecos = gecos;
         link.current_status = status;
+        link.avatar = avatar;
         link.setAttribute('id', "user" + num_users);
 
     var div = document.createElement('div');                
@@ -263,7 +264,7 @@ function select_user_at_index(index, alert_mdm) {
                 selected_status.innerHTML = enter_your_password_label;
             }
             var picture = document.getElementById('selected_avatar');               
-            picture.setAttribute('src', "file:///home/"+username+"/.face");
+            picture.setAttribute('src', "file://"+user.avatar);
             $('#user' + i).appendTo('#selected_user');
         }
         else {

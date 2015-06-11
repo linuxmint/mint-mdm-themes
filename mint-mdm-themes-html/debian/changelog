@@ -1,3 +1,9 @@
+mint-mdm-themes-html (2.0.0) rafaela; urgency=medium
+
+  * 2.0 (new session mechanism, minority flags, encrypted avatars)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 11 Jun 2015 10:07:53 +0200
+
 mint-mdm-themes-html (1.8.3) rebecca; urgency=medium
 
   * Removed sky bg from Mint-X slideshow (Qiana bg)

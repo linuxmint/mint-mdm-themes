@@ -82,7 +82,7 @@ function mdm_error(message) {
 }   
 
 // Called by MDM to add a user to the list of users
-function mdm_add_user(username, gecos, status) {
+function mdm_add_user(username, gecos, status, avatar) {
 
     var top_users = document.getElementById("top_users");
             
@@ -91,6 +91,7 @@ function mdm_add_user(username, gecos, status) {
         link.username = username;
         link.gecos = gecos;
         link.current_status = status;
+        link.avatar = avatar;
         link.setAttribute('id', "user" + num_users);
 
     var div = document.createElement('div');                
@@ -154,15 +155,39 @@ function mdm_add_session(session_name, session_file) {
     cell2.appendChild(link2);
 }       
 
+// Called by MDM to get the full path of a language flag file
+function mdm_get_language_flag_filepath(language_code) {
+   
+   var filename = language_code.toLowerCase();
+   filename = filename.replace(".utf-8", "");
+   var bits = filename.split("_");
+
+   // Check for minority languages that have a flag.
+   // For example: Catalan's language code can be ca or ca_es or ca_fr, Welsh's cy or cy_gb...
+   if (filename === "ca" || bits[0] === "ca") {
+       filename = "_Catalonia";
+   } else if (filename === "cy" || bits[0] === "cy") {
+       filename = "_Wales";
+   } else if (filename === "eu" || bits[0] === "eu") {
+       filename = "_Basque Country";
+   } else if (filename === "gd" || bits[0] === "gd") {
+       filename = "_Scotland";
+   } else if (filename === "gl" || bits[0] === "gl") {
+       filename = "_Galicia";
+   } else if (filename === "sco" || bits[0] === "sco") {
+       filename = "_Scotland";
+   // Use the country code part of the language code (if it's available). For example: en_AU -> au.
+   } else if (bits.length === 2) {
+       filename = bits[1];
+   }
+
+   return "../common/img/languages/"+filename+".png";
+}
+
 // Called by MDM to add a language to the list of languages
 function mdm_add_language(language_name, language_code) {
 
-    var filename = language_code.toLowerCase();
-    filename = filename.replace(".utf-8", "");
-    bits = filename.split("_");
-    if (bits.length == 2) {
-        filename = bits[1];
-    }
+    
 
     var link1 = document.createElement('a');    
         link1.setAttribute('href', "javascript:alert('LANGUAGE###"+language_code+"');mdm_set_current_language('"+language_name+"','"+language_code+"');");
@@ -172,7 +197,7 @@ function mdm_add_language(language_name, language_code) {
 
     var picture = document.createElement('img');
         picture.setAttribute('class', "language-picture");
-        picture.setAttribute('src', "../common/img/languages/"+filename+".png");
+        picture.setAttribute('src', mdm_get_language_flag_filepath(language_code));
         picture.setAttribute('onerror', "this.src='../common/img/languages/generic.png';");
         picture.setAttribute('title', language_name);               
                                     
@@ -195,13 +220,7 @@ function mdm_add_language(language_name, language_code) {
 }
 
 function mdm_set_current_language(language_name, language_code) {
-    var filename = language_code.toLowerCase();
-    filename = filename.replace(".utf-8", "");
-    bits = filename.split("_");
-    if (bits.length == 2) {
-        filename = bits[1];
-    }
-    document.getElementById("current_language_flag").src = "../common/img/languages/"+filename+".png";
+    document.getElementById("current_language_flag").src = mdm_get_language_flag_filepath(language_code);
     document.getElementById("current_language_flag").title = language_name;
     document.getElementById("current_language_flag").width = 16;
     $('#current_language_flag').popover('hide');
@@ -263,7 +282,7 @@ function select_user_at_index(index, alert_mdm) {
                 selected_status.innerHTML = enter_your_password_label;
             }
             var picture = document.getElementById('selected_avatar');               
-            picture.setAttribute('src', "file:///home/"+username+"/.face");
+            picture.setAttribute('src', "file://"+user.avatar);
             $('#user' + i).appendTo('#selected_user');
         }
         else {

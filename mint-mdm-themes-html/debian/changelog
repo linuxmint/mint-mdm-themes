@@ -1,3 +1,9 @@
+mint-mdm-themes-html (2.0.1) rafaela; urgency=medium
+
+  * Pointed Mint-X slideshow to Rafaela backgrounds
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 14 Jun 2015 18:55:49 +0200
+
 mint-mdm-themes-html (2.0.0) rafaela; urgency=medium
 
   * 2.0 (new session mechanism, minority flags, encrypted avatars)

@@ -28,6 +28,11 @@ body {
 
 * {
 	z-index: 2;
+	-webkit-user-select: none;  /* overridden for input */
+}
+
+input {
+	-webkit-user-select: text;
 }
 
 a {

@@ -1,3 +1,10 @@
+mint-mdm-themes-html (2.0.4) rosa; urgency=medium
+
+  * Mint-X: Disable selection of UI components
+  * Mint-X: Added on-screen keyboard
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 07 Nov 2015 16:39:53 +0000
+
 mint-mdm-themes-html (2.0.3) rafaela; urgency=medium
 
   * Added blue/red backgrounds to MDModern theme

@@ -7,6 +7,11 @@
     <script src="../common/js/bootstrap.min.js"></script>
     <script src="mdm.js"></script>
     <link href="theme.css" rel="stylesheet" media="screen">
+    <link href="../common/css/keyboard.css" rel="stylesheet">
+    <script src="../common/js/jquery.keyboard.js"></script>
+    <!-- keyboard extensions (optional) -->
+    <script src="../common/js/jquery.mousewheel.js"></script>
+    <script src="../common/js/jquery.keyboard.extension-caret.js"></script>
 </head>
 <body>
     <div id="bg0"><span class="filename"></span></div>
@@ -24,7 +29,8 @@
             </div>
         </div>
         <div id="middle_box">               
-            <div id="login_box">    
+            <div id="login_box">
+                <img id="keyboard_pic" class="selection-picture" src="../common/css/images/keyboard.svg">
                 <img id="current_language_flag" class="selection-picture" src="../common/img/languages/generic.png" height="16" data-container="body" data-toggle="popover" data-placement="top">
                 <img id="current_session_picture" class="selection-picture" src="img/cog.png" data-container="body" data-toggle="popover" data-placement="top">
                 <img id="selected_avatar" onerror="this.src='img/default-user.svg'" src="img/default-user.svg">
@@ -132,6 +138,45 @@
         }       
     });
 
+    $('#keyboard_pic').click(function(){
+        if ($('#entry').getkeyboard() != null) {
+            $('#entry').getkeyboard().destroy();
+        }
+        else {
+            $('#entry').keyboard({
+                layout: 'international',
+                usePreview : false,
+                stickyShift: true,
+                autoAccept: true,
+                position : {
+                    of : $('#entry'),
+                    my : 'center top',
+                    at : 'center top'
+                },
+                css: {
+                    // input & preview
+                    // "label-default" for a darker background
+                    // "light" for white text
+                    input: 'form-control input-sm dark',
+                    // keyboard container
+                    container: 'center-block well',
+                    // default state
+                    buttonDefault: 'btn btn-default',
+                    // hovered button
+                    buttonHover: 'btn-primary',
+                    // Action keys (e.g. Accept, Cancel, Tab, etc);
+                    // this replaces "actionClass" option
+                    buttonAction: 'active',
+                    // used when disabling the decimal button {dec}
+                    // when a decimal exists in the input area
+                    buttonDisabled: 'disabled'
+                }
+            });
+            $('#entry').getkeyboard().reveal();
+        }
+        return false;
+    });
+
     // Context menus (bootstrap popover)
     $('#current_session_picture').popover({ 
         html : true,
@@ -168,6 +213,9 @@
             if($.isFunction(complete)) complete.call(this);
         });
     }
+
+  
+
 
 
 

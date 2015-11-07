@@ -219,14 +219,14 @@ a:focus {
 
 #keyboard_pic {
 	position: absolute;
-	top: 8px;
+	top: 7px;
 	left: 316px;
 	color: #999;
 }
 
 #current_language_flag {
 	position: absolute;
-	top: 10px;
+	top: 9px;
 	left: 346px;
 	color: #999;
 }

@@ -1,9 +1,10 @@
 /* keyboard - jQuery UI Widget */
-.ui-keyboard { padding: .3em; position: absolute; left: 0; top: 0; z-index: 16000;
-  width: 100%;
-  top: auto;
+.ui-keyboard { padding: .3em; z-index: 16000;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
   bottom: 0;
-  position: fixed;
 }
 .ui-keyboard-has-focus { z-index: 16001; }
 .ui-keyboard div { font-size: 1.1em; }

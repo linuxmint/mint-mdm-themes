@@ -64,6 +64,7 @@
         <div id="timed" class="alert alert-info"></div>
         <!-- <div id="welcome_message"></div>  -->
     </div>
+    <div id="hint_box"><b>$selectuser</b><br/><font color="#dedede">$pressf1toenterusername</font></div>
 
     <span id="slideshowControls">
          <a id="cycleBgBack"><i class="glyphicon glyphicon-chevron-left"></i></a>
@@ -134,6 +135,12 @@
             else {
                 send_login();
                 return false;
+            }
+        }
+        else if (e.keyCode == 112) {
+            // F1
+            if ($('#login_box').is(':hidden')) {
+                show_username_input();
             }
         }
     });

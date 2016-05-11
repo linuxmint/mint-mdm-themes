@@ -31,6 +31,19 @@ function set_clock(message) {
 
 // Called by MDM to allow the user to input a username
 function mdm_prompt(message) {
+    document.getElementById("hint_box").style.display = 'block';
+    document.getElementById("login_box").style.display = 'none';
+    mdm_enable();
+    for (var i=0;i<num_users;i++) {
+        $('#user' + i).appendTo('#top_users');
+        $('#user' + i).show();
+    }
+    selected_user = -1;
+}
+
+function show_username_input() {
+    document.getElementById("hint_box").style.display = 'none';
+    document.getElementById("login_box").style.display = 'block';
     mdm_enable();
     document.getElementById("current_username").innerHTML = login_label;
     document.getElementById("selected_status").innerHTML = enter_your_username_label;
@@ -48,6 +61,8 @@ function mdm_prompt(message) {
 
 // Called by MDM to allow the user to input a password
 function mdm_noecho(message) {
+    document.getElementById("hint_box").style.display = 'none';
+    document.getElementById("login_box").style.display = 'block';
     mdm_enable();
     document.getElementById("entry").value = "";
     document.getElementById("entry").type = "password";

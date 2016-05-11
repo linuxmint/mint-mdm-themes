@@ -92,6 +92,18 @@ a:focus {
 	border-radius: 5px;
 }
 
+#hint_box {
+	position:relative;
+	top: 90%;
+	margin: auto;
+	height: 100%;
+	color: #ffffff;
+	font-family: "Raleway Light";
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 1);
+	font-size:16px;
+	font-weight:300;
+}
+
 #top_box {
 	position: relative;
 	height: 45%;

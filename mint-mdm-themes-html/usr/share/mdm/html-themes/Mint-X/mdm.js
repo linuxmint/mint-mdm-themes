@@ -20,17 +20,17 @@ function mdm_enable() {
 }
 
 // Called by MDM to set the welcome message
-function set_welcome_message(message) {         
+function set_welcome_message(message) {
     //document.getElementById("welcome_message").innerHTML = message;
 }
 
 // Called by MDM to update the clock
-function set_clock(message) {           
+function set_clock(message) {
     document.getElementById("clock").innerHTML = message;
 }
 
-// Called by MDM to allow the user to input a username      
-function mdm_prompt(message) {  
+// Called by MDM to allow the user to input a username
+function mdm_prompt(message) {
     mdm_enable();
     document.getElementById("current_username").innerHTML = login_label;
     document.getElementById("selected_status").innerHTML = enter_your_username_label;
@@ -43,11 +43,11 @@ function mdm_prompt(message) {
     document.getElementById("entry").value = "";
     document.getElementById("entry").type = "text";
     document.getElementById("entry").focus();
-    selected_user = -1;         
+    selected_user = -1;
 }
 
 // Called by MDM to allow the user to input a password
-function mdm_noecho(message) {  
+function mdm_noecho(message) {
     mdm_enable();
     document.getElementById("entry").value = "";
     document.getElementById("entry").type = "password";
@@ -55,8 +55,8 @@ function mdm_noecho(message) {
 }
 
 // Called by MDM to show a message (usually "Please enter your username")
-function mdm_msg(message) {         
-    //document.getElementById("message").innerHTML = message;           
+function mdm_msg(message) {
+    //document.getElementById("message").innerHTML = message;
 }
 
 // Called by MDM to show a timed login countdown
@@ -66,12 +66,12 @@ function mdm_timed(message) {
     }
     else {
         document.getElementById("timed").style.display = 'none';
-    }           
-    document.getElementById("timed").innerHTML = message;           
+    }
+    document.getElementById("timed").innerHTML = message;
 }
 
-// Called by MDM to show an error       
-function mdm_error(message) {                       
+// Called by MDM to show an error
+function mdm_error(message) {
     if (message != "") {
         document.getElementById("error").style.display = 'block';
     }
@@ -79,13 +79,13 @@ function mdm_error(message) {
         document.getElementById("error").style.display = 'none';
     }
     document.getElementById("error").innerHTML = message;
-}   
+}
 
 // Called by MDM to add a user to the list of users
 function mdm_add_user(username, gecos, status, avatar) {
 
     var top_users = document.getElementById("top_users");
-            
+
     var link = document.createElement('a');
         link.setAttribute('href', "javascript:alert('USER###"+username+"')");
         link.username = username;
@@ -94,7 +94,7 @@ function mdm_add_user(username, gecos, status, avatar) {
         link.avatar = avatar;
         link.setAttribute('id', "user" + num_users);
 
-    var div = document.createElement('div');                
+    var div = document.createElement('div');
         div.setAttribute('class', "user_box");
 
 
@@ -111,53 +111,53 @@ function mdm_add_user(username, gecos, status, avatar) {
     link.appendChild(div);
     top_users.appendChild(link);
 
-    num_users = num_users + 1;             
-}   
+    num_users = num_users + 1;
+}
 
 // Called by MDM to add a session to the list of sessions
 function mdm_add_session(session_name, session_file) {
-    
+
     session_name = session_name.replace("Ubuntu", "Unity");
-    
+
     var filename = session_file.toLowerCase();
     filename = filename.replace(/ /g, "-");
     filename = filename.replace(/\(/g, "");
     filename = filename.replace(/\)/g, "");
     filename = filename.replace(/\)/g, "");
     filename = filename.replace(/.desktop/g, "");
-                                            
-    var link1 = document.createElement('a');    
+
+    var link1 = document.createElement('a');
         link1.setAttribute('href', "javascript:alert('SESSION###"+session_name+"###"+session_file+"');mdm_set_current_session('"+session_name+"','"+session_file+"');");
 
-    var link2 = document.createElement('a');    
+    var link2 = document.createElement('a');
         link2.setAttribute('href', "javascript:alert('SESSION###"+session_name+"###"+session_file+"');mdm_set_current_session('"+session_name+"','"+session_file+"');");
-        
+
     var picture = document.createElement('img');
         picture.setAttribute('class', "session-picture");
         picture.setAttribute('src', "../common/img/sessions/"+filename+".svg");
         picture.setAttribute('onerror', "this.src='../common/img/sessions/default.svg';");
-                    
-    var name_div = document.createTextNode(session_name);               
-                                                                                                                                    
+
+    var name_div = document.createTextNode(session_name);
+
     link1.appendChild(picture);
     link2.appendChild(name_div);
-        
+
     var table = document.getElementById("sessions");
 
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
 
-    var cell1 = row.insertCell(0); 
-    cell1.width = "28px";          
+    var cell1 = row.insertCell(0);
+    cell1.width = "28px";
     cell1.appendChild(link1);
-  
-    var cell2 = row.insertCell(1);           
+
+    var cell2 = row.insertCell(1);
     cell2.appendChild(link2);
-}       		
+}
 
 // Called by MDM to get the full path of a language flag file
 function mdm_get_language_flag_filepath(language_code) {
-	
+
 	var filename = language_code.toLowerCase();
 	filename = filename.replace(".utf-8", "");
 	var bits = filename.split("_");
@@ -186,21 +186,21 @@ function mdm_get_language_flag_filepath(language_code) {
 
 // Called by MDM to add a language to the list of languages
 function mdm_add_language(language_name, language_code) {
-	
-    var link1 = document.createElement('a');    
+
+    var link1 = document.createElement('a');
         link1.setAttribute('href', "javascript:alert('LANGUAGE###"+language_code+"');mdm_set_current_language('"+language_name+"','"+language_code+"');");
 
-    var link2 = document.createElement('a');    
+    var link2 = document.createElement('a');
         link2.setAttribute('href', "javascript:alert('LANGUAGE###"+language_code+"');mdm_set_current_language('"+language_name+"','"+language_code+"');");
 
     var picture = document.createElement('img');
         picture.setAttribute('class', "language-picture");
         picture.setAttribute('src', mdm_get_language_flag_filepath(language_code));
         picture.setAttribute('onerror', "this.src='../common/img/languages/generic.png';");
-        picture.setAttribute('title', language_name);               
-                                    
-    var name_div = document.createTextNode(language_name);              
-                                                                                                                                    
+        picture.setAttribute('title', language_name);
+
+    var name_div = document.createTextNode(language_name);
+
     link1.appendChild(picture);
     link2.appendChild(name_div);
 
@@ -208,11 +208,11 @@ function mdm_add_language(language_name, language_code) {
 
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
-    
+
     var cell1 = row.insertCell(0);
     cell1.width = "25px";
     cell1.appendChild(link1);
-    
+
     var cell2 = row.insertCell(1);
     cell2.appendChild(link2);
 }
@@ -253,7 +253,7 @@ function mdm_set_current_user(username) {
     }
 }
 
-function select_user_at_index(index, alert_mdm) {                   
+function select_user_at_index(index, alert_mdm) {
 
     var index_to_select = index;
     if (index_to_select < 0) {
@@ -262,7 +262,7 @@ function select_user_at_index(index, alert_mdm) {
     if (index_to_select >= num_users) {
         index_to_select = 0;
     }
-    
+
     var username = null;
 
     for (var i=0;i<num_users;i++) {
@@ -271,7 +271,7 @@ function select_user_at_index(index, alert_mdm) {
         }
         else if  (i == index_to_select) {
             var user = document.getElementById("user" + i);
-            var selected_status = document.getElementById("selected_status");                   
+            var selected_status = document.getElementById("selected_status");
             username = user.username;
             if (user.current_status != "") {
                 selected_status.innerHTML = user.current_status;
@@ -279,25 +279,25 @@ function select_user_at_index(index, alert_mdm) {
             else {
                 selected_status.innerHTML = enter_your_password_label;
             }
-            var picture = document.getElementById('selected_avatar');               
+            var picture = document.getElementById('selected_avatar');
             picture.setAttribute('src', "file://"+user.avatar);
             $('#user' + i).appendTo('#selected_user');
         }
         else {
             $('#user' + i).appendTo('#bottom_users');
-        }   
+        }
         selected_user = index_to_select;
-    }           
+    }
 
     if (alert_mdm) {
         alert('USER###'+ username);
     }
-}       
+}
 
 // Called by MDM if the SHUTDOWN command shouldn't appear in the greeter
 function mdm_hide_shutdown() {
     document.getElementById("shutdown").style.display = 'none';
-}   
+}
 
 // Called by MDM if the SUSPEND command shouldn't appear in the greeter
 function mdm_hide_suspend() {
@@ -317,4 +317,4 @@ function mdm_hide_quit() {
 // Called by MDM if the XDMCP command shouldn't appear in the greeter
 function mdm_hide_xdmcp() {
     document.getElementById("xdmcp").style.display = 'none';
-}               
+}

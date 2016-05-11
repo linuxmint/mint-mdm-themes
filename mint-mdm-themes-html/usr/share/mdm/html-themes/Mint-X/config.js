@@ -1,24 +1,24 @@
 /**
  * Retrive configuration as array of lines from a file
- * 
+ *
  * @author  Philipp Miller
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * 
+ *
  */
 (function($) {
-  
+
   "use strict";
-  
+
   var config = {},
       cache  = {};
-  
+
   window.config = config;
-  
+
   /// Functions
-  
+
   /**
    * Fetch a config file via request, maybe parse it, cache it, pass it on.
-   * 
+   *
    * - filename may be a relative path or a full path,
    *   starting with file:// or http://
    * - parser (optional) may a string naming a predefined parser,
@@ -33,20 +33,20 @@
    *                 are assigned as array elements to the "key" property.
    *   "json"        File is parsed by JSON.parse (may not be available!)
    * - callback (optional) is a function that is called with the results.
-   * 
+   *
    * @param  {string}   filename
    * @param  {mixed}    parser   string or function
    * @param  {Function} callback called with results
    * @return {config}            chaining
    */
   config.require = function(filename, parser, callback) {
-    
+
     if (!callback) {
       // assume default parser
       callback = parser;
       parser = "properties";
     }
-    
+
     // cached config file
     if (cache.hasOwnProperty(filename)) {
       var parsed;
@@ -62,20 +62,20 @@
       if (callback) callback(parsed);
       return config;
     }
-    
+
     // new config file
     $.ajax({
       url:      filename,
       type:     "GET",
       dataType: "text",
-      
+
       // firefox logs an error otherwise, no clue what's happening
       mimeType: "text/plain",
-      
-    }).done(function(content) {     
-      
+
+    }).done(function(content) {
+
       cache[filename] = { "plain" : content };
-      
+
       if (callback && parser === "plain") {
         callback(content);
       }
@@ -83,17 +83,17 @@
         var parsed = getParserFunction(parser)(content);
         if (typeof parser === "string")
           cache[filename][parser] = parsed;
-        
+
         if (callback) callback(parsed);
       }
-      
+
     });
     return config;
   }
-  
+
   /**
    * Returns a Function that will be used as parser.
-   * 
+   *
    * @param  {string|Function} parser Functions are returned as is
    * @return {Function}
    */
@@ -101,18 +101,18 @@
     if (typeof parser === "function") {
       return parser;
     }
-    
+
     switch(parser) {
       case "lines":
         return getLines;
-      
+
       case "properties":
         return parseProperties;
-      
+
       case "json":
         if (JSON) return JSON.parse;
         else break;
-      
+
       case "plain":
       // case "text":
       // default:
@@ -120,11 +120,11 @@
     }
     throw new Error('Config: Unknown parser "' + parser + "'");
   }
-  
+
   /**
    * split filecontents into an array of lines,
    * removing empty lines and comments after '#'
-   * 
+   *
    * @param  {string} text
    * @return {array}           array of strings
    */
@@ -133,12 +133,12 @@
         text.split("\n").map(trimComments)
       ).without("");
   }
-  
+
   /**
    * Smart properties parsing
-   * 
+   *
    * @see config.require
-   * 
+   *
    * @param  {string} text to be parsed
    * @return {Object}      object with assigned properties
    */
@@ -148,42 +148,42 @@
         line,
         total,
         matches;
-    
+
     text.split("\n")
       .map(trimComments)
       .forEach(
         function(line, lineNum) {
-          
+
           // kept empty lines until now for correct line numbers
           if (line === "") return;
-          
+
           // property = value
           if (matches = line.match(/^(\S+)\s*=\s*(.*)$/)) {
             props[matches[1]] = JSON ? JSON.parse(matches[2]) : matches[2];
           }
-          
+
           // [property] array definition
           else if (matches = line.match(/^\[(\S+)\]$/)) {
             currentProp = matches[1];
             if (!props.hasOwnProperty(currentProp))
               props[currentProp] = [];
           }
-          
+
           // [property] array entry
           else if (currentProp) {
             props[currentProp].push(line);
           }
-          
+
           else throw new Error("Config: Syntax error on line " + (lineNum + 1));
     });
-    
+
     return props;
   }
-  
+
   /**
    * Remove comments preceded by "#" and trims whitespace.
    * Comments do not have to start at the beginning of the line.
-   * 
+   *
    * @param  {string} string
    * @return {string}
    */
@@ -191,5 +191,5 @@
     var i = string.indexOf("#");
     return (0 <= i ? string.slice(0, i) : string).trim();
   }
-  
+
 })(jQuery);

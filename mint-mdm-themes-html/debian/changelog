@@ -1,3 +1,9 @@
+mint-mdm-themes-html (2.0.8) sarah; urgency=medium
+
+  * Mint-X: Updated slideshow for Sarah
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 26 May 2016 13:19:43 +0100
+
 mint-mdm-themes-html (2.0.7) sarah; urgency=medium
 
   * Mint-X: When nobody is selected, show a hint instead of an entry.

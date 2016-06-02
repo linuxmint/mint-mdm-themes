@@ -1,3 +1,9 @@
+mint-mdm-themes-html (2.0.9) sarah; urgency=medium
+
+  * Mint-X: Only show elements when relevant
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 02 Jun 2016 16:14:35 +0100
+
 mint-mdm-themes-html (2.0.8) sarah; urgency=medium
 
   * Mint-X: Updated slideshow for Sarah

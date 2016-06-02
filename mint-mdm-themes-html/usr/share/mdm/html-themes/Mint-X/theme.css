@@ -82,6 +82,7 @@ a:focus {
 }
 
 #login_box {
+	display: none;
 	position:relative;
 	width: 400px;
 	height: 170px;
@@ -93,6 +94,7 @@ a:focus {
 }
 
 #hint_box {
+	display: none;
 	position:relative;
 	top: 90%;
 	margin: auto;
@@ -118,6 +120,7 @@ a:focus {
 }
 
 #top_users {
+	display: none;
 	position: absolute;
 	width: 100%;
 	bottom: 0px;
@@ -146,6 +149,7 @@ a:focus {
 }
 
 #bottom_users {
+	display: none;
 
 }
 

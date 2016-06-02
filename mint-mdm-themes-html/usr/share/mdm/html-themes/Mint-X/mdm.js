@@ -31,6 +31,8 @@ function set_clock(message) {
 
 // Called by MDM to allow the user to input a username
 function mdm_prompt(message) {
+    document.getElementById("top_users").style.display = 'block';
+    document.getElementById("bottom_users").style.display = 'block';
     document.getElementById("hint_box").style.display = 'block';
     document.getElementById("login_box").style.display = 'none';
     mdm_enable();
@@ -61,6 +63,8 @@ function show_username_input() {
 
 // Called by MDM to allow the user to input a password
 function mdm_noecho(message) {
+    document.getElementById("top_users").style.display = 'block';
+    document.getElementById("bottom_users").style.display = 'block';
     document.getElementById("hint_box").style.display = 'none';
     document.getElementById("login_box").style.display = 'block';
     mdm_enable();
@@ -252,6 +256,8 @@ function mdm_set_current_session(session_name, session_file)    {
 }
 
 function mdm_set_current_user(username) {
+    document.getElementById("top_users").style.display = 'block';
+    document.getElementById("bottom_users").style.display = 'block';
     document.getElementById("current_username").innerHTML = "";
     document.getElementById("selected_status").innerHTML = "";
     var user_found = false;

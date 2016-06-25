@@ -1,3 +1,9 @@
+mint-mdm-themes-html (2.0.10) sarah; urgency=medium
+
+  * Mint-X: make non-selected usernames more visible (bolder and with more shadow)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 25 Jun 2016 14:34:38 +0100
+
 mint-mdm-themes-html (2.0.9) sarah; urgency=medium
 
   * Mint-X: Only show elements when relevant

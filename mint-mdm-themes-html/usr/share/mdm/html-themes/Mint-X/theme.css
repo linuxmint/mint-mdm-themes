@@ -181,10 +181,10 @@ a:focus {
 
 .font_username {
 	font-family: "Raleway Light";
-	text-shadow: 0 1px 3px rgba(0, 0, 0, 1);
+	text-shadow: 0 2px 3px rgba(0, 0, 0, 1);
 	font-size:30px;
 	line-height: 40px;
-	font-weight:300;
+	font-weight:400;
 }
 
 .font_gecos {

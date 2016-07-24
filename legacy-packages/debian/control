@@ -11,10 +11,3 @@ Provides: mdm-themes
 Depends: mint-mdm-themes-gdm, mint-mdm-themes-html
 Description: Linux Mint MDM Themes
  Themes for the MDM display manager.
-
-Package: mint-mdm-themes-kde
-Architecture: all
-Provides: mdm-themes
-Depends: mint-mdm-themes-gdm, mint-mdm-themes-html
-Description: Linux Mint MDM Themes
- Themes for the MDM display manager.

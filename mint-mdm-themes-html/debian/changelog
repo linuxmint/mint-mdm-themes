@@ -1,3 +1,9 @@
+mint-mdm-themes-html (2.0.12) serena; urgency=medium
+
+  * Mint-X: Updated slideshow for Serena
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 21 Nov 2016 11:40:03 +0000
+
 mint-mdm-themes-html (2.0.11) serena; urgency=medium
 
   * Change error text color to orange in the Mint-X theme

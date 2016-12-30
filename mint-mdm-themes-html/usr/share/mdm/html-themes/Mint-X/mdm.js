@@ -123,7 +123,12 @@ function mdm_add_user(username, gecos, status, avatar) {
 
     var font_gecos = document.createElement('font');
         font_gecos.setAttribute('class', "font_gecos");
-        font_gecos.innerHTML = " " + gecos;
+        if (gecos != username) {
+            font_gecos.innerHTML = " " + gecos;
+	}
+        else {
+            font_gecos.innerHTML = " ";
+	}
 
     div.appendChild(font_username);
     div.appendChild(font_gecos);

@@ -1,3 +1,9 @@
+mint-mdm-themes-html (2.0.14) sonya; urgency=medium
+
+  * Hide gecos if same as username
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 07 May 2017 16:18:42 +0100
+
 mint-mdm-themes-html (2.0.13) serena; urgency=medium
 
   * Updated slideshow
